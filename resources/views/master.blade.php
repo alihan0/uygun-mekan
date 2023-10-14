@@ -208,1204 +208,7 @@
         </div><!-- /.stricky-header -->
 
 
-        <!-- Start Banner One -->
-        <section class="banner-one">
-            <div class="banner-one__inner">
-                <div class="slider-bg-slide"
-                    data-options='{ "delay": 5000, "slides": [ { "src": "assets/images/backgrounds/banner-v1-bg1.jpg" }, { "src": "assets/images/backgrounds/banner-v1-bg2.jpg" }, { "src": "assets/images/backgrounds/banner-v1-bg3.jpg" } ], "transition": "fade", "animation": "kenburns", "timer": false, "align": "top" }'>
-                </div>
-                <div class="slider-bg-slide-overly"></div>
-                <div class="container">
-                    <div class="banner-one__content text-center">
-                        <div class="title">
-                            <h2>Find the best place to be</h2>
-                        </div>
-                        <div class="text">
-                            <p>ListingEasy is the hassle-free way of discovering the city</p>
-                        </div>
-
-
-                        <!--Start Banner One Tab Box-->
-                        <div class="banner-one__tab-box">
-                            <div class="row">
-                                <div class="col-xl-12">
-                                    <div class="banner-one__tab tabs-box">
-                                        <div class="banner-one__tab-button">
-                                            <ul class="tab-buttons clearfix">
-                                                <li data-tab="#places" class="tab-btn active-btn">
-                                                    <h4>Places</h4>
-                                                </li>
-                                                <li data-tab="#events " class="tab-btn">
-                                                    <h4>Events</h4>
-                                                </li>
-                                                <li data-tab="#restaurants" class="tab-btn">
-                                                    <h4>Restaurants</h4>
-                                                </li>
-                                                <li data-tab="#hotels" class="tab-btn">
-                                                    <h4>Hotels</h4>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="tabs-content">
-
-                                            <!--Start Tab-->
-                                            <div class="tab active-tab" id="places">
-                                                <div class="banner-one__tab-content-item">
-                                                    <div class="banner-one__tab-content-places">
-                                                        <div class="row">
-                                                            <div class="col-xl-12">
-                                                                <div class="banner-one__tab-content-places-form">
-                                                                    <form action="assets/inc/sendemail.php"
-                                                                        class="comment-one__form contact-form-validated"
-                                                                        novalidate="novalidate">
-
-                                                                        <ul>
-                                                                            <li>
-                                                                                <div class="comment-form__input-box">
-                                                                                    <div class="icon">
-                                                                                        <span
-                                                                                            class="fas fa-keyboard"></span>
-                                                                                    </div>
-                                                                                    <input type="text"
-                                                                                        placeholder="What are you looking for?"
-                                                                                        name="name">
-                                                                                </div>
-                                                                            </li>
-
-                                                                            <li>
-                                                                                <div class="comment-form__input-box">
-                                                                                    <div class="icon">
-                                                                                        <span class="icon-pin"></span>
-                                                                                    </div>
-                                                                                    <input type="text"
-                                                                                        placeholder="Location"
-                                                                                        name="name">
-                                                                                </div>
-                                                                            </li>
-
-                                                                            <li>
-                                                                                <div
-                                                                                    class="comment-form__input-box clearfix">
-                                                                                    <div class="icon">
-                                                                                        <span class="icon-list"></span>
-                                                                                    </div>
-                                                                                    <div class="select-box">
-                                                                                        <select class="selectmenu wide">
-                                                                                            <option selected="selected">
-                                                                                                All Categories</option>
-                                                                                            <option>Shops
-                                                                                            </option>
-                                                                                            <option>Hotels
-                                                                                            </option>
-                                                                                            <option>Restaurants
-                                                                                            </option>
-                                                                                        </select>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </li>
-
-                                                                            <li>
-                                                                                <button
-                                                                                    class="thm-btn comment-form__btn"
-                                                                                    type="submit"
-                                                                                    data-loading-text="Please wait...">Search
-                                                                                    <span class="icon-search"></span>
-                                                                                </button>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--End Tab-->
-
-                                            <!--Start Tab-->
-                                            <div class="tab" id="events">
-                                                <div class="banner-one__tab-content-item">
-                                                    <div class="banner-one__tab-content-events">
-                                                        <div class="row">
-                                                            <div class="col-xl-12">
-                                                                <div class="banner-one__tab-content-places-form">
-                                                                    <form action="assets/inc/sendemail.php"
-                                                                        class="comment-one__form contact-form-validated"
-                                                                        novalidate="novalidate">
-                                                                        <ul>
-                                                                            <li>
-                                                                                <div class="comment-form__input-box">
-                                                                                    <div class="icon">
-                                                                                        <span
-                                                                                            class="fas fa-handshake"></span>
-                                                                                    </div>
-                                                                                    <input type="text"
-                                                                                        placeholder="Event Name or Place"
-                                                                                        name="name">
-                                                                                </div>
-                                                                            </li>
-
-                                                                            <li>
-                                                                                <div
-                                                                                    class="comment-form__input-box clearfix">
-                                                                                    <div class="icon">
-                                                                                        <span class="icon-list"></span>
-                                                                                    </div>
-                                                                                    <div class="select-box">
-                                                                                        <select class="selectmenu wide">
-                                                                                            <option selected="selected">
-                                                                                                All Cities</option>
-                                                                                            <option>New York
-                                                                                            </option>
-                                                                                            <option>Dhaka
-                                                                                            </option>
-                                                                                            <option>Paris
-                                                                                            </option>
-                                                                                        </select>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </li>
-
-                                                                            <li>
-                                                                                <div class="comment-form__input-box">
-                                                                                    <div class="icon">
-                                                                                        <span
-                                                                                            class="icon-calendar"></span>
-                                                                                    </div>
-                                                                                    <input type="text"
-                                                                                        name="form_subject" value=""
-                                                                                        placeholder="Select Date"
-                                                                                        id="datepicker">
-                                                                                </div>
-                                                                            </li>
-
-                                                                            <li>
-                                                                                <button
-                                                                                    class="thm-btn comment-form__btn"
-                                                                                    type="submit"
-                                                                                    data-loading-text="Please wait...">Search
-                                                                                    <span class="icon-search"></span>
-                                                                                </button>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--End Tab-->
-
-                                            <!--Start Tab-->
-                                            <div class="tab" id="restaurants">
-                                                <div class="banner-one__tab-content-item">
-                                                    <div class="banner-one__tab-content-restaurants">
-                                                        <div class="row">
-                                                            <div class="col-xl-12">
-                                                                <div class="banner-one__tab-content-places-form">
-                                                                    <form action="assets/inc/sendemail.php"
-                                                                        class="comment-one__form contact-form-validated"
-                                                                        novalidate="novalidate">
-                                                                        <ul>
-                                                                            <li>
-                                                                                <div class="comment-form__input-box">
-                                                                                    <div class="icon">
-                                                                                        <span
-                                                                                            class="icon-big-cheeseburger"></span>
-                                                                                    </div>
-                                                                                    <input type="text"
-                                                                                        placeholder="Restaurant Name"
-                                                                                        name="name">
-                                                                                </div>
-                                                                            </li>
-
-                                                                            <li>
-                                                                                <div class="comment-form__input-box">
-                                                                                    <div class="icon">
-                                                                                        <span
-                                                                                            class="icon-calendar"></span>
-                                                                                    </div>
-                                                                                    <input type="text"
-                                                                                        name="form_subject" value=""
-                                                                                        placeholder="Select Date"
-                                                                                        id="datepicker2">
-                                                                                </div>
-                                                                            </li>
-
-                                                                            <li>
-                                                                                <div class="comment-form__input-box">
-                                                                                    <div class="icon">
-                                                                                        <span class="icon-user"></span>
-                                                                                    </div>
-                                                                                    <input type="number"
-                                                                                        placeholder="Persons"
-                                                                                        name="name">
-                                                                                </div>
-                                                                            </li>
-
-                                                                            <li>
-                                                                                <button
-                                                                                    class="thm-btn comment-form__btn"
-                                                                                    type="submit"
-                                                                                    data-loading-text="Please wait...">Search
-                                                                                    <span class="icon-search"></span>
-                                                                                </button>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--End Tab-->
-
-                                            <!--Start Tab-->
-                                            <div class="tab" id="hotels">
-                                                <div class="banner-one__tab-content-item">
-                                                    <div class="banner-one__tab-content-hotels">
-                                                        <div class="row">
-                                                            <div class="col-xl-12">
-                                                                <div class="banner-one__tab-content-places-form">
-                                                                    <form action="assets/inc/sendemail.php"
-                                                                        class="comment-one__form contact-form-validated"
-                                                                        novalidate="novalidate">
-                                                                        <ul>
-                                                                            <li>
-                                                                                <div class="comment-form__input-box">
-                                                                                    <div class="icon">
-                                                                                        <span
-                                                                                            class="icon-big-cheeseburger"></span>
-                                                                                    </div>
-                                                                                    <input type="text"
-                                                                                        placeholder="Hotel Name"
-                                                                                        name="name">
-                                                                                </div>
-                                                                            </li>
-
-                                                                            <li>
-                                                                                <div class="comment-form__input-box">
-                                                                                    <div class="icon">
-                                                                                        <span class="icon-user"></span>
-                                                                                    </div>
-                                                                                    <input type="number"
-                                                                                        placeholder="Persons"
-                                                                                        name="name">
-                                                                                </div>
-                                                                            </li>
-
-                                                                            <li>
-                                                                                <div class="comment-form__input-box">
-                                                                                    <div class="icon">
-                                                                                        <span
-                                                                                            class="icon-calendar"></span>
-                                                                                    </div>
-                                                                                    <input type="text"
-                                                                                        name="form_subject" value=""
-                                                                                        placeholder="Select Date"
-                                                                                        id="datepicker-inline">
-                                                                                </div>
-                                                                            </li>
-
-
-                                                                            <li>
-                                                                                <button
-                                                                                    class="thm-btn comment-form__btn"
-                                                                                    type="submit">Search
-                                                                                    <span class="icon-search"></span>
-                                                                                </button>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--End Tab-->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--End Banner One Tab Box Tab Box-->
-
-
-                        <div class="banner-one__categories">
-                            <div class="title">
-                                <h4>Just looking around ? Use quick search by category :</h4>
-                            </div>
-                            <ul class="banner-one__categories-list">
-
-                                <li class="banner-one__categories-list-item">
-                                    <div class="inner">
-                                        <div class="icon">
-                                            <span class="icon-hotels"></span>
-                                        </div>
-                                        <p><a href="#">Hotels</a></p>
-                                    </div>
-                                </li>
-
-                                <li class="banner-one__categories-list-item">
-                                    <div class="inner">
-                                        <div class="icon">
-                                            <span class="icon-drink"></span>
-                                        </div>
-                                        <p><a href="#">Events</a></p>
-                                    </div>
-                                </li>
-
-                                <li class="banner-one__categories-list-item">
-                                    <div class="inner">
-                                        <div class="icon">
-                                            <span class="icon-shopping-cart"></span>
-                                        </div>
-                                        <p><a href="#">Shops</a></p>
-                                    </div>
-                                </li>
-
-                                <li class="banner-one__categories-list-item">
-                                    <div class="inner">
-                                        <div class="icon">
-                                            <span class="icon-big-cheeseburger"></span>
-                                        </div>
-                                        <p><a href="#">Restaurants</a></p>
-                                    </div>
-                                </li>
-
-
-                                <li class="banner-one__categories-list-item">
-                                    <div class="inner">
-                                        <div class="icon">
-                                            <span class="icon-dumbbell"></span>
-                                        </div>
-                                        <p><a href="#">Fitness</a></p>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Banner One -->
-
-
-        <!--Start Categories One-->
-        <section class="categories-one">
-            <div class="container">
-                <div class="sec-title text-center">
-                    <h2 class="sec-title__title">Most Poplar Categories</h2>
-                    <p class="sec-title__text">Excepteur s occaecat cupidatat proident sunt</p>
-                </div>
-                <div class="row masonary-layout">
-                    <!--Start Categories One Single-->
-                    <div class="col-xl-4 col-lg-4 wow animated fadeInUp" data-wow-delay="0.1s">
-                        <div class="categories-one__single">
-                            <div class="categories-one__single-img">
-                                <img src="assets/images/resources/categorie-v1-img1.jpg" alt="" />
-                                <div class="text-box">
-                                    <h2><a href="categories.html">Perspiciatis Bulding</a></h2>
-                                    <p>Excepteur sint occaecat </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Categories One Single-->
-
-                    <!--Start Categories One Single-->
-                    <div class="col-xl-4 col-lg-4 wow animated fadeInUp" data-wow-delay="0.2s">
-                        <div class="categories-one__single">
-                            <div class="categories-one__single-img">
-                                <img src="assets/images/resources/categorie-v2-img2.jpg" alt="" />
-                                <div class="text-box">
-                                    <h2><a href="categories.html">Hotel Caring Now</a></h2>
-                                    <p>Excepteur sint occaecat </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Categories One Single-->
-
-                    <!--Start Categories One Single-->
-                    <div class="col-xl-4 col-lg-4 wow animated fadeInUp" data-wow-delay="0.3s">
-                        <div class="categories-one__single">
-                            <div class="categories-one__single-img">
-                                <img src="assets/images/resources/categorie-v1-img3.jpg" alt="" />
-                                <div class="text-box">
-                                    <h2><a href="categories.html">London city</a></h2>
-                                    <p>Excepteur sint occaecat </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Categories One Single-->
-
-                    <!--Start Categories One Single-->
-                    <div class="col-xl-4 col-lg-4 wow animated fadeInUp" data-wow-delay="0.4s">
-                        <div class="categories-one__single">
-                            <div class="categories-one__single-img">
-                                <img src="assets/images/resources/categorie-v1-img4.jpg" alt="" />
-                                <div class="text-box">
-                                    <h2><a href="categories.html">Lisiting & Hotel</a></h2>
-                                    <p>Excepteur sint occaecat </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Categories One Single-->
-
-                    <!--Start Categories One Single-->
-                    <div class="col-xl-4 col-lg-4 wow animated fadeInUp" data-wow-delay="0.5s">
-                        <div class="categories-one__single">
-                            <div class="categories-one__single-img">
-                                <img src="assets/images/resources/categorie-v1-img5.jpg" alt="" />
-                                <div class="text-box">
-                                    <h2><a href="categories.html">Hotel This Bad</a></h2>
-                                    <p>Excepteur sint occaecat </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Categories One Single-->
-                </div>
-            </div>
-        </section>
-        <!--End Categories One-->
-
-        <!--Start Place One-->
-        <section class="place-one">
-            <div class="container">
-                <div class="sec-title text-center">
-                    <h2 class="sec-title__title">Top Places Visited</h2>
-                    <p class="sec-title__text">Excepteur s occaecat cupidatat proident sunt</p>
-                </div>
-                <div class="row">
-                    <!--Start Place One Single-->
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="place-one__single">
-                            <div class="place-one__single-img">
-                                <div class="place-one__single-img-inner">
-                                    <div class="icon-box">
-                                        <a href="#"><span class="fa fa-heart"></span></a>
-                                    </div>
-                                    <img src="assets/images/resources/place-v1-img1.jpg" alt="" />
-                                </div>
-                                <div class="text-box">
-                                    <span>Hotel Storn</span>
-                                </div>
-                            </div>
-
-                            <div class="place-one__single-content">
-                                <div class="top-content">
-                                    <h2><a href="listings-details.html">Wedding Off Service</a></h2>
-                                    <p>Excepteur sint occaecat </p>
-
-                                    <div class="top-content-bottom">
-                                        <div class="location-box">
-                                            <div class="icon-box">
-                                                <span class="fa fa-map-marker"></span>
-                                            </div>
-                                            <div class="text">
-                                                <p>London,Dhaka</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="number-box">
-                                            <div class="icon">
-                                                <span class="fa fa-clock"></span>
-                                            </div>
-                                            <div class="text">
-                                                <a href="tel:123456789">+65556522222</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bottom-content">
-                                    <ul class="review-box">
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="icon-star-1"></span></li>
-                                    </ul>
-                                    <div class="count-box">
-                                        <p>(04)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Place One Single-->
-
-                    <!--Start Place One Single-->
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="place-one__single">
-                            <div class="place-one__single-img">
-                                <div class="place-one__single-img-inner">
-                                    <div class="icon-box">
-                                        <a href="#"><span class="fa fa-heart"></span></a>
-                                    </div>
-                                    <img src="assets/images/resources/place-v1-img2.jpg" alt="" />
-                                </div>
-                                <div class="text-box">
-                                    <span>Bulding As</span>
-                                </div>
-                            </div>
-
-                            <div class="place-one__single-content">
-                                <div class="top-content">
-                                    <h2><a href="listings-details.html">Lisiting & Hotel Store </a></h2>
-                                    <p>Excepteur sint occaecat </p>
-
-                                    <div class="top-content-bottom">
-                                        <div class="location-box">
-                                            <div class="icon-box">
-                                                <span class="fa fa-map-marker"></span>
-                                            </div>
-                                            <div class="text">
-                                                <p>London,Dhaka</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="number-box">
-                                            <div class="icon">
-                                                <span class="fa fa-clock"></span>
-                                            </div>
-                                            <div class="text">
-                                                <a href="tel:123456789">+65556522222</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bottom-content">
-                                    <ul class="review-box">
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="icon-star-1"></span></li>
-                                        <li><span class="icon-star-1"></span></li>
-                                    </ul>
-                                    <div class="count-box">
-                                        <p>(03)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Place One Single-->
-
-                    <!--Start Place One Single-->
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="place-one__single">
-                            <div class="place-one__single-img">
-                                <div class="place-one__single-img-inner">
-                                    <div class="icon-box">
-                                        <a href="#"><span class="fa fa-heart"></span></a>
-                                    </div>
-                                    <img src="assets/images/resources/place-v1-img3.jpg" alt="" />
-                                </div>
-                                <div class="text-box">
-                                    <span>Storn Car</span>
-                                </div>
-                            </div>
-
-                            <div class="place-one__single-content">
-                                <div class="top-content">
-                                    <h2><a href="listings-details.html">Vendor Hotel Car</a></h2>
-                                    <p>Excepteur sint occaecat </p>
-
-                                    <div class="top-content-bottom">
-                                        <div class="location-box">
-                                            <div class="icon-box">
-                                                <span class="fa fa-map-marker"></span>
-                                            </div>
-                                            <div class="text">
-                                                <p>London,Dhaka</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="number-box">
-                                            <div class="icon">
-                                                <span class="fa fa-clock"></span>
-                                            </div>
-                                            <div class="text">
-                                                <a href="tel:123456789">+65556522222</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bottom-content">
-                                    <ul class="review-box">
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                    </ul>
-                                    <div class="count-box">
-                                        <p>(05)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Place One Single-->
-
-                    <!--Start Place One Single-->
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="place-one__single">
-                            <div class="place-one__single-img">
-                                <div class="place-one__single-img-inner">
-                                    <div class="icon-box">
-                                        <a href="#"><span class="fa fa-heart"></span></a>
-                                    </div>
-                                    <img src="assets/images/resources/place-v1-img4.jpg" alt="" />
-                                </div>
-                                <div class="text-box">
-                                    <span>Camera Sin</span>
-                                </div>
-                            </div>
-
-                            <div class="place-one__single-content">
-                                <div class="top-content">
-                                    <h2><a href="listings-details.html">Marriott Classic Dinner</a></h2>
-                                    <p>Excepteur sint occaecat </p>
-
-                                    <div class="top-content-bottom">
-                                        <div class="location-box">
-                                            <div class="icon-box">
-                                                <span class="fa fa-map-marker"></span>
-                                            </div>
-                                            <div class="text">
-                                                <p>London,Dhaka</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="number-box">
-                                            <div class="icon">
-                                                <span class="fa fa-clock"></span>
-                                            </div>
-                                            <div class="text">
-                                                <a href="tel:123456789">+65556522222</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bottom-content">
-                                    <ul class="review-box">
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="icon-star-1"></span></li>
-                                        <li><span class="icon-star-1"></span></li>
-                                    </ul>
-                                    <div class="count-box">
-                                        <p>(03)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Place One Single-->
-
-                    <!--Start Place One Single-->
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="place-one__single">
-                            <div class="place-one__single-img">
-                                <div class="place-one__single-img-inner">
-                                    <div class="icon-box">
-                                        <a href="#"><span class="fa fa-heart"></span></a>
-                                    </div>
-                                    <img src="assets/images/resources/place-v1-img5.jpg" alt="" />
-                                </div>
-                                <div class="text-box">
-                                    <span>Landon City</span>
-                                </div>
-                            </div>
-
-                            <div class="place-one__single-content">
-                                <div class="top-content">
-                                    <h2><a href="listings-details.html">Find What You Hotel</a></h2>
-                                    <p>Excepteur sint occaecat </p>
-
-                                    <div class="top-content-bottom">
-                                        <div class="location-box">
-                                            <div class="icon-box">
-                                                <span class="fa fa-map-marker"></span>
-                                            </div>
-                                            <div class="text">
-                                                <p>London,Dhaka</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="number-box">
-                                            <div class="icon">
-                                                <span class="fa fa-clock"></span>
-                                            </div>
-                                            <div class="text">
-                                                <a href="tel:123456789">+65556522222</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bottom-content">
-                                    <ul class="review-box">
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="icon-star-1"></span></li>
-                                    </ul>
-                                    <div class="count-box">
-                                        <p>(04)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Place One Single-->
-
-                    <!--Start Place One Single-->
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="place-one__single">
-                            <div class="place-one__single-img">
-                                <div class="place-one__single-img-inner">
-                                    <div class="icon-box">
-                                        <a href="#"><span class="fa fa-heart"></span></a>
-                                    </div>
-                                    <img src="assets/images/resources/place-v1-img6.jpg" alt="" />
-                                </div>
-                                <div class="text-box">
-                                    <span>Book Storn</span>
-                                </div>
-                            </div>
-
-                            <div class="place-one__single-content">
-                                <div class="top-content">
-                                    <h2><a href="listings-details.html">Lisiting Off Book</a></h2>
-                                    <p>Excepteur sint occaecat </p>
-
-                                    <div class="top-content-bottom">
-                                        <div class="location-box">
-                                            <div class="icon-box">
-                                                <span class="fa fa-map-marker"></span>
-                                            </div>
-                                            <div class="text">
-                                                <p>London,Dhaka</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="number-box">
-                                            <div class="icon">
-                                                <span class="fa fa-clock"></span>
-                                            </div>
-                                            <div class="text">
-                                                <a href="tel:123456789">+65556522222</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bottom-content">
-                                    <ul class="review-box">
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="icon-star-1"></span></li>
-                                        <li><span class="icon-star-1"></span></li>
-                                    </ul>
-                                    <div class="count-box">
-                                        <p>(03)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Place One Single-->
-                </div>
-            </div>
-        </section>
-        <!--End Place One-->
-
-
-        <!--Start Features One-->
-        <section class="features-one">
-            <div class="container">
-                <div class="sec-title text-center">
-                    <h2 class="sec-title__title">Best Wedding Vendors</h2>
-                    <p class="sec-title__text">Excepteur s occaecat cupidatat proident sunt</p>
-                </div>
-                <div class="row">
-                    <!--Start Features One Single-->
-                    <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInLeft" data-wow-delay="0ms"
-                        data-wow-duration="1000ms">
-                        <div class="features-one__single text-center">
-                            <div class="features-one__single-icon">
-                                <span class="icon-budget"></span>
-                            </div>
-                            <div class="features-one__single-title">
-                                <h2><a href="#">Budget Planing</a></h2>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Features One Single-->
-
-                    <!--Start Features One Single-->
-                    <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInLeft" data-wow-delay="100ms"
-                        data-wow-duration="1000ms">
-                        <div class="features-one__single text-center">
-                            <div class="features-one__single-icon">
-                                <span class="icon-employee"></span>
-                            </div>
-                            <div class="features-one__single-title">
-                                <h2><a href="#">Vendor Manger</a></h2>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Features One Single-->
-
-                    <!--Start Features One Single-->
-                    <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInRight" data-wow-delay="0ms"
-                        data-wow-duration="1000ms">
-                        <div class="features-one__single text-center">
-                            <div class="features-one__single-icon">
-                                <span class="icon-checklist"></span>
-                            </div>
-                            <div class="features-one__single-title">
-                                <h2><a href="#">Check List</a></h2>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Features One Single-->
-
-                    <!--Start Features One Single-->
-                    <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInRight" data-wow-delay="100ms"
-                        data-wow-duration="1000ms">
-                        <div class="features-one__single text-center">
-                            <div class="features-one__single-icon">
-                                <span class="icon-hotels"></span>
-                            </div>
-                            <div class="features-one__single-title">
-                                <h2><a href="#">Lisiting Hotel </a></h2>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Features One Single-->
-                </div>
-            </div>
-        </section>
-        <!--End Features One-->
-
-
-        <!--Start Video One-->
-        <section class="video-one">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="video-one__inner">
-                            <div class="video-one__bg"
-                                style="background-image: url(assets/images/backgrounds/video-v1-bg.jpg);"></div>
-                            <div class="video-box">
-                                <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
-                                    <div class="video-one__video-icon">
-                                        <span class="fa fa-play"></span>
-                                        <i class="ripple"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--End Video One-->
-
-
-        <!--Start Testimonial One-->
-        <section class="testimonial-one">
-            <div class="testimonial-one__bg"
-                style="background-image: url(assets/images/backgrounds/testimonial-v1-bg.jpg);"></div>
-            <div class="container">
-                <div class="sec-title text-center">
-                    <h2 class="sec-title__title">Our Testimonial Say</h2>
-                    <p class="sec-title__text">Excepteur s occaecat cupidatat proident sunt</p>
-                </div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="owl-carousel owl-theme thm-owl__carousel testimonial-one__carousel"
-                            data-owl-options='{
-                            "loop": true,
-                            "autoplay": false,
-                            "margin": 30,
-                            "nav": false,
-                            "dots": false,
-                            "smartSpeed": 500,
-                            "autoplayTimeout": 10000,
-                            "navText": ["<span class=\"fa fa-angle-left\"></span>","<span class=\"fa fa-angle-right\"></span>"],
-                            "responsive": {
-                                "0": {
-                                    "items": 1
-                                },
-                                "768": {
-                                    "items": 2
-                                },
-                                "992": {
-                                    "items": 2
-                                },
-                                "1200": {
-                                    "items": 2
-                                }
-                                }
-                            }'>
-
-                            <!--Start Testimonial One Single-->
-                            <div class="testimonial-one__single">
-                                <div class="testimonial-one__single-quote-icon">
-                                    <span class="fa fa-quote-left"></span>
-                                </div>
-                                <div class="testimonial-one__single-top">
-                                    <div class="img-box">
-                                        <img src="assets/images/testimonial/testimonial-v1-img1.jpg" alt="" />
-                                    </div>
-                                    <div class="text-box">
-                                        <h2>Morand Daro</h2>
-                                        <p>Founder</p>
-                                    </div>
-                                </div>
-                                <div class="testimonial-one__single-text">
-                                    <p>There are many variations of passages of Lorem Ipsum available,
-                                        have suffered alteration in some form, by injected humour, or
-                                        which don't look even slightly believable. If you are going to
-                                        Ipsum, you need to be sure there isn't embarrassing.. </p>
-                                </div>
-                                <ul class="review-box">
-                                    <li><span class="fa fa-star"></span></li>
-                                    <li><span class="fa fa-star"></span></li>
-                                    <li><span class="fa fa-star"></span></li>
-                                    <li><span class="fa fa-star"></span></li>
-                                    <li><span class="fa fa-star"></span></li>
-                                </ul>
-                            </div>
-                            <!--End Testimonial One Single-->
-
-                            <!--Start Testimonial One Single-->
-                            <div class="testimonial-one__single">
-                                <div class="testimonial-one__single-quote-icon">
-                                    <span class="fa fa-quote-left"></span>
-                                </div>
-                                <div class="testimonial-one__single-top">
-                                    <div class="img-box">
-                                        <img src="assets/images/testimonial/testimonial-v1-img2.jpg" alt="" />
-                                    </div>
-                                    <div class="text-box">
-                                        <h2>Rubel Robi</h2>
-                                        <p>Seo</p>
-                                    </div>
-                                </div>
-                                <div class="testimonial-one__single-text">
-                                    <p>There are many variations of passages of Lorem Ipsum available,
-                                        have suffered alteration in some form, by injected humour, or
-                                        which don't look even slightly believable. If you are going to
-                                        Ipsum, you need to be sure there isn't embarrassing.. </p>
-                                </div>
-                                <ul class="review-box">
-                                    <li><span class="fa fa-star"></span></li>
-                                    <li><span class="fa fa-star"></span></li>
-                                    <li><span class="fa fa-star"></span></li>
-                                    <li><span class="fa fa-star"></span></li>
-                                    <li><span class="fa fa-star"></span></li>
-                                </ul>
-                            </div>
-                            <!--End Testimonial One Single-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--End Testimonial One-->
-
-
-        <!--Start Blog One-->
-        <section class="blog-one">
-            <div class="container">
-                <div class="sec-title text-center">
-                    <h2 class="sec-title__title">Our Largest Blog</h2>
-                    <p class="sec-title__text">Excepteur s occaecat cupidatat proident sunt</p>
-                </div>
-                <div class="row">
-                    <!--Start Blog One Single-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="blog-one__single">
-                            <div class="blog-one__single-img">
-                                <img src="assets/images/blog/blog-v1-img1.jpg" alt="" />
-                            </div>
-
-                            <div class="blog-one__single-content">
-                                <p class="blog-one__single-content-tagline">Excepteur occaecat cupidatat </p>
-                                <h2><a href="blog-details.html">Besting and commercial We <br> with This Blog.</a></h2>
-                                <div class="line"></div>
-                                <div class="text">
-                                    <p>There are many variations of passages off ran
-                                        of lorem Ipsum available.. </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Blog One Single-->
-
-                    <!--Start Blog One Single-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInDown" data-wow-delay=".3s">
-                        <div class="blog-one__single">
-                            <div class="blog-one__single-img">
-                                <img src="assets/images/blog/blog-v1-img2.jpg" alt="" />
-                            </div>
-
-                            <div class="blog-one__single-content">
-                                <p class="blog-one__single-content-tagline">Excepteur occaecat cupidatat </p>
-                                <h2><a href="blog-details.html">Strategic and commercial this <br> with Can issues.</a>
-                                </h2>
-                                <div class="line"></div>
-                                <div class="text">
-                                    <p>There are many variations of passages off ran
-                                        of lorem Ipsum available.. </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Blog One Single-->
-
-                    <!--Start Blog One Single-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="blog-one__single">
-                            <div class="blog-one__single-img">
-                                <img src="assets/images/blog/blog-v1-img3.jpg" alt="" />
-                            </div>
-
-                            <div class="blog-one__single-content">
-                                <p class="blog-one__single-content-tagline">Excepteur occaecat cupidatat </p>
-                                <h2><a href="blog-details.html">Modaer and invenity Welk <br>Now Off Blog.</a></h2>
-                                <div class="line"></div>
-                                <div class="text">
-                                    <p>There are many variations of passages off ran
-                                        of lorem Ipsum available.. </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Blog One Single-->
-                </div>
-            </div>
-        </section>
-        <!--End Blog One-->
-
-        <!--Start Brand One-->
-        <section class="brand-one">
-            <div class="brand-one__bg" style="background-image: url(assets/images/backgrounds/brand-v1-bg.jpg);"></div>
-            <div class="container">
-                <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 50, "slidesPerView": 5, "autoplay": { "delay": 5000 }, "breakpoints": {
-                                            "0": {
-                                                "spaceBetween": 30,
-                                                "slidesPerView": 1
-                                            },
-                                            "375": {
-                                                "spaceBetween": 30,
-                                                "slidesPerView": 2
-                                            },
-                                            "575": {
-                                                "spaceBetween": 30,
-                                                "slidesPerView": 2
-                                            },
-                                            "767": {
-                                                "spaceBetween": 30,
-                                                "slidesPerView": 3
-                                            },
-                                            "991": {
-                                                "spaceBetween": 30,
-                                                "slidesPerView": 4
-                                            },
-                                            "1199": {
-                                                "spaceBetween": 30,
-                                                "slidesPerView": 6
-                                            }
-                                        }}'>
-                    <div class="swiper-wrapper">
-
-                        <!--Start Brand One Single-->
-                        <div class="swiper-slide">
-                            <a href="#"><img src="assets/images/brand/brand-v1-img1.png" alt=""></a>
-                        </div>
-                        <!--End Brand One Single-->
-                        <!--Start Brand One Single-->
-                        <div class="swiper-slide">
-                            <a href="#"><img src="assets/images/brand/brand-v1-img2.png" alt=""></a>
-                        </div>
-                        <!--End Brand One Single-->
-                        <!--Start Brand One Single-->
-                        <div class="swiper-slide">
-                            <a href="#"><img src="assets/images/brand/brand-v1-img3.png" alt=""></a>
-                        </div>
-                        <!--End Brand One Single-->
-                        <!--Start Brand One Single-->
-                        <div class="swiper-slide">
-                            <a href="#"><img src="assets/images/brand/brand-v1-img4.png" alt=""></a>
-                        </div>
-                        <!--End Brand One Single-->
-                        <!--Start Brand One Single-->
-                        <div class="swiper-slide">
-                            <a href="#"><img src="assets/images/brand/brand-v1-img5.png" alt=""></a>
-                        </div>
-                        <!--End Brand One Single-->
-                        <!--Start Brand One Single-->
-                        <div class="swiper-slide">
-                            <a href="#"><img src="assets/images/brand/brand-v1-img6.png" alt=""></a>
-                        </div>
-                        <!--End Brand One Single-->
-                        <!--Start Brand One Single-->
-                        <div class="swiper-slide">
-                            <a href="#"><img src="assets/images/brand/brand-v1-img1.png" alt=""></a>
-                        </div>
-                        <!--End Brand One Single-->
-                        <!--Start Brand One Single-->
-                        <div class="swiper-slide">
-                            <a href="#"><img src="assets/images/brand/brand-v1-img2.png" alt=""></a>
-                        </div>
-                        <!--End Brand One Single-->
-                        <!--Start Brand One Single-->
-                        <div class="swiper-slide">
-                            <a href="#"><img src="assets/images/brand/brand-v1-img3.png" alt=""></a>
-                        </div>
-                        <!--End Brand One Single-->
-                        <!--Start Brand One Single-->
-                        <div class="swiper-slide">
-                            <a href="#"><img src="assets/images/brand/brand-v1-img4.png" alt=""></a>
-                        </div>
-                        <!--End Brand One Single-->
-                        <!--Start Brand One Single-->
-                        <div class="swiper-slide">
-                            <a href="#"><img src="assets/images/brand/brand-v1-img5.png" alt=""></a>
-                        </div>
-                        <!--End Brand One Single-->
-                        <!--Start Brand One Single-->
-                        <div class="swiper-slide">
-                            <a href="#"><img src="assets/images/brand/brand-v1-img6.png" alt=""></a>
-                        </div>
-                        <!--End Brand One Single-->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--End Brand One-->
+        @yield('content')
 
         <!--Start Footer One-->
         <footer class="footer-one">
@@ -1417,137 +220,172 @@
                                 <div class="row">
 
                                     <!--Start Footer Widget Column-->
-                                    <div class="col-xl-4 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.1s">
+                                    <div class="col-xl-3 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.1s">
                                         <div class="footer-widget__column footer-widget__about">
                                             <div class="footer-widget__about-logo">
-                                                <a href="index.html"><img src="assets/images/resources/footer-logo.png"
+                                                <a href="index.html"><img src="assets/images/uygun-mekan-logo.png" width="100"
                                                         alt=""></a>
                                             </div>
 
                                             <ul class="footer-widget__about-contact-info">
-                                                <li>
-                                                    <div class="icon">
-                                                        <span class="fa fa-clock"></span>
-                                                    </div>
-                                                    <div class="text">
-                                                        <p>Open Hours of Government: <br> Mon - Fri: 8.00 am. - 6.00 pm.
-                                                        </p>
-                                                    </div>
-                                                </li>
+                                            
 
                                                 <li>
                                                     <div class="icon">
                                                         <span class="fa fa-map-marker"></span>
                                                     </div>
                                                     <div class="text">
-                                                        <p> 13/A, Miranda Halim City .
+                                                        <p>{{$system->address}}</p>
+                                                    </div>
+                                                </li>
+
+                                                <li>
+                                                    <div class="icon">
+                                                        <span class="fa fa-envelope"></span>
+                                                    </div>
+                                                    <div class="text">
+                                                        <p><a href="#">{{$system->email1}}</a>
                                                         </p>
                                                     </div>
                                                 </li>
+
+                                                @if ($system->email2)
+                                                <li>
+                                                    <div class="icon">
+                                                        <span class="fa fa-envelope"></span>
+                                                    </div>
+                                                    <div class="text">
+                                                        <p><a href="#">{{$system->email2}}</a>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                @endif
 
                                                 <li>
                                                     <div class="icon">
                                                         <span class="fa fa-phone rotate"></span>
                                                     </div>
                                                     <div class="text">
-                                                        <p><a href="tel:123456789">099 695 695 35</a>
+                                                        <p><a href="#">{{$system->phone1}}</a>
                                                         </p>
                                                     </div>
                                                 </li>
+
+                                                @if ($system->phone2)
+                                                <li>
+                                                    <div class="icon">
+                                                        <span class="fa fa-phone rotate"></span>
+                                                    </div>
+                                                    <div class="text">
+                                                        <p><a href="#">{{$system->phone2}}</a>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                @endif
                                             </ul>
 
-                                            <div class="footer-widget__about-social-link">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="first icon-facebook-app-symbol"></span>
-                                                            <span class="second icon-facebook-app-symbol"></span>
-                                                        </a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="first icon-pinterest"></span>
-                                                            <span class="second icon-pinterest"></span>
-                                                        </a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="first icon-twitter"></span>
-                                                            <span class="second icon-twitter"></span>
-                                                        </a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="first icon-linkedin"></span>
-                                                            <span class="second icon-linkedin"></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                     <!--End Footer Widget Column-->
 
                                     <!--Start Footer Widget Column-->
-                                    <div class="col-xl-2 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.3s">
+                                    <div class="col-xl-3 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.3s">
                                         <div class="footer-widget__column footer-widget__services">
-                                            <h2 class="footer-widget__title">Services</h2>
+                                            <h2 class="footer-widget__title">Kurumsal</h2>
                                             <ul class="footer-widget__services-list">
-                                                <li class="footer-widget__services-list-item"><a href="#">Why choose
-                                                        us</a></li>
+                                                <li class="footer-widget__services-list-item"><a href="#">Hakkımızda</a></li>
 
-                                                <li class="footer-widget__services-list-item"><a href="#">Our
-                                                        solutions</a></li>
+                                                <li class="footer-widget__services-list-item"><a href="#">Kategoriler</a></li>
+                                                <li class="footer-widget__services-list-item"><a href="#">Mekanlar</a></li>
 
-                                                <li class="footer-widget__services-list-item"><a href="#">Partners</a>
+                                                <li class="footer-widget__services-list-item"><a href="#">Blog</a></li>
+
+                                                <li class="footer-widget__services-list-item"><a href="#">Kariyer</a>
                                                 </li>
 
-                                                <li class="footer-widget__services-list-item"><a href="#">Core
-                                                        values</a></li>
+                                                
 
-                                                <li class="footer-widget__services-list-item"><a href="#">Our
-                                                        projects</a> </li>
+                                                <li class="footer-widget__services-list-item"><a href="#">İletişim</a> </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <!--End Footer Widget Column-->
 
                                     <!--Start Footer Widget Column-->
-                                    <div class="col-xl-2 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.5s">
+                                    <div class="col-xl-3 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.5s">
                                         <div class="footer-widget__column footer-widget__link">
-                                            <h2 class="footer-widget__title">Quick Link</h2>
+                                            <h2 class="footer-widget__title">Mekanlar</h2>
                                             <ul class="footer-widget__link-list">
-                                                <li class="footer-widget__link-list-item"><a href="#">Residents</a></li>
+                                                
+                                                @foreach ($categories as $category)
+                                                <li class="footer-widget__link-list-item"><a href="/category/{{$category->slug}}">{{$category->name}}</a></li>
+                                                @endforeach
 
-                                                <li class="footer-widget__link-list-item"><a href="#">Business</a></li>
-
-                                                <li class="footer-widget__link-list-item"><a href="#">Online Service</a>
-                                                </li>
-
-                                                <li class="footer-widget__link-list-item"><a href="#">Visiting</a></li>
-
-                                                <li class="footer-widget__link-list-item"><a href="#">Employment</a>
-                                                </li>
+                                                
                                             </ul>
                                         </div>
                                     </div>
                                     <!--End Footer Widget Column-->
 
                                     <!--Start Footer Widget Column-->
-                                    <div class="col-xl-4 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.7s">
+                                    <div class="col-xl-3 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.7s">
                                         <div class="footer-widget__column footer-widget__map">
-                                            <h2 class="footer-widget__title">City Map</h2>
-                                            <div class="footer-widget__map-box">
-                                                <iframe
-                                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4562.753041141002!2d-118.80123790098536!3d34.152323469614075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82469c2162619%3A0xba03efb7998eef6d!2sCostco+Wholesale!5e0!3m2!1sbn!2sbd!4v1562518641290!5m2!1sbn!2sbd"
-                                                    class="footer-widget-map__one" allowfullscreen></iframe>
-                                            </div>
+                                            <h2 class="footer-widget__title">Yeni Eklenenler</h2>
+                                            <ul class="footer-widget__link-list">
+                                                
+                                                @foreach ($categories as $category)
+                                                <li class="footer-widget__link-list-item"><a href="/category/{{$category->slug}}">{{$category->name}}</a></li>
+                                                @endforeach
+
+                                                
+                                            </ul>
                                         </div>
                                     </div>
                                     <!--End Footer Widget Column-->
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div class="footer-widget__about-social-link">
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="first icon-facebook-app-symbol"></span>
+                                                    <span class="second icon-facebook-app-symbol"></span>
+                                                </a>
+                                            </li>
+    
+                                            <li>
+                                                <a href="#">
+                                                    <span class="first icon-pinterest"></span>
+                                                    <span class="second icon-pinterest"></span>
+                                                </a>
+                                            </li>
+    
+                                            <li>
+                                                <a href="#">
+                                                    <span class="first icon-twitter"></span>
+                                                    <span class="second icon-twitter"></span>
+                                                </a>
+                                            </li>
+    
+                                            <li>
+                                                <a href="#">
+                                                    <span class="first icon-linkedin"></span>
+                                                    <span class="second icon-linkedin"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <ul class=" align-self-end">
+                                                
+                                        <li class="footer-widget__link-list-item float-start me-1"><a href="#">Kullanım Şartları</a> <i class="fas fa-circle text-white p-1" style="font-size:8px;"></i></li>
+                                        <li class="footer-widget__link-list-item float-start"><a href="#">Gizlilik Politikası</a><i class="fas fa-circle text-white p-1" style="font-size:8px;"></i></li>
+                                        <li class="footer-widget__link-list-item float-start"><a href="#">Üyelik Sözleşmesi</a></li>
+                                        
+
+                                        
+                                    </ul>
+
                                 </div>
                             </div>
                         </div>
@@ -1560,11 +398,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
-                            <div class="footer-one__bottom-inner text-center">
+                            <div class="footer-one__bottom-inner d-flex justify-content-between">
                                 <div class="footer-one__bottom-text">
-                                    <p>Copyright © 2022 <a href="index.html">Korax.</a> All Rights Reserved.</p>
+                                    <p>Copyright © 2023 - <a href="/" class="text-decoration-underline">Uygun Mekan.</a> | Tüm hakları saklıdır.</p>
+                                </div>
+                                <div class="footer-one__bottom-text">
+                                    <p><a href="https://metatige.com" target="_blank" class="text-decoration-underline"> Metatige</a> tarafından geliştirilmiştir.</p>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
