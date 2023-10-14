@@ -142,6 +142,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="main-header-one__bottom">
                     <nav class="main-menu main-menu--1">
                         <div class="main-menu__wrapper">
@@ -162,16 +163,13 @@
                                                 <li>
                                                     <a href="/">Anasayfa</a>
                                                 </li>
-                                                <li><a href="#">Kategoriler</a></li>
+                                                <li><a href="/categories">Kategoriler</a></li>
                                                 <li class="dropdown">
                                                     <a href="#">Mekanlar</a>
                                                     <ul>
-                                                        <li><a href="categories.html">Categories</a></li>
-                                                        <li><a href="visited.html">visited</a></li>
-                                                        <li><a href="team.html">Team</a></li>
-                                                        <li><a href="team-details.html">Team Details</a>
-                                                        </li>
-                                                        <li><a href="error.html">Error</a></li>
+                                                        @foreach ($categories as $category)
+                                                            <li><a href="/category/{{$category->slug}}">{{$category->name}}</a></li>
+                                                        @endforeach
                                                     </ul>
                                                 </li>
                                                 <li>
@@ -187,11 +185,11 @@
                                         
 
                                         <div class="main-header-one__bottom-right-btn">
-                                            <a href="#" class="thm-btn">+ Mekan Ekle </a>
+                                            <a href="/new-place" class="thm-btn">+ Mekan Ekle </a>
                                         </div>
 
                                         <div class="main-header-one__bottom-right-btn">
-                                            <a href="#" class=""><i class="fas fa-user-circle"></i> Giriş Yap </a>
+                                            <a href="/auth/login" class=""><i class="fas fa-user-circle"></i> Giriş Yap </a>
                                         </div>
                                     </div>
                                 </div>
