@@ -348,39 +348,34 @@
                                     <div class="footer-widget__about-social-link">
                                         <ul>
                                             <li>
-                                                <a href="#">
+                                                <a href="{{$system->facebook}}">
                                                     <span class="first icon-facebook-app-symbol"></span>
                                                     <span class="second icon-facebook-app-symbol"></span>
                                                 </a>
                                             </li>
     
-                                            <li>
-                                                <a href="#">
-                                                    <span class="first icon-pinterest"></span>
-                                                    <span class="second icon-pinterest"></span>
-                                                </a>
-                                            </li>
+                                            
     
                                             <li>
-                                                <a href="#">
+                                                <a href="{{$system->twitter}}">
                                                     <span class="first icon-twitter"></span>
                                                     <span class="second icon-twitter"></span>
                                                 </a>
                                             </li>
     
                                             <li>
-                                                <a href="#">
-                                                    <span class="first icon-linkedin"></span>
-                                                    <span class="second icon-linkedin"></span>
+                                                <a href="{{$system->instagram}}">
+                                                    <span class="first icon-instagram"></span>
+                                                    <span class="second icon-instagram"></span>
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                     <ul class=" align-self-end">
                                                 
-                                        <li class="footer-widget__link-list-item float-start me-1"><a href="#">Kullanım Şartları</a> <i class="fas fa-circle text-white p-1" style="font-size:8px;"></i></li>
-                                        <li class="footer-widget__link-list-item float-start"><a href="#">Gizlilik Politikası</a><i class="fas fa-circle text-white p-1" style="font-size:8px;"></i></li>
-                                        <li class="footer-widget__link-list-item float-start"><a href="#">Üyelik Sözleşmesi</a></li>
+                                        <li class="footer-widget__link-list-item float-start me-1"><a href="/company/terms-of-use">Kullanım Şartları</a> <i class="fas fa-circle text-white p-1" style="font-size:8px;"></i></li>
+                                        <li class="footer-widget__link-list-item float-start"><a href="/company/privacy">Gizlilik Politikası</a><i class="fas fa-circle text-white p-1" style="font-size:8px;"></i></li>
+                                        <li class="footer-widget__link-list-item float-start"><a href="/company/membership-terms">Üyelik Sözleşmesi</a></li>
                                         
 
                                         
