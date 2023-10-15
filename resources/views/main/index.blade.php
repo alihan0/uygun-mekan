@@ -125,4 +125,79 @@
     </div>
 </section>
 <!-- End Banner One -->
+
+<!--Start Place One-->
+<section class="place-one">
+    <div class="container">
+        <div class="sec-title text-center">
+            <h2 class="sec-title__title">Vitrindeki Mekanlar</h2>
+            <p class="sec-title__text">Editörlerimizin sizin için seçtiği mükemmel mekanlara göz atın.</p>
+        </div>
+        <div class="row">
+            @foreach ($places as $place)
+                 <!--Start Place One Single-->
+            <div class="col-xl-4 col-lg-6 col-md-6">
+                <div class="place-one__single">
+                    <div class="place-one__single-img">
+                        <div class="place-one__single-img-inner">
+                            
+                            <img src="{{ $place->cover}}" alt="" />
+                        </div>
+                        <div class="text-box">
+                            <span>{{$place->MainCategory->name}}</span>
+                        </div>
+                    </div>
+
+                    <div class="place-one__single-content">
+                        <div class="top-content">
+                            <h2><a href="/place/{{$place->slug}}">{{$place->title}}</a></h2>
+                            
+                           
+                                
+                                
+                                <div class="d-flex flex-wrap">
+                                    @foreach ($place->Features as $feature)
+                                        <span class="badge bg-primary me-2 mb-2 pe-4"><span class="p-2 {{$feature->Feature->icon}}"></span> {{$feature->Feature->name}}</span>
+                                    @endforeach
+                                </div>
+
+                            
+                        </div>
+                      
+                    
+                    
+                        <div class="bottom-content d-flex justify-content-between">
+                            <ul class="review-box">
+                                @for ($i = 1; $i <= 5; $i++)
+                                    @if ($place->Stars->count() > 0)
+                                        @if ($i <= round($place->Stars->sum('star') / $place->Stars->count()))
+                                            <li><span class="fas fa-star"></span></li>
+                                        @else
+                                        <li><span class="far fa-star"></span></li>
+                                        @endif
+                                    @else
+                                        <li><span class="far fa-star"></span></li>
+                                    @endif
+                                   
+                                @endfor
+                                <li class="text-dark">
+                                    ({{$place->Stars->count() > 0 ?  round($place->Stars->sum('star') / $place->Stars->count()) : '0'}})
+                                </li>
+                            </ul>
+                            
+
+                            <span>
+                                <i class="fas fa-comments"></i> {{$place->Comments->count()}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Place One Single-->
+            @endforeach
+        </div>
+    </div>
+</section>
+<!--End Place One-->
+
 @endsection
