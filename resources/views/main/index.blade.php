@@ -293,4 +293,67 @@
 </section>
 <!--End Video One-->
 
+
+<!--Start Testimonial One-->
+<section class="testimonial-one">
+    <div class="testimonial-one__bg"
+        style="background-image: url(assets/images/backgrounds/3.png);"></div>
+    <div class="container">
+        <div class="sec-title text-center">
+            <h2 class="sec-title__title">Mekanlara Son Yorumlar</h2>
+            <p class="sec-title__text">Mekanlarımıza gönderilen son yorumlar.</p>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="owl-carousel owl-theme thm-owl__carousel testimonial-one__carousel"
+                    data-owl-options='{
+                    "loop": true,
+                    "autoplay": true,
+                    "margin": 30,
+                    "nav": false,
+                    "dots": false,
+                    "smartSpeed": 500,
+                    "autoplayTimeout": 3000,
+                    "navText": ["<span class=\"fa fa-angle-left\"></span>","<span class=\"fa fa-angle-right\"></span>"],
+                    "responsive": {
+                        "0": {
+                            "items": 1
+                        },
+                        "768": {
+                            "items": 2
+                        },
+                        "992": {
+                            "items": 2
+                        },
+                        "1200": {
+                            "items": 2
+                        }
+                        }
+                    }'>
+
+                    <!--Start Testimonial One Single-->
+                    @foreach ($comments as $comment)
+                        <div class="testimonial-one__single">
+                            <div class="testimonial-one__single-quote-icon">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="testimonial-one__single-top">
+                                <div class="text-box">
+                                    <h2>{{$comment->User->name}}</h2>
+                                    <p>{{$comment->Place->title}}</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-one__single-text">
+                                <p>{{$comment->comment}}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                    <!--End Testimonial One Single-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Testimonial One-->
+
 @endsection
