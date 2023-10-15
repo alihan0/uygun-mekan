@@ -200,4 +200,97 @@
 </section>
 <!--End Place One-->
 
+
+<!--Start Features One-->
+<section class="features-one">
+    <div class="container">
+        <div class="sec-title text-center">
+            <h2 class="sec-title__title">Nasıl Kullanılır?</h2>
+            <p class="sec-title__text">4 adımda uygunmekan.com nasıl kullanılır?</p>
+        </div>
+        <div class="row">
+            <!--Start Features One Single-->
+            <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInLeft" data-wow-delay="0ms"
+                data-wow-duration="1000ms">
+                <div class="features-one__single text-center">
+                    <div class="features-one__single-icon">
+                        <span class="fas fa-user-plus"></span>
+                    </div>
+                    <div class="features-one__single-title">
+                        <h2><a href="#">Hesap Oluştur</a></h2>
+                    </div>
+                </div>
+            </div>
+            <!--End Features One Single-->
+
+            <!--Start Features One Single-->
+            <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInLeft" data-wow-delay="100ms"
+                data-wow-duration="1000ms">
+                <div class="features-one__single text-center">
+                    <div class="features-one__single-icon">
+                        <span class="fas fa-search"></span>
+                    </div>
+                    <div class="features-one__single-title">
+                        <h2><a href="#">Mekanları Ara</a></h2>
+                    </div>
+                </div>
+            </div>
+            <!--End Features One Single-->
+
+            <!--Start Features One Single-->
+            <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInRight" data-wow-delay="0ms"
+                data-wow-duration="1000ms">
+                <div class="features-one__single text-center">
+                    <div class="features-one__single-icon">
+                        <span class="icon-checklist"></span>
+                    </div>
+                    <div class="features-one__single-title">
+                        <h2><a href="#">Uygun Olanı Bul</a></h2>
+                    </div>
+                </div>
+            </div>
+            <!--End Features One Single-->
+
+            <!--Start Features One Single-->
+            <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInRight" data-wow-delay="100ms"
+                data-wow-duration="1000ms">
+                <div class="features-one__single text-center">
+                    <div class="features-one__single-icon">
+                        <span class="fas fa-share"></span>
+                    </div>
+                    <div class="features-one__single-title">
+                        <h2><a href="#">Görüşlerini Paylaş </a></h2>
+                    </div>
+                </div>
+            </div>
+            <!--End Features One Single-->
+        </div>
+    </div>
+</section>
+<!--End Features One-->
+
+
+<!--Start Video One-->
+<section class="video-one">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="video-one__inner">
+                    <div class="video-one__bg"
+                        style="background-image: url(assets/images/backgrounds/3.png);"></div>
+                    <div class="video-box">
+                        <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
+                            <div class="video-one__video-icon">
+                                <span class="fa fa-play"></span>
+                                <i class="ripple"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Video One-->
+
 @endsection
