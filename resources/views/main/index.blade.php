@@ -356,4 +356,43 @@
 </section>
 <!--End Testimonial One-->
 
+
+<!--Start Blog One-->
+<section class="blog-one">
+    <div class="container">
+        <div class="sec-title text-center">
+            <h2 class="sec-title__title">Blogumuzdan Yazılar</h2>
+            <p class="sec-title__text">En son blog yazılarımıza göz atın.</p>
+        </div>
+        <div class="row">
+
+            @foreach ($posts as $post)
+                <div class="col-xl-4 col-lg-4 wow fadeInDown" data-wow-delay=".3s">
+                    <div class="blog-one__single">
+                        <div class="blog-one__single-img">
+                            <img src="{{$post->cover}}" alt="" />
+                        </div>
+
+                        <div class="blog-one__single-content">
+                            
+                            <h2><a href="/blog/detail/{{$post->id}}">{{$post->title}}</a>
+                            </h2>
+                            <div class="line"></div>
+                            <div class="text">
+                                <p>{{substr($post->detail, 0, 85).'...'}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            <!--Start Blog One Single-->
+            
+            <!--End Blog One Single-->
+
+
+        </div>
+    </div>
+</section>
+<!--End Blog One-->
+
 @endsection
