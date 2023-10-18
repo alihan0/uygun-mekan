@@ -165,7 +165,7 @@
                                                 </li>
                                                 <li><a href="/categories">Kategoriler</a></li>
                                                 <li class="dropdown">
-                                                    <a href="#">Mekanlar</a>
+                                                    <a href="javascript:;">Mekanlar</a>
                                                     <ul>
                                                         @foreach ($categories as $category)
                                                             <li><a href="/category/{{$category->slug}}">{{$category->name}}</a></li>
