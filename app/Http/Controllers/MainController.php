@@ -2,20 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Comment;
 use App\Models\Place;
 use App\Models\Post;
+use App\Models\Section;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
+    /**
+     * Retrieves the data needed to render the index view.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
     public function index(){
         return view('main.index', [
             'sliders' => Slider::all(),
             'places' => Place::where('status', 2)->where('showcase',1)->get(),
             'comments' => Comment::where('status', 2)->get(),
             'posts' => Post::all()
+        ]);
+    }
+
+    /**
+     * Retrieves the categories and section information for the main.categories view.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function categories(){
+        return view('main.categories', [
+            'categories' => Categories::where('main_category', 0)->get(),
+            'section' => Section::where('page','categories')->get()
         ]);
     }
 }

@@ -16,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(MainController::class)->group(function(){
     Route::get('/', 'index');
+    Route::get('/categories', 'categories');
 });
