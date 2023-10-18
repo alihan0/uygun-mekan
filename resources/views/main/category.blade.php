@@ -36,11 +36,7 @@
     <div class="container clearfix">
         <div class="listings__one__content">
             <div class="listings_one_content_left">
-                
-
-                
-
-                
+            
 
                 <div class="row">
                     <div class="col-xl-12">
@@ -53,24 +49,19 @@
                                     <div class="shorting">
                                         <div class="select-box">
                                             <select class="selectmenu wide" onchange="window.location.href = this.value">
-                                                <option value="/category/{{$category->slug}}/sort-az" selected="selected">
+                                                <option value="/category/{{$category->slug}}/az" {{$sort == "az" ? 'selected' : ''}}>
                                                     Ada Göre Sırala (A-Z)
                                                 </option>
-                                                <option value="/category/{{$category->slug}}/sort-za">
+                                                <option value="/category/{{$category->slug}}/za"  {{$sort == "za" ? 'selected' : ''}}>
                                                     Ada Göre Sırala (Z-A)
                                                 </option>
-                                                <option value="/category/{{$category->slug}}/sort-new-old">
+                                                <option value="/category/{{$category->slug}}/new-old"  {{$sort == "new-old" ? 'selected' : ''}}>
                                                     Tarihe Göre Sırala (Önce Yeni)
                                                 </option>
-                                                <option value="/category/{{$category->slug}}/sort-old-new">
+                                                <option value="/category/{{$category->slug}}/old-new"  {{$sort == "old-new" ? 'selected' : ''}}>
                                                     Tarihe Göre Sırala (Önce Eski)
                                                 </option>
-                                                <option value="/category/{{$category->slug}}/sort-hight-low">
-                                                    Puana Göre Sırala (Yüksekten Düşüğe)
-                                                </option>
-                                                <option value="/category/{{$category->slug}}/sort-low-high">
-                                                    Puana Göre Sırala (Düşükten Yükseğe)
-                                                </option>
+                                      
                                             </select>
                                         </div>
                                     </div>
@@ -92,50 +83,48 @@
                                     <div class="icon-box">
                                         <a href="#"><span class="fa fa-heart"></span></a>
                                     </div>
-                                    <img src="assets/images/resources/place-v1-img1.jpg" alt="" />
+                                    <img src="{{ $place->cover}}" alt="{{$place->title}}" />
                                 </div>
                                 <div class="text-box">
-                                    <span>Hotel Storn</span>
+                                    <span>{{$place->website}}</span>
                                 </div>
                             </div>
 
                             <div class="place-one__single-content">
                                 <div class="top-content">
-                                    <h2><a href="listings-details.html">{{$place->title}}</a></h2>
-                                    <p>Excepteur sint occaecat </p>
-
-                                    <div class="top-content-bottom">
-                                        <div class="location-box">
-                                            <div class="icon-box">
-                                                <span class="fa fa-map-marker"></span>
-                                            </div>
-                                            <div class="text">
-                                                <p>London,Dhaka</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="number-box">
-                                            <div class="icon">
-                                                <span class="fa fa-clock"></span>
-                                            </div>
-                                            <div class="text">
-                                                <a href="tel:123456789">+65556522222</a>
-                                            </div>
-                                        </div>
+                                    <h2 class="mb-3"><a href="/place/{{$place->slug}}">{{$place->title}}</a></h2>
+                                    <div class="d-flex flex-wrap">
+                                        @foreach ($place->Features as $feature)
+                                            <span class="badge bg-primary me-2 mb-2 p-0 pe-2" style="font-size:7px"><span class="p-2 {{$feature->Feature->icon}}"></span> {{$feature->Feature->name}}</span>
+                                        @endforeach
                                     </div>
+
+                                    
                                 </div>
 
-                                <div class="bottom-content">
+                                <div class="bottom-content d-flex justify-content-between">
                                     <ul class="review-box">
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="fa fa-star"></span></li>
-                                        <li><span class="icon-star-1"></span></li>
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            @if ($place->Stars->count() > 0)
+                                                @if ($i <= round($place->Stars->sum('star') / $place->Stars->count()))
+                                                    <li><span class="fas fa-star"></span></li>
+                                                @else
+                                                <li><span class="far fa-star"></span></li>
+                                                @endif
+                                            @else
+                                                <li><span class="far fa-star"></span></li>
+                                            @endif
+                                           
+                                        @endfor
+                                        <li class="text-dark">
+                                            ({{$place->Stars->count() > 0 ?  round($place->Stars->sum('star') / $place->Stars->count()) : '0'}})
+                                        </li>
                                     </ul>
-                                    <div class="count-box">
-                                        <p>(04)</p>
-                                    </div>
+                                    
+        
+                                    <span>
+                                        <i class="fas fa-comments"></i> {{$place->Comments->count()}}
+                                    </span>
                                 </div>
                             </div>
                         </div>

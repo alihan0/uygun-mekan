@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::controller(MainController::class)->group(function(){
     Route::get('/', 'index');
     Route::get('/categories', 'categories');
-    Route::get('/category/{slug}', 'category');
+    Route::get('/category/{slug}/{sort?}', 'category');
 });

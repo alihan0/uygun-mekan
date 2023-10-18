@@ -141,7 +141,7 @@
                     <div class="place-one__single-img">
                         <div class="place-one__single-img-inner">
                             
-                            <img src="{{ $place->cover}}" alt="" />
+                            <img src="{{ $place->cover}}" alt="{{$place->title}}" />
                         </div>
                         <div class="text-box">
                             <span>{{$place->MainCategory->name}}</span>

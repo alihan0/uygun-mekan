@@ -38,7 +38,7 @@ class MainController extends Controller
         ]);
     }
 
-    public function category($slug){
+    public function category($slug,$sort = "az"){
         $category = Categories::where('slug',$slug)->first();
         $places = Place::where(function($query) use ($category) {
             $query->where('status', 2)
@@ -46,11 +46,22 @@ class MainController extends Controller
                     ->orWhere('sub_category', $category->id);
         })->get();
 
-        $places = $places->sortBy('title');
+        if($sort == "az"){
+            $places = $places->sortBy('title');
+        }elseif($sort == "za"){
+            $places = $places->sortByDesc('title');
+        }elseif($sort == "new-old"){
+            $places = $places->sortBy('id');
+        }elseif($sort == "old-new"){
+            $places = $places->sortByDesc('id');
+        }
+
+        
         return view('main.category', [
             'category' => $category,
             'places' => $places,
-            'section' => Section::where('page','category')->get()
+            'section' => Section::where('page','category')->get(),
+            'sort' => $sort
         ]);
     }
 }
