@@ -61,7 +61,8 @@ class MainController extends Controller
             'category' => $category,
             'places' => $places,
             'section' => Section::where('page','category')->get(),
-            'sort' => $sort
+            'sort' => $sort,
+            'comments' => Comment::where('status', 2)->get(),
         ]);
     }
 }
