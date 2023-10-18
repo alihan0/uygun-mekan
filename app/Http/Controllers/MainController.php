@@ -37,4 +37,8 @@ class MainController extends Controller
             'section' => Section::where('page','categories')->get()
         ]);
     }
+
+    public function category($slug){
+        return view('main.category', ['category' => Categories::where('slug',$slug)->first()]);
+    }
 }

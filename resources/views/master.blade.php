@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('title') - {{env('APP_NAME')}}</title>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
-    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="/assets/images/favicons/site.webmanifest" />
     <meta name="description" content="Korax HTML 5 Template " />
 
     <!-- fonts -->
@@ -20,31 +20,31 @@
 
 
 
-    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/vendors/animate/animate.min.css" />
-    <link rel="stylesheet" href="assets/vendors/animate/custom-animate.css" />
-    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="assets/vendors/jarallax/jarallax.css" />
-    <link rel="stylesheet" href="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
-    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.min.css" />
-    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.pips.css" />
-    <link rel="stylesheet" href="assets/vendors/odometer/odometer.min.css" />
-    <link rel="stylesheet" href="assets/vendors/swiper/swiper.min.css" />
-    <link rel="stylesheet" href="assets/vendors/icomoon-icons/style.css">
-    <link rel="stylesheet" href="assets/vendors/tiny-slider/tiny-slider.min.css" />
-    <link rel="stylesheet" href="assets/vendors/reey-font/stylesheet.css" />
-    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.carousel.min.css" />
-    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="assets/vendors/twentytwenty/twentytwenty.css" />
-    <link rel="stylesheet" href="assets/vendors/language-switcher/polyglot-language-switcher.css" />
-    <link rel="stylesheet" href="assets/vendors/vegas-slider/vegas.min.css" />
-    <link rel="stylesheet" href="assets/vendors/nice-select/nice-select.css" />
-    <link rel="stylesheet" href="assets/vendors/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="/assets/vendors/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/animate/custom-animate.css" />
+    <link rel="stylesheet" href="/assets/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/jarallax/jarallax.css" />
+    <link rel="stylesheet" href="/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="/assets/vendors/nouislider/nouislider.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/nouislider/nouislider.pips.css" />
+    <link rel="stylesheet" href="/assets/vendors/odometer/odometer.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/icomoon-icons/style.css">
+    <link rel="stylesheet" href="/assets/vendors/tiny-slider/tiny-slider.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/reey-font/stylesheet.css" />
+    <link rel="stylesheet" href="/assets/vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/owl-carousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/twentytwenty/twentytwenty.css" />
+    <link rel="stylesheet" href="/assets/vendors/language-switcher/polyglot-language-switcher.css" />
+    <link rel="stylesheet" href="/assets/vendors/vegas-slider/vegas.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/nice-select/nice-select.css" />
+    <link rel="stylesheet" href="/assets/vendors/jquery-ui/jquery-ui.css" />
 
     <!-- template styles -->
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
-    <link rel="stylesheet" href="assets/css/scrollbar.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <link rel="stylesheet" href="/assets/css/scrollbar.css" />
 </head>
 
 <body>
@@ -150,7 +150,7 @@
                                 <div class="main-menu__wrapper-inner">
                                     <div class="main-header-one__bottom-left">
                                         <div class="logo">
-                                            <a href="/"><img src="assets/images/uygun-mekan-logo.png"
+                                            <a href="/"><img src="/assets/images/uygun-mekan-logo.png"
                                                     width="75" alt=""></a>
                                         </div>
                                     </div>
@@ -223,7 +223,7 @@
                                     <div class="col-xl-3 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.1s">
                                         <div class="footer-widget__column footer-widget__about">
                                             <div class="footer-widget__about-logo">
-                                                <a href="index.html"><img src="assets/images/uygun-mekan-logo.png" width="100"
+                                                <a href="index.html"><img src="/assets/images/uygun-mekan-logo.png" width="100"
                                                         alt=""></a>
                                             </div>
 
@@ -421,7 +421,7 @@
             <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
             <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="assets/images/resources/logo-2.png" width="155"
+                <a href="index.html" aria-label="logo image"><img src="/assets/images/resources/logo-2.png" width="155"
                         alt="" /></a>
             </div>
             <!-- /.logo-box -->
@@ -474,36 +474,36 @@
     <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
 
 
-    <script src="assets/vendors/jquery/jquery-3.6.0.min.js"></script>
-    <script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendors/jarallax/jarallax.min.js"></script>
-    <script src="assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
-    <script src="assets/vendors/jquery-appear/jquery.appear.min.js"></script>
-    <script src="assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
-    <script src="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="assets/vendors/jquery-validate/jquery.validate.min.js"></script>
-    <script src="assets/vendors/nouislider/nouislider.min.js"></script>
-    <script src="assets/vendors/odometer/odometer.min.js"></script>
-    <script src="assets/vendors/swiper/swiper.min.js"></script>
-    <script src="assets/vendors/tiny-slider/tiny-slider.min.js"></script>
-    <script src="assets/vendors/wnumb/wNumb.min.js"></script>
-    <script src="assets/vendors/wow/wow.js"></script>
-    <script src="assets/vendors/isotope/isotope.js"></script>
-    <script src="assets/vendors/countdown/countdown.min.js"></script>
-    <script src="assets/vendors/owl-carousel/owl.carousel.min.js"></script>
-    <script src="assets/vendors/twentytwenty/twentytwenty.js"></script>
-    <script src="assets/vendors/twentytwenty/jquery.event.move.js"></script>
-    <script src="assets/vendors/parallax/parallax.min.js"></script>
-    <script src="assets/vendors/nice-select/jquery.nice-select.min.js"></script>
-    <script src="assets/vendors/progress-bar/knob.js"></script>
-    <script src="assets/vendors/tilt.js/tilt.jquery.js"></script>
-    <script src="assets/vendors/sidebar-content/jquery-sidebar-content.js"></script>
-    <script src="assets/vendors/language-switcher/jquery.polyglot.language.switcher.js"></script>
-    <script src="assets/vendors/vegas-slider/vegas.min.js"></script>
-    <script src="assets/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="/assets/vendors/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendors/jarallax/jarallax.min.js"></script>
+    <script src="/assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="/assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/vendors/jquery-validate/jquery.validate.min.js"></script>
+    <script src="/assets/vendors/nouislider/nouislider.min.js"></script>
+    <script src="/assets/vendors/odometer/odometer.min.js"></script>
+    <script src="/assets/vendors/swiper/swiper.min.js"></script>
+    <script src="/assets/vendors/tiny-slider/tiny-slider.min.js"></script>
+    <script src="/assets/vendors/wnumb/wNumb.min.js"></script>
+    <script src="/assets/vendors/wow/wow.js"></script>
+    <script src="/assets/vendors/isotope/isotope.js"></script>
+    <script src="/assets/vendors/countdown/countdown.min.js"></script>
+    <script src="/assets/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/assets/vendors/twentytwenty/twentytwenty.js"></script>
+    <script src="/assets/vendors/twentytwenty/jquery.event.move.js"></script>
+    <script src="/assets/vendors/parallax/parallax.min.js"></script>
+    <script src="/assets/vendors/nice-select/jquery.nice-select.min.js"></script>
+    <script src="/assets/vendors/progress-bar/knob.js"></script>
+    <script src="/assets/vendors/tilt.js/tilt.jquery.js"></script>
+    <script src="/assets/vendors/sidebar-content/jquery-sidebar-content.js"></script>
+    <script src="/assets/vendors/language-switcher/jquery.polyglot.language.switcher.js"></script>
+    <script src="/assets/vendors/vegas-slider/vegas.min.js"></script>
+    <script src="/assets/vendors/jquery-ui/jquery-ui.js"></script>
 
     <!-- template js -->
-    <script src="assets/js/script.js"></script>
+    <script src="/assets/js/script.js"></script>
 
 
 </body>
