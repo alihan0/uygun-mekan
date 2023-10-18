@@ -39,6 +39,18 @@ class MainController extends Controller
     }
 
     public function category($slug){
-        return view('main.category', ['category' => Categories::where('slug',$slug)->first()]);
+        $category = Categories::where('slug',$slug)->first();
+        $places = Place::where(function($query) use ($category) {
+            $query->where('status', 2)
+                    ->where('main_category', $category->id)
+                    ->orWhere('sub_category', $category->id);
+        })->get();
+
+        $places = $places->sortBy('title');
+        return view('main.category', [
+            'category' => $category,
+            'places' => $places,
+            'section' => Section::where('page','category')->get()
+        ]);
     }
 }
