@@ -122,26 +122,19 @@
             <!--Start Sidebar-->
             <div class="col-xl-4 col-lg-5">
                 <div class="sidebar">
-                    
-
-                    
-
-                    
-
-                    
-
+                    @if ($section->where('section','side-box')->where('status',1)->first())
                     <div class="sidebar__single sidebar__sign-up wow animated fadeInUp" data-wow-delay="0.5s">
                         <div class="sidebar__sign-up-box"
                             style="background-image: url(assets/images/resources/sidebar__sign-up-bg.jpg);">
                             <div class="sidebar__sign-up-box-inner text-center">
-                                <p>Whant to be notified about new post and news ? Subscribe For a Newsletter.
-                                </p>
+                                <p>{{$section->where('section','side-box')->where('status',1)->first()->detail}}</p>
                                 <div class="btn-box">
-                                    <a href="#" class="thm-btn">Sign up</a>
+                                    <a href="{{$section->where('section','side-box')->where('status',1)->first()->button1_src}}" class="thm-btn">{{$section->where('section','side-box')->where('status',1)->first()->button1_text}}</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
             <!--End Sidebar-->
