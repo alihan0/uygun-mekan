@@ -38,6 +38,13 @@ class MainController extends Controller
         ]);
     }
 
+    /**
+     * Retrieves a category and its corresponding places based on the given slug.
+     *
+     * @param string $slug The slug of the category.
+     * @param string $sort The sort order of the places (default: "az").
+     * @return Illuminate\View\View The rendered category view with the retrieved data.
+     */
     public function category($slug,$sort = "az"){
         $category = Categories::where('slug',$slug)->first();
         $places = Place::where(function($query) use ($category) {
@@ -63,6 +70,13 @@ class MainController extends Controller
             'section' => Section::where('page','category')->get(),
             'sort' => $sort,
             'comments' => Comment::where('status', 2)->get(),
+        ]);
+    }
+
+    public function blog(){
+        return view('main.blog', [
+            'posts' => Post::all(),
+            'section' => Section::where('page','blog')->get()
         ]);
     }
 }
