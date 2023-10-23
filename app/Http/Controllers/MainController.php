@@ -79,4 +79,18 @@ class MainController extends Controller
             'section' => Section::where('page','blog')->get()
         ]);
     }
+
+    public function blog_detail($id){
+        $post = Post::find($id);
+    
+        // Seçilen ID dışındaki rastgele 2 gönderiyi al
+        $randomPosts = Post::where('id', '!=', $id)->inRandomOrder()->take(2)->get();
+    
+        return view('main.blog_detail', [
+            'post' => $post,
+            'section' => Section::where('page','blog_detail')->get(),
+            'previousPost' => $randomPosts[0] ?? null, // Eğer 2. post yoksa null olarak atanır
+            'nextPost' => $randomPosts[1] ?? null, // Eğer 2. post yoksa null olarak atanır
+        ]);
+    }
 }

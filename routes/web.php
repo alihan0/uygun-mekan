@@ -19,4 +19,5 @@ Route::controller(MainController::class)->group(function(){
     Route::get('/categories', 'categories');
     Route::get('/category/{slug}/{sort?}', 'category');
     Route::get('/blog', 'blog');
+    Route::get('/blog/detail/{id}', 'blog_detail');
 });
