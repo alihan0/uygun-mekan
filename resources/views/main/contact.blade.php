@@ -91,13 +91,12 @@
                     <div class="contact-one__content-single">
                         <div class="contact-one__content-single-inner">
                             <div class="icon-box">
-                                <span class="icon-call"></span>
+                                {!! $section->where('section', 'call-box')->where('status',1)->first()->subtitle !!}
                             </div>
 
                             <div class="content-box">
-                                <h2>Call Now</h2>
-                                <p class="number1"><a href="tel:123456789">+025461556695</a></p>
-                                <p class="number2"><a href="tel:123456789">+826542556455</a></p>
+                                <h2>{{$section->where('section', 'call-box')->where('status',1)->first()->title}}</h2>
+                                {!!$section->where('section', 'call-box')->where('status',1)->first()->content!!}
                             </div>
                         </div>
                     </div>
@@ -106,13 +105,12 @@
                     <div class="contact-one__content-single">
                         <div class="contact-one__content-single-inner">
                             <div class="icon-box">
-                                <span class="icon-email-1"></span>
+                                {!! $section->where('section', 'email-box')->where('status',1)->first()->subtitle !!}
                             </div>
 
                             <div class="content-box">
-                                <h2>Message Us </h2>
-                                <p class="email1"><a href="mailto:info@madina.com">rubel@example.com</a></p>
-                                <p class="email2"><a href="mailto:info@madina.com">robi@example.com</a></p>
+                                <h2>{{$section->where('section', 'email-box')->where('status',1)->first()->title}}</h2>
+                                {!!$section->where('section', 'email-box')->where('status',1)->first()->content!!}
                             </div>
                         </div>
                     </div>
@@ -121,13 +119,16 @@
                     <div class="contact-one__content-single">
                         <div class="contact-one__content-single-inner">
                             <div class="icon-box">
-                                <span class="icon-address"></span>
+                                {!! $section->where('section', 'address-box')->where('status',1)->first()->subtitle !!}
                             </div>
 
                             <div class="content-box">
-                                <h2>Address Location </h2>
-                                <p>Rangpur, Centrerl Road, <br> 2501,New City.</p>
+                                <h2>{{$section->where('section', 'address-box')->where('status',1)->first()->title}}</h2>
+                                {!!$section->where('section', 'address-box')->where('status',1)->first()->content!!}
                             </div>
+                            
+
+                            
                         </div>
                     </div>
                     @endif
@@ -140,12 +141,11 @@
 <!--End Contact One-->
 
 <!--Start Google Map-->
+@if($section->where('section', 'map')->where('status',1)->first())
 <section class="google-map">
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4562.753041141002!2d-118.80123790098536!3d34.152323469614075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82469c2162619%3A0xba03efb7998eef6d!2sCostco+Wholesale!5e0!3m2!1sbn!2sbd!4v1562518641290!5m2!1sbn!2sbd"
-        class="google-map__one" allowfullscreen></iframe>
-
+    {!!$section->where('section', 'map')->where('status',1)->first()->content!!}
 </section>
+@endif
 <!--End Google Map-->
 
 
