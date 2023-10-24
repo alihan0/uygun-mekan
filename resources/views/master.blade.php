@@ -468,7 +468,17 @@
         <!-- /.search-popup__content -->
     </div>
     <!-- /.search-popup -->
+    <div id="welcomeModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute;z-index:99999999; background:#000;border-radius:50%;color:#fff;right:0;margin-top:-10px;margin-right:-10px;"><i class="fas fa-times d-flex justify-content-center text-center align-items-center fa-sm text-danger"></i></button>
 
+            <div class="modal-body">
+              <a href="{{$system->welcomemodal_src}}"><img src="{{$system->welcomemodal_img}}" alt=""></a>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
     <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
@@ -506,6 +516,32 @@
     <script src="/assets/js/script.js"></script>
 
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        var welcomeCookie = getCookie('welcome');
+
+        if (!welcomeCookie) {
+            // Cookie yoksa oluştur
+            var now = new Date();
+            var expireTime = new Date(now.getTime() + 1 * 3600 * 1000); // 1 saat
+            document.cookie = 'welcome=true; expires=' + expireTime.toUTCString() + '; path=/';
+
+            // #welcomeModal'ı çalıştır
+            var welcomeModal = document.getElementById('welcomeModal');
+            if (welcomeModal) {
+                var bootstrapModal = new bootstrap.Modal(welcomeModal);
+                bootstrapModal.show();
+            }
+        }
+    });
+
+    function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
+    }
+
+    </script>
 </body>
 
 </html>
