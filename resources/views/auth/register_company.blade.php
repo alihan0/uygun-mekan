@@ -33,7 +33,25 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
                                 <div class="comment-form__input-box">
-                                    <input type="text" placeholder="Şifreniz" id="password">
+                                    <input type="password" placeholder="Şifreniz" id="password" style="
+                                    position: relative;
+                                    display: block;
+                                    background: #ffffff;
+                                    width: 100%;
+                                    height: 50px;
+                                    border: 1px solid #dddddd;
+                                    color: var(--thm-gray);
+                                    font-size: 17px;
+                                    font-weight: 400;
+                                    text-transform: none;
+                                    font-style: normal;
+                                    padding-left: 20px;
+                                    padding-right: 20px;
+                                    border-radius: 5px;
+                                    transition: all 500ms ease;
+                                    font-family: var(--thm-font);
+                                    outline: none;
+                                ">
                                 </div>
                             </div>
                         </div>
