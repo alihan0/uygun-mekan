@@ -43,7 +43,7 @@ class MainController extends Controller
      *
      * @param string $slug The slug of the category.
      * @param string $sort The sort order of the places (default: "az").
-     * @return Illuminate\View\View The rendered category view with the retrieved data.
+     * 
      */
     public function category($slug,$sort = "az"){
         $category = Categories::where('slug',$slug)->first();
@@ -73,6 +73,11 @@ class MainController extends Controller
         ]);
     }
 
+    /**
+     * Renders the 'main.blog' view with all blog posts and sections for the blog page.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
     public function blog(){
         return view('main.blog', [
             'posts' => Post::all(),
@@ -80,6 +85,12 @@ class MainController extends Controller
         ]);
     }
 
+    /**
+     * Retrieves the details of a blog post.
+     *
+     * @param int $id The ID of the blog post.
+     * 
+     */
     public function blog_detail($id){
         $post = Post::find($id);
     
@@ -91,6 +102,12 @@ class MainController extends Controller
             'section' => Section::where('page','blog_detail')->get(),
             'previousPost' => $randomPosts[0] ?? null, // Eğer 2. post yoksa null olarak atanır
             'nextPost' => $randomPosts[1] ?? null, // Eğer 2. post yoksa null olarak atanır
+        ]);
+    }
+
+    public function contact(){
+        return view('main.contact', [
+            'section' => Section::where('page','contact')->get()
         ]);
     }
 }
