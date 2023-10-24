@@ -122,6 +122,11 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * Checks the login credentials and returns a JSON response based on the result.
+     *
+     * @param Request $request The HTTP request object.
+     */
     public function login_control(Request $request){
         if(empty($request->email) || empty($request->password)){
             return response()->json([
