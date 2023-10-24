@@ -105,6 +105,11 @@ class MainController extends Controller
         ]);
     }
 
+    /**
+     * Renders the contact view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function contact(){
         return view('main.contact', [
             'section' => Section::where('page','contact')->get()
