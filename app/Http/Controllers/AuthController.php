@@ -76,6 +76,12 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * Saves the data received from the request.
+     *
+     * @param Request $request the request object containing the data to be saved
+     * 
+     */
     public function save(Request $request){
         if(empty($request->name) || empty($request->email) || empty($request->password)){
             return response()->json([
@@ -112,6 +118,28 @@ class AuthController extends Controller
                         "message" => "Kayıt Basarısız!",
                     ]);
                 }
+            }
+        }
+    }
+
+    public function login_control(Request $request){
+        if(empty($request->email) || empty($request->password)){
+            return response()->json([
+               "type" => "warning",
+               "message" => "Lütfen boş alan bırakmayın..." 
+            ]);
+        }else{
+            if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+                return response()->json([
+                    "type" => "success",
+                    "message" => "Giriş Basarılı!",
+                    "status" => true
+                ]);
+            }else{
+                return response()->json([
+                    "type" => "warning",
+                    "message" => "E-posta ya da şifre hatalı!",
+                ]);
             }
         }
     }

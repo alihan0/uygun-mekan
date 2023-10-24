@@ -14,19 +14,18 @@
                         <h2>Giriş Yap</h2>
                         <p>Devam edebilmek için lütfen oturum açın.<p>
                     </div>
-                    <form action="javascript:;" class="comment-one__form"
-                        novalidate="novalidate">
+                    <form action="javascript:;" class="comment-one__form" id="loginForm">
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
                                 <div class="comment-form__input-box">
-                                    <input type="text" placeholder="E-posta adresiniz" name="name">
+                                    <input type="text" placeholder="E-posta adresiniz" name="email">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
                                 <div class="comment-form__input-box">
-                                    <input type="password" placeholder="Şifreniz" name="name" style="
+                                    <input type="password" placeholder="Şifreniz" name="password" style="
                                     position: relative;
                                     display: block;
                                     background: #ffffff;
@@ -48,7 +47,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="thm-btn comment-form__btn" type="submit">Giriş</button>
+                        <button class="thm-btn comment-form__btn" type="submit" onclick="login()">Giriş</button>
                         <button class="btn btn-outline-danger comment-form__btn" type="submit" style=" position: relative;
                         display: inline-block;
                         vertical-align: middle;
@@ -159,6 +158,17 @@
                     }, 500);
                 }
             })
+        }
+        function login(){
+            var data = $("#loginForm").serialize();
+            axios.post('/auth/logincontrol', data).then((res) => {
+                toastr[res.data.type](res.data.message);
+                if(res.data.status){
+                    setInterval(() => {
+                        window.location.assign('/account');
+                    },500);
+                }
+            });
         }
     </script>
 @endsection
