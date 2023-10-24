@@ -19,26 +19,29 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
                                 <div class="comment-form__input-box">
-                                    <input type="text" placeholder="Ad Soyad" name="name">
+                                    <input type="text" placeholder="Ad Soyad" id="name">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
                                 <div class="comment-form__input-box">
-                                    <input type="text" placeholder="E-posta adresiniz" name="name">
+                                    <input type="text" placeholder="E-posta adresiniz" id="email">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
                                 <div class="comment-form__input-box">
-                                    <input type="text" placeholder="Şifreniz" name="name">
+                                    <input type="text" placeholder="Şifreniz" id="password">
                                 </div>
                             </div>
                         </div>
-                        <button class="thm-btn comment-form__btn" type="submit">Hesap Oluştur</button>
-                        <span>Zaten bir hesabın var mı?</span><a class="ms-2" href="/auth/login">Oturum aç</a>
+                        <button class="thm-btn comment-form__btn" type="submit" onclick="registercompany()">Hesap Oluştur</button>
+                        <a class="text-decoration-underline" href="/auth/login">Kullanım Şartları</a><span>mızı kabul etmiş sayılırsın.</span>
+                        <br>
+                        <br>
+                        <span>Zaten bir hesabın var mı?</span><a class="ms-2 text-decoration-underline" href="/auth/login">Oturum aç</a>
                         
                     
                 </div>
@@ -51,21 +54,21 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
                                 <div class="comment-form__input-box">
-                                    <input type="text" placeholder="Firma Adı" name="name">
+                                    <input type="text" placeholder="Firma Adı" id="company">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
                                 <div class="comment-form__input-box">
-                                    <input type="text" placeholder="Telefon" name="name">
+                                    <input type="text" placeholder="Telefon" id="phone">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
                                 <div class="comment-form__input-box">
-                                    <input type="text" placeholder="Web Sitesi" name="name">
+                                    <input type="text" placeholder="Web Sitesi" id="web">
                                 </div>
                             </div>
                         </div>
@@ -85,4 +88,33 @@
 <!--End Contact One-->
 
 
+@endsection
+
+@section('script')
+    <script>
+        function registercompany(){
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var password = $("#password").val();
+            var company = $("#company").val();
+            var phone = $("#phone").val();
+            var web = $("#web").val();
+
+            axios.post('/auth/save/company', {
+                name: name,
+                email: email,
+                password: password,
+                company: company,
+                phone: phone,
+                web: web
+            }).then((res) => {
+                toastr[res.data.type](res.data.message);
+                if(res.data.status){
+                    setInterval(() => {
+                        window.location.assign('/auth/login');
+                    }, 500);
+                }
+            })
+        }
+    </script>
 @endsection

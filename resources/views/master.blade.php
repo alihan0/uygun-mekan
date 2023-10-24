@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="/assets/vendors/vegas-slider/vegas.min.css" />
     <link rel="stylesheet" href="/assets/vendors/nice-select/nice-select.css" />
     <link rel="stylesheet" href="/assets/vendors/jquery-ui/jquery-ui.css" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css"/>
     <!-- template styles -->
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/responsive.css" />
@@ -511,10 +511,11 @@
     <script src="/assets/vendors/language-switcher/jquery.polyglot.language.switcher.js"></script>
     <script src="/assets/vendors/vegas-slider/vegas.min.js"></script>
     <script src="/assets/vendors/jquery-ui/jquery-ui.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
     <!-- template js -->
     <script src="/assets/js/script.js"></script>
-
+      @yield('script')
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
