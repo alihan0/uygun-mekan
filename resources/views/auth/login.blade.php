@@ -1,34 +1,8 @@
 @extends('master')
 
-@section('title', 'İletişim')
+@section('title', 'Oturum Aç')
     
 @section('content')
-@if($section->where('section', 'page-header')->where('status',1)->first())
- <!--Start Page Header-->
- <section class="page-header">
-    <div class="page-header__bg" style="background-image: url({{$section->where('section', 'page-header')->where('status',1)->first()->cover}});">
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="page-header__wrapper">
-                    <div class="page-header__content text-center">
-                        <h2>Bize Ulaşın</h2>
-                        <div class="page-header__menu">
-                            <ul>
-                                <li><a href="/"><i class="fas fa-home"></i></a></li>
-                                <li>İletişim</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--End Page Header-->
-@endif
-
 <!--Start Contact One-->
 <section class="contact-one contact-page">
     <div class="container">

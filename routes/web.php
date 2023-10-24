@@ -22,8 +22,9 @@ Route::controller(MainController::class)->group(function(){
     Route::get('/blog', 'blog');
     Route::get('/blog/detail/{id}', 'blog_detail');
     Route::get('/contact', 'contact');
+    Route::get('/new-place')->middleware('auth');
 });
 
 Route::controller(AuthController::class)->prefix('auth')->group(function(){
-    Route::get('/register', 'register');
+    Route::get('/login', 'login')->name('login');
 });

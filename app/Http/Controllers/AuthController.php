@@ -8,9 +8,10 @@ use Auth;
 
 class AuthController extends Controller
 {
-    public function register(){
-        return view('auth.register', [
-            'section' => Section::where('page','register')->get()
-        ]);
+    public function login(){
+        return view('auth.login');
+    }
+    public function register_company(){
+        return view('auth.register_company');
     }
 }
