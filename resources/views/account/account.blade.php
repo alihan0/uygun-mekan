@@ -58,7 +58,7 @@
                             <button class="nav-link" id="edit-profile-tab" data-bs-toggle="tab" data-bs-target="#edit-profile-tab-pane" type="button" role="tab" aria-controls="edit-profile-tab-pane" aria-selected="true">Profili Düzenle</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Şifre Değiştir</button>
+                            <button class="nav-link" id="change-password-tab" data-bs-toggle="tab" data-bs-target="#change-password-tab-pane" type="button" role="tab" aria-controls="change-password-tab-pane" aria-selected="false">Şifre Değiştir</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Faturalarım</button>
@@ -145,7 +145,32 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
+                        <div class="tab-pane fade" id="change-password-tab-pane" role="tabpanel" aria-labelledby="change-password-tab" tabindex="0">
+                            <div class="row pt-4">
+                                <div class="col-8">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <form action="javascript:;" class="comment-one__form" id="profileForm">
+                                                <div class="mb-3">
+                                                  <label for="password" class="form-label">Mevcut Şifre:</label>
+                                                  <input type="password" class="form-control" id="password" name="password">
+                                                </div>
+                                                <div class="mb-3">
+                                                  <label for="newpass" class="form-label">Yeni Şifre:</label>
+                                                  <input type="password" class="form-control" id="newpass" name="newpass">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="repass" class="form-label">Şifre Tekrar:</label>
+                                                    <input type="password" class="form-control" id="repass" name="repass">
+                                                  </div>
+                                               
+                                                <button type="submit" class="btn btn-primary" onclick="changePassword()">Güncelle</button>
+                                              </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
                         </div>
                 </div>
@@ -164,6 +189,20 @@
                     setInterval(() => {
                         window.location.reload();
                     }, 500);
+                }
+            });
+        }
+        function changePassword(){
+            var password = $("#password").val();
+            var newpass = $("#newpass").val();
+            var repass = $("#repass").val();
+
+            axios.post('/auth/edit/password', {password: password, newpass: newpass, repass: repass}).then((res)=>{
+                toastr[res.data.type](res.data.message);
+                if(res.data.status){
+                    setInterval(() => {
+                        window.location.reload();
+                    },500);
                 }
             });
         }

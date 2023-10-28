@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Section;
 use App\Models\User;
 use Hash;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -152,14 +153,20 @@ class AuthController extends Controller
     /**
      * Logout the user and redirect to the login page.
      *
-     * @throws Some_Exception_Class description of exception
-     * @return Some_Return_Value
+     *  description of exception
+     * 
      */
     public function logout(){
         Auth::logout();
         return redirect()->route('login');
     }
 
+    /**
+     * Edit the user profile.
+     *
+     * @param Request $request The HTTP request object.
+     * @return JsonResponse The JSON response.
+     */
     public function edit_profile(Request $request){
         if(empty($request->email)){
             return response()->json(["type" => "warning", "message" => "Lütfen e-posta adresi girin!"]);
@@ -181,4 +188,27 @@ class AuthController extends Controller
             }
         }
     }
+
+    public function edit_password(Request $request){
+        if(empty($request->password) || empty($request->newpass) || empty($request->repass)){
+            return response()->json(["type" => "warning", "message" => "Lütfen boş alan bırakmayın!"]);
+        }else{
+            $user = Auth::user();
+    
+            if(!Hash::check($request->password, $user->password)){
+                return response()->json(["type" => "warning", "message" => "Mevcut şifre hatalı!"]);
+            }elseif($request->newpass != $request->repass){
+                return response()->json(["type" => "warning", "message" => "Şifreler uyuşmuyor!"]);
+            }else{
+                $user->password = Hash::make($request->newpass);
+    
+                if($user->save()){
+                    return response()->json(["type" => "success", "message" => "Şifre güncellendi!", "status" => true]);
+                }else{
+                    return response()->json(["type" => "warning", "message" => "Şifre güncellenirken hata oluştu!"]);
+                }
+            }
+        }
+    }
+    
 }
