@@ -23,6 +23,7 @@ Route::controller(MainController::class)->group(function(){
     Route::get('/blog/detail/{id}', 'blog_detail');
     Route::get('/contact', 'contact');
     Route::get('/new-place')->middleware('auth');
+    Route::get('/account', 'account')->middleware('auth');
 });
 
 Route::controller(AuthController::class)->prefix('auth')->group(function(){

@@ -8,6 +8,8 @@ use App\Models\Place;
 use App\Models\Post;
 use App\Models\Section;
 use App\Models\Slider;
+use App\Models\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -113,6 +115,13 @@ class MainController extends Controller
     public function contact(){
         return view('main.contact', [
             'section' => Section::where('page','contact')->get()
+        ]);
+    }
+
+    public function account(){
+        return view('account.account', [
+            'section' => Section::where('page','account')->get(),
+            'user' => User::find(Auth::user()->id)
         ]);
     }
 }
