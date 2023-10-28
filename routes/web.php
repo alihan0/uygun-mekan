@@ -33,4 +33,5 @@ Route::controller(AuthController::class)->prefix('auth')->group(function(){
     Route::post('/save/company', 'save_company');
     Route::post('/logincontrol', 'login_control');
     Route::get('/logout', 'logout');
+    Route::post('/edit/profile', 'edit_profile');
 });

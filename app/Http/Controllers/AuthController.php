@@ -149,8 +149,36 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * Logout the user and redirect to the login page.
+     *
+     * @throws Some_Exception_Class description of exception
+     * @return Some_Return_Value
+     */
     public function logout(){
         Auth::logout();
         return redirect()->route('login');
+    }
+
+    public function edit_profile(Request $request){
+        if(empty($request->email)){
+            return response()->json(["type" => "warning", "message" => "Lütfen e-posta adresi girin!"]);
+        }elseif(!filter_var($request->email, FILTER_VALIDATE_EMAIL)){
+            return response()->json(["type" => "warning", "message" => "Lütfen geçerli bir e-posta adresi girin!"]);
+        }elseif(User::where('email',$request->email)->first()){
+            return response()->json(["type" => "warning", "message" => "E-posta zaten kayıtlı!"]);
+        }else{
+            $user = Auth::user();
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->phone = $request->phone;
+            $user->company = $request->company;
+            $user->web = $request->web;
+            if($user->save()){
+                return response()->json(["type" => "success", "message" => "Profil bilgileri güncellendi!", "status" => true]);
+            }else{
+                return response()->json(["type" => "warning", "message" => "Profil bilgileri güncellenirken hata oluştu!"]);
+            }
+        }
     }
 }
