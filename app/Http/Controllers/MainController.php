@@ -54,8 +54,7 @@ class MainController extends Controller
         $category = Categories::where('slug',$slug)->first();
         $places = Place::where(function($query) use ($category) {
             $query->where('status', 2)
-                    ->where('main_category', $category->id)
-                    ->orWhere('sub_category', $category->id);
+                    ->where('category', $category->id);
         })->get();
 
         if($sort == "az"){

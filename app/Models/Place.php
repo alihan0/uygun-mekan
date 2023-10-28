@@ -12,7 +12,7 @@ class Place extends Model
     protected $table = "places";
 
     public function MainCategory(){
-        return $this->hasONe(Categories::class, 'id', 'main_category');
+        return $this->hasONe(Categories::class, 'id', 'category');
     }
     public function Features()
     {
