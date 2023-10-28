@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Comment;
+use App\Models\Feature;
 use App\Models\Place;
 use App\Models\Post;
 use App\Models\Section;
@@ -118,10 +119,19 @@ class MainController extends Controller
         ]);
     }
 
+    /**
+     * Renders the account view with data.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function account(){
         return view('account.account', [
             'section' => Section::where('page','account')->get(),
             'user' => User::find(Auth::user()->id)
         ]);
+    }
+
+    public function new_place(){
+        return view('main.new_place', ['features' => Feature::all()]);
     }
 }

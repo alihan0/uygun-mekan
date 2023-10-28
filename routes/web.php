@@ -22,7 +22,7 @@ Route::controller(MainController::class)->group(function(){
     Route::get('/blog', 'blog');
     Route::get('/blog/detail/{id}', 'blog_detail');
     Route::get('/contact', 'contact');
-    Route::get('/new-place')->middleware('auth');
+    Route::get('/new-place', 'new_place')->middleware('auth');
     Route::get('/account', 'account')->middleware('auth');
 });
 
