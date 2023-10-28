@@ -61,10 +61,10 @@
                             <button class="nav-link" id="change-password-tab" data-bs-toggle="tab" data-bs-target="#change-password-tab-pane" type="button" role="tab" aria-controls="change-password-tab-pane" aria-selected="false">Şifre Değiştir</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Faturalarım</button>
+                            <button class="nav-link" id="invoices-tab" data-bs-toggle="tab" data-bs-target="#invoices-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Faturalarım</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Ödemelerim</button>
+                            <button class="nav-link" id="payments-tab" data-bs-toggle="tab" data-bs-target="#payments-tab-pane" type="button" role="tab" aria-controls="payments-tab-pane" aria-selected="false">Ödemelerim</button>
                         </li>
                         
                         </ul>
@@ -171,7 +171,54 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
+                        <div class="tab-pane fade" id="invoices-tab-pane" role="tabpanel" aria-labelledby="invoices-tab" tabindex="0">
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <div class="card-">
+                                        <div class="card-body">
+                                            <table class="table">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Oluşturulma Tarihi</th>
+                                                    <th scope="col">Ödeme Tarihi</th>
+                                                    <th scope="col">Son Ödeme Tarihi</th>
+                                                    <th scope="col">Tutar</th>
+                                                    <th scope="col">Durum</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  @foreach ($user->Invoices as $inv)
+                                                      <tr>
+                                                        <td>
+                                                            {{$inv->id}}
+                                                        </td>
+                                                        <td>
+                                                            {{$inv->created_at}}
+                                                        </td>
+                                                        <td>
+                                                            {{$inv->payment_date ?? "-"}}
+                                                        </td>
+                                                        <td>
+                                                            {{$inv->last_payment_date}}
+                                                        </td>
+                                                        <td>
+                                                            {{$inv->amount}}₺
+                                                        </td>
+                                                        <td>
+                                                            {!! $inv->status == 1 ? '<span class="badge bg-warning">Bekliyor</span>' : ($inv->status == 2 ? '<span class="badge bg-success">Ödendi</span>' : '<span class="badge bg-danger">İptal Edildi</span>') !!}
+
+                                                        </td>
+                                                      </tr>
+                                                  @endforeach
+                                                </tbody>
+                                              </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="payments-tab-pane" role="tabpanel" aria-labelledby="payments-tab" tabindex="0">payments</div>
                         </div>
                 </div>
             </div>
