@@ -218,7 +218,57 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="payments-tab-pane" role="tabpanel" aria-labelledby="payments-tab" tabindex="0">payments</div>
+                        <div class="tab-pane fade" id="payments-tab-pane" role="tabpanel" aria-labelledby="payments-tab" tabindex="0">
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <div class="card-">
+                                        <div class="card-body">
+                                            <table class="table">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Fatura</th>
+                                                    <th scope="col">Tutar</th>
+                                                    <th scope="col">Ödeme Yöntemi</th>
+                                                    <th scope="col">Ödeme Tarihi</th>
+                                                    <th scope="col">Kart</th>
+                                                    <th scope="col">Durum</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  @foreach ($user->Payments as $payment)
+                                                      <tr>
+                                                        <td>
+                                                            {{$payment->id}}
+                                                        </td>
+                                                        <td>
+                                                            {{$payment->invoice}}
+                                                        </td>
+                                                        <td>
+                                                            {{$payment->amount}}₺
+                                                        </td>
+                                                        <td>
+                                                            {{$payment->payment_way == "1" ? "Kredi Kartı" : "-"}}
+                                                        </td>
+                                                        <td>
+                                                            {{$payment->created_at}}
+                                                        </td>
+                                                        <td>
+                                                            {{$payment->card_number}}
+                                                        </td>
+                                                        <td>
+                                                            {!! $payment->status == 1 ? '<span class="badge bg-warning">Bekliyor</span>' : ($inv->status == 2 ? '<span class="badge bg-success">Onaylandı</span>' : '<span class="badge bg-danger">Reddedildi</span>') !!}
+
+                                                        </td>
+                                                      </tr>
+                                                  @endforeach
+                                                </tbody>
+                                              </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                 </div>
             </div>
