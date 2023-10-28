@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\Comment;
 use App\Models\Feature;
+use App\Models\FeatureAttachment;
 use App\Models\Place;
 use App\Models\Post;
 use App\Models\Section;
@@ -12,6 +13,7 @@ use App\Models\Slider;
 use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class MainController extends Controller
 {
@@ -131,7 +133,75 @@ class MainController extends Controller
         ]);
     }
 
+    public function upload_cover(Request $request) {
+        if ($request->hasFile('cover')) {
+            $path = $request->file('cover')->store('public/covers');
+            $url = asset(str_replace('public', 'storage', $path));
+            return response()->json(["type" => "success", "message" => "Kapak başarıyla yüklendi", "url" => $url, "status" => true], 200);
+        }
+        return response()->json(["type" => "warning", "message" => "Dosya yüklenirken bir hata oluştu."], 500);
+    }
+    
     public function new_place(){
         return view('main.new_place', ['features' => Feature::all()]);
+    }
+    public function place_save(Request $request){
+        if(empty($request->category) || empty($request->title) || empty($request->detail) || empty($request->cover) || empty($request->web) || empty($request->phone) || empty($request->capacity) || empty($request->address)){
+            return response()->json(["type" => "warning", "message" => "* ile işaretlenen alanları doldurmak zorundasınız"]);
+        }elseif(empty($request->monday_open_time) || empty($request->monday_close_time) || empty($request->tuesday_open_time) || empty($request->tuesday_close_time) || empty($request->wednesday_open_time) || empty($request->wednesday_close_time) || empty($request->thursday_open_time) || empty($request->thursday_close_time) || empty($request->friday_open_time) || empty($request->friday_close_time) || empty($request->saturday_open_time) || empty($request->saturday_close_time) || empty($request->sunday_open_time) || empty($request->sunday_close_time)){
+            return response()->json(["type" => "warning", "message" => "Mekanın açılış ve kapanış saatlerini belirtin.",
+            "days" => $request->sunday_close_time
+        ]);
+        }elseif(empty($request->features)){
+            return response()->json(["type" => "warning", "message" => "Mekanın özelliklerini belirtin."]);
+        }else{
+            $place = new Place;
+            $place->category = $request->category;
+            $place->title = trim($request->title);
+            $place->detail = trim($request->detail);
+            $place->cover = $request->cover;
+            $place->website = trim($request->web);
+            $place->phone = $request->phone;
+            $place->email = $request->email;
+            $place->address = $request->address;
+            $place->facebook = $request->facebook;
+            $place->twitter = $request->twitter;
+            $place->instagram = $request->instagram;
+            $place->capacity = $request->capacity;
+            $place->monday_open_time = $request->monday_open_time;
+            $place->monday_close_time = $request->monday_close_time;
+            $place->tuesday_open_time = $request->tuesday_open_time;
+            $place->tuesday_close_time = $request->tuesday_close_time;
+            $place->wednesday_open_time = $request->wednesday_open_time;
+            $place->wednesday_close_time = $request->wednesday_close_time;
+            $place->thursday_open_time = $request->thursday_open_time;
+            $place->thursday_close_time = $request->thursday_close_time;
+            $place->friday_open_time = $request->friday_open_time;
+            $place->friday_close_time = $request->friday_close_time;
+            $place->saturday_open_time = $request->saturday_open_time;
+            $place->saturday_close_time = $request->saturday_close_time;
+            $place->sunday_open_time = $request->sunday_open_time;
+            $place->sunday_close_time = $request->sunday_close_time;
+            $place->status = 1;
+            $place->showcase = 0;
+            $place->tags = $request->tags;
+            $place->slug = Str::slug($request->title, '-');
+            $place->owner = Auth::user()->id;
+            if($place->save()){
+                $features = explode(',', $request->features);
+
+                foreach ($features as $feature) {
+                    $attach = new FeatureAttachment;
+                    $attach->feature = $feature;
+                    $attach->place = $place->id;
+                    if(!$attach->save()){
+                        return response()->json(["type" => "warning", "message" => "Özellik kaydedilemedi!"]);
+                    }
+                }
+                return response()->json(["type" => "success", "message" => "Mekan başarıyla kaydedildi!"]);
+            }else{
+                return response()->json(["type" => "danger", "message" => "Mekan kaydedilemedi!"]);
+            }
+        }
     }
 }

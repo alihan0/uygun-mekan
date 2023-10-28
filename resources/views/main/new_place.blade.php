@@ -22,7 +22,7 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-6">
                                 <div class="">
-                                    <label for="category" class="form-label">Kategori:</label>
+                                    <label for="category" class="form-label">Kategori: *</label>
                                     <div class="select-box">
                                         <select class="selectmenu border wide mb-4 rounded" id="category">
                                             <option value="0" selected="selected">Kategori Seç</option>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
-                                <label for="title" class="form-label">Başlık:</label>
+                                <label for="title" class="form-label">Başlık: *</label>
                                 <div class="comment-form__input-box">
                                     <input type="text" placeholder="Mekanınızın adı" id="title">
                                 </div>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
-                                <label for="detail" class="form-label">Detaylar:</label>
+                                <label for="detail" class="form-label">Detaylar: *</label>
                                 <div class="comment-form__input-box">
                                     <textarea id="detail" cols="30" rows="10" placeholder="Mekanınızdan kısaca bahsedin..."></textarea>
                                 </div>
@@ -52,7 +52,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
-                                <label for="cover" class="form-label">Kapak Fotoğrafı:</label>
+                                <label for="cover" class="form-label">Kapak Fotoğrafı: *</label>
                                 <div class="comment-form__input-box">
                                     <input type="file" id="cover" style="position: relative;
                                     display: block;
@@ -71,13 +71,16 @@
                                     border-radius: 5px;
                                     transition: all 500ms ease;
                                     font-family: var(--thm-font);
-                                    outline: none;">
+                                    outline: none;"
+                                    onchange="uploadCover()"
+                                    >
+                                    <input type="hidden" id="cover_url">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
-                                <label for="web" class="form-label">Web Siteniz:</label>
+                                <label for="web" class="form-label">Web Siteniz: *</label>
                                 <div class="comment-form__input-box">
                                     <input type="text" placeholder="Mekanınıza ait web sitesi" id="web">
                                 </div>
@@ -85,7 +88,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
-                                <label for="phone" class="form-label">Telefon:</label>
+                                <label for="phone" class="form-label">Telefon: *</label>
                                 <div class="comment-form__input-box">
                                     <input type="text" placeholder="Mekanınızın telefon numarası" id="phone">
                                 </div>
@@ -101,7 +104,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
-                                <label for="address" class="form-label">Mekanın Adresi:</label>
+                                <label for="address" class="form-label">Mekanın Adresi: *</label>
                                 <div class="comment-form__input-box">
                                     <input type="text" placeholder="Mekanınızın adresi" id="address">
                                 </div>
@@ -133,7 +136,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-lg-6 col-md-6">
-                                <label for="capacity" class="form-label">Kapasite:</label>
+                                <label for="capacity" class="form-label">Kapasite: *</label>
                                 <div class="comment-form__input-box">
                                     <input type="text" placeholder="Mekanınızın aynı anda kapasitesi" id="capacity">
                                 </div>
@@ -231,7 +234,7 @@
                                         </div>
                                         <div class="col-6 d-flex align-items-center">
                                             <span class="pe-2">Kapanış:</span>
-                                            <input type="time" style="height:30px;padding:5px !important;" id="firday_close_time">
+                                            <input type="time" style="height:30px;padding:5px !important;" id="friday_close_time">
                                         </div>
                                     </div>
                                 </div>
@@ -257,18 +260,15 @@
                                         </div>
                                         <div class="col-6 d-flex align-items-center">
                                             <span class="pe-2">Kapanış:</span>
-                                            <input type="time" style="height:30px;padding:5px !important;" id="sunday_open_time">
+                                            <input type="time" style="height:30px;padding:5px !important;" id="sunday_close_time">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <input type="hidden" id="selected-features">
+                        <button class="btn btn-primary float-end mt-5" id="savePlaceButton" onclick="savePlace()"><i class="fas fa-plus"></i> Mekanı Kaydet</button>
                     </div>
-                    
-                        
-                <input type="hidden" id="selected-features">
-                        
-                    
                 </div>
             </div>
             
@@ -306,6 +306,95 @@
                 selectedFeaturesInput.value = selectedFeatures.join(',');
             });
         });
+        
     });
+
+    function savePlace(){
+        var category = $("#category").val();
+        var title  = $("#title").val();
+        var detail = $("#detail").val();
+        var cover = $("#cover_url").val();
+        var web = $("#web").val();
+        var phone = $("#phone").val();
+        var email = $("#email").val();
+        var address = $("#address").val();
+        var facebook = $("#facebook").val();
+        var twitter = $("#twitter").val();
+        var instagram = $("#instagram").val();
+        var capacity = $("#capacity").val();
+        var tags = $("#tags").val();
+        var features = $("#selected-features").val();
+        var monday_open_time = $("#monday_open_time").val();
+        var monday_close_time = $("#monday_close_time").val();
+        var tuesday_open_time = $("#tuesday_open_time").val();
+        var tuesday_close_time = $("#tuesday_close_time").val();
+        var wednesday_open_time = $("#wednesday_open_time").val();
+        var wednesday_close_time = $("#wednesday_close_time").val();
+        var thursday_open_time = $("#thursday_open_time").val();
+        var thursday_close_time = $("#thursday_close_time").val();
+        var friday_open_time = $("#friday_open_time").val();
+        var friday_close_time = $("#friday_close_time").val();
+        var saturday_open_time = $("#saturday_open_time").val();
+        var saturday_close_time = $("#saturday_close_time").val();
+        var sunday_open_time = $("#sunday_open_time").val();
+        var sunday_close_time = $("#sunday_close_time").val();
+
+        axios.post('/place/save', {
+            category: category,
+            title: title,
+            detail: detail,
+            cover: cover,
+            web: web,
+            phone: phone,
+            email: email,
+            address: address,
+            facebook: facebook,
+            twitter: twitter,
+            instagram: instagram,
+            capacity: capacity,
+            tags: tags,
+            features: features,
+            monday_open_time: monday_open_time,
+            monday_close_time: monday_close_time,
+            tuesday_open_time: tuesday_open_time,
+            tuesday_close_time: tuesday_close_time,
+            wednesday_open_time: wednesday_open_time,
+            wednesday_close_time: wednesday_close_time,
+            thursday_open_time: thursday_open_time,
+            thursday_close_time: thursday_close_time,
+            friday_open_time: friday_open_time,
+            friday_close_time: friday_close_time,
+            saturday_open_time: saturday_open_time,
+            saturday_close_time: saturday_close_time,
+            sunday_open_time: sunday_open_time,
+            sunday_close_time: sunday_close_time
+        }).then((res) => {
+            toastr[res.data.type](res.data.message);
+            if(res.data.status){
+                setInterval(() => {
+                    window.location.assign('/new-payment/'+res.data.invoice);
+                },500);
+            }
+        });
+    }
+
+    function uploadCover() {
+        var formData = new FormData();
+        var fileInput = document.getElementById('cover');
+        formData.append('cover', fileInput.files[0]);
+
+        axios.post('/upload/cover', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function (res) {
+            toastr[res.data.type](res.data.message)
+            if(res.data.status){
+                $("#cover_url").val(res.data.url)
+            }
+        });
+    }
+
 </script>
 @endsection

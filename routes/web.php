@@ -24,6 +24,8 @@ Route::controller(MainController::class)->group(function(){
     Route::get('/contact', 'contact');
     Route::get('/new-place', 'new_place')->middleware('auth');
     Route::get('/account', 'account')->middleware('auth');
+    Route::post('/place/save', 'place_save');
+    Route::post('/upload/cover', 'upload_cover');
 });
 
 Route::controller(AuthController::class)->prefix('auth')->group(function(){
