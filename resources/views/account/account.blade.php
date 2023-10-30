@@ -225,6 +225,9 @@
                                                         </td>
                                                         <td>
                                                             {!! $inv->status == 1 ? '<span class="badge bg-warning">Bekliyor</span>' : ($inv->status == 2 ? '<span class="badge bg-success">Ödendi</span>' : '<span class="badge bg-danger">İptal Edildi</span>') !!}
+                                                            @if ($inv->status == 1)
+                                                                <a href="#" class="btn btn-primary btn-sm ms-4">Öde</a>
+                                                            @endif
 
                                                         </td>
                                                       </tr>
