@@ -372,7 +372,7 @@
             toastr[res.data.type](res.data.message);
             if(res.data.status){
                 setInterval(() => {
-                    window.location.assign('/new-payment/'+res.data.invoice);
+                    window.location.assign('/account');
                 },500);
             }
         });

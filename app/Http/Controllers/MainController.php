@@ -6,12 +6,15 @@ use App\Models\Categories;
 use App\Models\Comment;
 use App\Models\Feature;
 use App\Models\FeatureAttachment;
+use App\Models\Invoice;
 use App\Models\Place;
 use App\Models\Post;
 use App\Models\Section;
 use App\Models\Slider;
+use App\Models\System;
 use App\Models\User;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -197,7 +200,23 @@ class MainController extends Controller
                         return response()->json(["type" => "warning", "message" => "Özellik kaydedilemedi!"]);
                     }
                 }
-                return response()->json(["type" => "success", "message" => "Mekan başarıyla kaydedildi!"]);
+
+                $system = System::first();
+                if($system->discounted_subs_day > 0){
+                    $amount = $system->discounted_subs_price;
+                }else{
+                    $amount = $system->subs_price;
+                }
+
+                $inv = new Invoice;
+                $inv->user = Auth::user()->id;
+                $inv->amount = $amount;
+                $inv->last_payment_date = Carbon::now()->addDays(5);
+                $inv->status = 1;
+
+                $inv->save();
+
+                return response()->json(["type" => "success", "message" => "Mekan başarıyla kaydedildi!", "status" => true]);
             }else{
                 return response()->json(["type" => "danger", "message" => "Mekan kaydedilemedi!"]);
             }
