@@ -104,7 +104,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h6 class="card-title">Ödemelerim</h6>
-                                            <h2 class="card-title">0</h2>
+                                            <h2 class="card-title">{{$user->Payments->where('status',2)->count()}}</h2>
                                         </div>
                                     </div>
                                 </div>
