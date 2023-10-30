@@ -71,17 +71,35 @@
                         <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                             <div class="row pt-4">
-                                <div class="col-8">
-                                    <div class="card">
+                                
+                                
+                                @foreach ($user->Place as $place)
+                                <div class="col-6 mb-4">
+                                    <div class="card {{$place->status == 0 ? 'bg-light' : ''}}">
                                         <div class="card-body">
-                                            <h6 class="card-title">Mekanım</h6>
+                                            <a href="/place/{{ $place->slug }}"><h6 class="card-title">{{$place->title}}</h6></a>
                                             <hr>
-                                            <div class="d-flex justify-content-between">
-                                                <span>Eklenmiş Mekan Yok. </span><a href="/new-place" class="text-decoration-underline">Hemen Mekan Ekle.</a>
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <span>{{$place->MainCategory->name}}<br>{{$place->address}} </span>
+                                                </div>
+                                                <div class="col-2">
+                                                    @if ($place->status == 0)
+                                                        <span class="badge bg-danger float-end">Reddedildi</span>
+                                                    @elseif($place->status == 1)
+                                                        <span class="badge bg-warning float-end">Beklemede</span>
+                                                    @elseif($place->status == 2)
+                                                        <span class="badge bg-success float-end">Yayında</span>
+                                                    @endif
+                                                    
+                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
+                                
                             </div>
                             <div class="row pt-4">
                                 <div class="col-4">

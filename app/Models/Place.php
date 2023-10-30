@@ -26,4 +26,6 @@ class Place extends Model
     public function Comments(){
         return $this->hasMany(Comment::class, 'place', 'id')->where('status',2);
     }
+
+
 }

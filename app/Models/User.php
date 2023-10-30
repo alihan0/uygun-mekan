@@ -50,4 +50,8 @@ class User extends Authenticatable
     public function Payments(){
         return $this->hasMany(Payments::class, 'user', 'id');
     }
+
+    public function Place(){
+        return $this->hasMany(Place::class, 'owner', 'id');
+    }
 }
