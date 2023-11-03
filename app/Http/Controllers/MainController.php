@@ -222,4 +222,14 @@ class MainController extends Controller
             }
         }
     }
+
+    public function payment($id){
+        $inv = Invoice::find($id);
+
+        if($inv && $inv->status == 1){
+            return view('main.payment', ['inv' => $inv]);
+        }else{
+            return redirect('/');
+        }
+    }
 }
