@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Comment;
+use App\Models\Contact;
 use App\Models\Invoice;
 use App\Models\Payments;
 use App\Models\Place;
@@ -349,6 +350,31 @@ class AdminController extends Controller
      /*
     *
     *   END PAYMENT CONTROLLER
+    *
+    */
+
+    /*
+    *
+    *   CONTACT CONTROLLER
+    *
+    */
+    public function contact(){
+        return view('admin.contact.list', ['contact' => Contact::orderBy('id', 'desc')->get()]);
+    }
+
+    public function remove_contact(Request $request){
+        $contact = Contact::find($request->id);
+        if(!$contact){
+            return response()->json(["type" => "error", "message" => "Sistem Hatası: Mesaj Bulunamadı!"]);
+        }else{
+            $contact->delete();
+            return response()->json(["type" => "success", "message" => "Mesaj Silindi", "status" => true]);
+        }
+    }
+
+    /*
+    *
+    *   END CONTACT CONTROLLER
     *
     */
 }
