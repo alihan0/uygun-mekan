@@ -84,7 +84,7 @@
                                     <a href="javascript:;" class="btn btn-success btn-sm" data-bs-toggle="tooltip" title="Aktifleştir" onclick="setActive({{$user->id}})"><i class="fas fa-user-check"></i></a>
                                         
                                     @endif
-                                    <a href="javascript:;" class="btn btn-danger btn-sm" data-bs-toggle="tooltip" title="Sil"><i class="fas fa-trash"></i></a>
+                                    <a href="javascript:;" class="btn btn-danger btn-sm" data-bs-toggle="tooltip" title="Sil" onclick="remove({{$user->id}})"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -117,7 +117,25 @@
     }
 
     function setActive(id){
-        alert(id)
+        axios.post('/panel/user/setActive', {id:id}).then((res) => {
+            toastr[res.data.type](res.data.message);
+            if(res.data.status){
+                setInterval(() => {
+                    window.location.reload();
+                },500)
+            }
+        })
+    }
+
+    function remove(id){
+        axios.post('/panel/user/remove', {id:id}).then((res) => {
+            toastr[res.data.type](res.data.message);
+            if(res.data.status){
+                setInterval(() => {
+                    window.location.reload();
+                },500)
+            }
+        })
     }
     </script>
 @endsection

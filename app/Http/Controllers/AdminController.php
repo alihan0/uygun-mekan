@@ -34,4 +34,33 @@ class AdminController extends Controller
             }
         }
     }
+
+    public function set_active(Request $request){
+        $user = User::find($request->id);
+        if(!$user){
+            return response()->json(["type" => "error", "message" => "Sistem Hatası: Kullanıcı Bulunamadı!".$request->id]);
+        }elseif($user->status == 1){
+            return response()->json(["type"=> "warning","message"=> "Bu kullanıcı zaten aktif"]);
+        }else{
+            $user->status = 1;
+            if($user->save()){
+                return response()->json(["type" => "success", "message" => "Kullanıcı Pasif Edildi", "status" => true]);
+            }else{
+                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Kullanıcı Pasif Edilemedi"]);
+            }
+        }
+    }
+
+    public function remove(Request $request){
+        $user = User::find($request->id);
+        if(!$user){
+            return response()->json(["type" => "error", "message" => "Sistem Hatası: Kullanıcı Bulunamadı!".$request->id]);
+        }else{
+            if($user->delete()){
+                return response()->json(["type" => "success", "message" => "Kullanıcı Silindi", "status" => true]);
+            }else{
+                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Kullanıcı silinemedi"]);
+            }
+        }
+    }
 }

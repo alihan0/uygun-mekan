@@ -47,6 +47,8 @@ Route::controller(AdminController::class)->prefix('panel')->middleware('admin')-
     // USER
     Route::get('/user', 'user');
     Route::post('/user/setPassive', 'set_passive');
+    Route::post('/user/setActive', 'set_active');
+    Route::post('/user/remove', 'remove');
 
     // CATEGORY
     Route::get('/category', 'category');
