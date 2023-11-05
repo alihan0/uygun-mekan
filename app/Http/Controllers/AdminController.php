@@ -270,7 +270,7 @@ class AdminController extends Controller
             if($place->save()){
                 return response()->json(["type" => "success", "message" => "Mekan Yayına Alındı", "status" => true]);
             }else{
-                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Mekan silinemedi"]);
+                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Mekan Yayına Alınamadı"]);
             }
         }
     }
@@ -284,7 +284,40 @@ class AdminController extends Controller
             if($place->save()){
                 return response()->json(["type" => "success", "message" => "Mekan Yayından Kaldırıldı", "status" => true]);
             }else{
-                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Mekan silinemedi"]);
+                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Mekan Yayından Kaldırılamadı"]);
+            }
+        }
+    }
+
+    public function set_showcase(Request $request){
+        $place = Place::find($request->id);
+        if(!$place){
+            return response()->json(["type" => "error", "message" => "Sistem Hatası: Mekan Bulunamadı!"]);
+        }else{
+
+            if($place->status != 2){
+                return response()->json(["type" => "warning", "message" => "Önce mekanı yayına almalısınız."]);
+            }
+
+            $place->showcase = 1;
+            if($place->save()){
+                return response()->json(["type" => "success", "message" => "Mekan Vitrine Alındı", "status" => true]);
+            }else{
+                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Mekan Vitrene Alınamadı"]);
+            }
+        }
+    }
+
+    public function set_unshowcase(Request $request){
+        $place = Place::find($request->id);
+        if(!$place){
+            return response()->json(["type" => "error", "message" => "Sistem Hatası: Mekan Bulunamadı!"]);
+        }else{
+            $place->showcase = 0;
+            if($place->save()){
+                return response()->json(["type" => "success", "message" => "Mekan Vitrinden Kaldırıldı", "status" => true]);
+            }else{
+                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Mekan Vitrinden Kaldırılamadı"]);
             }
         }
     }

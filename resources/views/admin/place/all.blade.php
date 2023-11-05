@@ -62,11 +62,20 @@
                                           <li><a class="dropdown-item" href="/panel/place/detail/{{$item->id}}">Görüntüle</a></li>
                                           @if ($item->status == 1)
                                           <li><a class="dropdown-item" href="javascript:;" onclick="setPublish({{$item->id}})">Yayınla</a></li>
-                                          <li><a class="dropdown-item" href="#" onclick="setUnpublish({{$item->id}})">Yayınlama</a></li>
+                                          <li><a class="dropdown-item" href="javascript:;" onclick="setUnpublish({{$item->id}})">Yayınlama</a></li>
                                           @else
-                                          <li><a class="dropdown-item" href="#" onclick="setUnpublish({{$item->id}})">Yayından Kaldır</a></li>
-                                          <li><a class="dropdown-item" href="#" onclick="setPublish({{$item->id}})">Yayına Al</a></li>
+                                          <li><a class="dropdown-item" href="javascript:;" onclick="setUnpublish({{$item->id}})">Yayından Kaldır</a></li>
+                                          <li><a class="dropdown-item" href="javascript:;" onclick="setPublish({{$item->id}})">Yayına Al</a></li>
                                           @endif
+
+                                          @if ($item->showcase == 1)
+                                          <li><a class="dropdown-item" href="javascript:;" onclick="setUnshowcase({{$item->id}})">Vitrinden Kaldır</a></li>
+                                              
+                                          @else
+                                          <li><a class="dropdown-item" href="javascript:;" onclick="setShowcase({{$item->id}})">Vitrine Getir</a></li>
+                                              
+                                          @endif
+
                                           <li><a class="dropdown-item" href="javascript:;" onclick="remove({{$item->id}})">Sil</a></li>
                                         </ul>
                                       </div>
@@ -117,6 +126,27 @@
             if(res.data.status){
                 setInterval(() => {
                     window.location.reload();
+                },500)
+            }
+        })
+    }
+
+    function setShowcase(id){
+        axios.post('/panel/place/setShowcase', {id:id}).then((res) => {
+            toastr[res.data.type](res.data.message);
+            if(res.data.status){
+                setInterval(() => {
+                    window.location.reload();
+                },500)
+            }
+        })
+    }
+    function setUnshowcase(id){
+        axios.post('/panel/place/setUnshowcase', {id:id}).then((res) => {
+            toastr[res.data.type](res.data.message);
+            if(res.data.status){
+                setInterval(() => {
+                   window.location.reload();
                 },500)
             }
         })
