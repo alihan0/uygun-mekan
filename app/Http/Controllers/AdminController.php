@@ -91,4 +91,31 @@ class AdminController extends Controller
             }
         }
     }
+
+    public function new(){
+        return view('admin.user.new');
+    }
+
+    public function create(Request $request){
+        if(empty($request->name) || empty($request->email) || empty($request->password)){
+            return response()->json(['type'=> 'warning', 'message'=> 'Tüm alanları doldurunuz', "status" => false]);
+        }elseif($request->type == 0){
+            return response()->json(['type'=> 'warning', 'message'=> 'Kullanıcı tipini seçiniz', "status" => false]);
+        }else{
+            $user = new User();
+            $user->type = $request->type;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $user->phone = $request->phone;
+            $user->company = $request->company;
+            $user->web = $request->web;
+            $user->status = 1;
+            if($user->save()){
+                return response()->json(['type'=> 'success', 'message'=> 'Kullanıcı oluşturuldu', "status" => true, "id" => $user->id]);
+            }else{
+                return response()->json(['type'=> 'danger', 'message'=> 'Kullanıcı oluşturulamadı', "status" => false]);
+            }
+        }
+    }
 }
