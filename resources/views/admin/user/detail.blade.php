@@ -73,6 +73,57 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Mekanlar</h4>
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Kategori</th>
+                                            <th scope="col">Başlık</th>
+                                            <th scope="col">Web Site</th>
+                                            <th scope="col">Vitrin</th>
+                                            <th scope="col">Durum</th>
+                                            <th scope="col">İşlem</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($places as $place)
+                                                <tr>
+                                                    <td>
+                                                        {{$place->id}}
+                                                    </td>
+                                                    <td>
+                                                        {{$place->MainCategory->name}}
+                                                    </td>
+                                                    <td>
+                                                        {{$place->title}}
+                                                    </td>
+                                                    <td>
+                                                        {{$place->website}}
+                                                    </td>
+                                                    <td>
+                                                        @if ($place->showcase == 1)
+                                                            <span class="badge bg-success">EVET</span>
+                                                        @else
+                                                        <span class="badge bg-warning">HAYIR</span>
+                                                            
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($place->status == 1)
+                                                        <span class="badge bg-warning">Bekliyor</span>
+                                                        @elseif($place->status == 2)
+                                                        <span class="badge bg-success">Yayında</span>
+                                                        @else
+                                                        <span class="badge bg-danger">Yayınlanmıyor</span>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        <a href="/panel/place/detail/{{$place->id}}" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" title="Detay"><i class="fas fa-eye"></i></a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                      </table>
                                 </div>
                             </div>
                         </div>

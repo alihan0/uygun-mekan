@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Place;
 use App\Models\User;
 use Hash;
 use Illuminate\Http\Request;
@@ -70,7 +71,7 @@ class AdminController extends Controller
         if(!$user){
             return response()->json(["type" => "error", "message" => "Sistem Hatası: Kullanıcı Bulunamadı!".$id]);
         }else{
-            return view('admin.user.detail', ["user" => $user]);
+            return view('admin.user.detail', ["user" => $user, "places" => Place::where('owner', $user->id)->get()]);
         }
     }
 
