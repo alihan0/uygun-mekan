@@ -260,4 +260,32 @@ class AdminController extends Controller
             }
         }
     }
+
+    public function set_publish(Request $request){
+        $place = Place::find($request->id);
+        if(!$place){
+            return response()->json(["type" => "error", "message" => "Sistem Hatası: Mekan Bulunamadı!"]);
+        }else{
+            $place->status = 2;
+            if($place->save()){
+                return response()->json(["type" => "success", "message" => "Mekan Yayına Alındı", "status" => true]);
+            }else{
+                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Mekan silinemedi"]);
+            }
+        }
+    }
+
+    public function set_unpublish(Request $request){
+        $place = Place::find($request->id);
+        if(!$place){
+            return response()->json(["type" => "error", "message" => "Sistem Hatası: Mekan Bulunamadı!"]);
+        }else{
+            $place->status = 0;
+            if($place->save()){
+                return response()->json(["type" => "success", "message" => "Mekan Yayından Kaldırıldı", "status" => true]);
+            }else{
+                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Mekan silinemedi"]);
+            }
+        }
+    }
 }

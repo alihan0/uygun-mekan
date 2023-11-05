@@ -65,7 +65,9 @@ Route::controller(AdminController::class)->prefix('panel')->middleware('admin')-
     // PLACES
     Route::get('/place', 'place');
     Route::post('/place/remove', 'remove_place');
-    
+    Route::post('/place/setPublish', 'set_publish');
+    Route::post('/place/setUnpublish', 'set_unpublish');
+
     // PAYMENT
     Route::get('/payment', 'payment');
 

@@ -61,12 +61,11 @@
                                         <ul class="dropdown-menu">
                                           <li><a class="dropdown-item" href="/panel/place/detail/{{$item->id}}">Görüntüle</a></li>
                                           @if ($item->status == 1)
-                                          <li><a class="dropdown-item" href="#">Yayınla</a></li>
-                                          <li><a class="dropdown-item" href="#">Yayınlama</a></li>
+                                          <li><a class="dropdown-item" href="javascript:;" onclick="setPublish({{$item->id}})">Yayınla</a></li>
+                                          <li><a class="dropdown-item" href="#" onclick="setUnpublish({{$item->id}})">Yayınlama</a></li>
                                           @else
-                                          <li><a class="dropdown-item" href="#">Yayından Kaldır</a></li>
-                                          <li><a class="dropdown-item" href="#">Yayına Al</a></li>
-                                              
+                                          <li><a class="dropdown-item" href="#" onclick="setUnpublish({{$item->id}})">Yayından Kaldır</a></li>
+                                          <li><a class="dropdown-item" href="#" onclick="setPublish({{$item->id}})">Yayına Al</a></li>
                                           @endif
                                           <li><a class="dropdown-item" href="javascript:;" onclick="remove({{$item->id}})">Sil</a></li>
                                         </ul>
@@ -93,6 +92,27 @@
 
     function remove(id){
         axios.post('/panel/place/remove', {id:id}).then((res) => {
+            toastr[res.data.type](res.data.message);
+            if(res.data.status){
+                setInterval(() => {
+                    window.location.reload();
+                },500)
+            }
+        })
+    }
+
+    function setPublish(id){
+        axios.post('/panel/place/setPublish', {id:id}).then((res) => {
+            toastr[res.data.type](res.data.message);
+            if(res.data.status){
+                setInterval(() => {
+                    window.location.reload();
+                },500)
+            }
+        })
+    }
+    function setUnpublish(id){
+        axios.post('/panel/place/setUnpublish', {id:id}).then((res) => {
             toastr[res.data.type](res.data.message);
             if(res.data.status){
                 setInterval(() => {
