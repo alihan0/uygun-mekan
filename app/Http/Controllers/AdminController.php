@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Hash;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -60,6 +61,29 @@ class AdminController extends Controller
                 return response()->json(["type" => "success", "message" => "Kullanıcı Silindi", "status" => true]);
             }else{
                 return response()->json(["type" => "danger", "message" => "Sistem Hatası: Kullanıcı silinemedi"]);
+            }
+        }
+    }
+
+    public function detail($id){
+        $user = User::find($id);
+        if(!$user){
+            return response()->json(["type" => "error", "message" => "Sistem Hatası: Kullanıcı Bulunamadı!".$id]);
+        }else{
+            return view('admin.user.detail', ["user" => $user]);
+        }
+    }
+
+    public function set_password(Request $request){
+        $user = User::find($request->id);
+        if(!$user){
+            return response()->json(["type" => "error", "message" => "Sistem Hatası: Kullanıcı Bulunamadı!".$request->id]);
+        }else{
+            $user->password = Hash::make($request->passowrd);
+            if($user->save()){
+                return response()->json(["type" => "success", "message" => "Şifre Değiştirildi", "status" => true]);
+            }else{
+                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Şifre Değiştirilemedi"]);
             }
         }
     }

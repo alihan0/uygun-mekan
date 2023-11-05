@@ -82,7 +82,6 @@
                                         <a href="javascript:;" class="btn btn-secondary btn-sm" data-bs-toggle="tooltip" title="Pasifleştir" onclick="setPassive({{$user->id}})"><i class="fas fa-user-slash"></i></a>
                                     @else
                                     <a href="javascript:;" class="btn btn-success btn-sm" data-bs-toggle="tooltip" title="Aktifleştir" onclick="setActive({{$user->id}})"><i class="fas fa-user-check"></i></a>
-                                        
                                     @endif
                                     <a href="javascript:;" class="btn btn-danger btn-sm" data-bs-toggle="tooltip" title="Sil" onclick="remove({{$user->id}})"><i class="fas fa-trash"></i></a>
                                 </td>
