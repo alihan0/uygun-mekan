@@ -19,7 +19,7 @@ class CheckAdmin
             return $next($request);
         }
 
-        return redirect('/admin/login'); // veya başka bir yönlendirme yapabilirsiniz
+        return redirect('/auth/logout'); // veya başka bir yönlendirme yapabilirsiniz
     }
 
 }

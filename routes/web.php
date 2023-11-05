@@ -40,6 +40,6 @@ Route::controller(AuthController::class)->prefix('auth')->group(function(){
     Route::post('/edit/password', 'edit_password');
 });
 
-Route::controller(AdminController::class)->prefix('admin')->middleware('admin')->group(function(){
+Route::controller(AdminController::class)->prefix('panel')->middleware('admin')->group(function(){
     Route::get('/', 'dashboard');
 });
