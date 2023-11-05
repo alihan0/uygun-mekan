@@ -118,4 +118,33 @@ class AdminController extends Controller
             }
         }
     }
+
+    public function edit($id){
+        $user = User::find($id);
+        if(!$user){
+            return response()->json(["type" => "error", "message" => "Sistem Hatası: Kullanıcı Bulunamadı!"]);
+        }else{
+            return view('admin.user.edit', ["user" => $user]);
+        }
+    }
+    public function update(Request $request){
+        if(empty($request->name) || empty($request->email)){
+            return response()->json(['type'=> 'warning', 'message'=> 'Tüm alanları doldurunuz', "status" => false]);
+        }elseif($request->type == 0){
+            return response()->json(['type'=> 'warning', 'message'=> 'Kullanıcı tipini seçiniz', "status" => false]);
+        }else{
+            $user = User::find($request->id);
+            $user->type = $request->type;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->phone = $request->phone;
+            $user->company = $request->company;
+            $user->web = $request->web;
+            if($user->save()){
+                return response()->json(['type'=> 'success', 'message'=> 'Kullanıcı güncellendi', "status" => true, "id" => $user->id]);
+            }else{
+                return response()->json(['type'=> 'danger', 'message'=> 'Kullanıcı güncellenemedi', "status" => false]);
+            }
+        }
+    }
 }

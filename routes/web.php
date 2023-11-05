@@ -53,6 +53,8 @@ Route::controller(AdminController::class)->prefix('panel')->middleware('admin')-
     Route::post('/user/setPassword', 'set_password');
     Route::get('/user/new', 'new');
     Route::post('user/create', 'create');
+    Route::get('/user/edit/{id}', 'edit');
+    Route::post('/user/update', 'update');
 
     // CATEGORY
     Route::get('/category', 'category');
