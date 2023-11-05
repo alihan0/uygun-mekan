@@ -28,7 +28,7 @@
                                         {{$item->id}}
                                     </td>
                                     <td>
-                                        {{$item->main_category}}
+                                        {{$item->MainCategory->name ?? "Yok"}}
                                     </td>
                                     <td>
                                         {{$item->name}}
@@ -56,19 +56,86 @@
                                 </tr>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="editCategoryModal{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="editCategoryModal{{$item->id}}" tabindex="-1" aria-labelledby="editCategoryModal" aria-hidden="true">
                                     <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <h1 class="modal-title fs-5" id="editCategoryModal">Kategoriyi Düzenle</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                        ...
+                                            <form action="javascript:;" id="categoryEditForm{{$item->id}}">
+                                                <input type="hidden" name="id" id="id" value="{{$item->id}}">
+                                                <div class="row mb-4">
+                                                    <label for="main_category" class="col-sm-3 col-form-label">Üst Kategori</label>
+                                                    <div class="col-sm-6">
+                                                      <select name="main_category" id="main_category" class="form-control">
+                                                        <option value="0">Ana Kategori</option>
+                                                        @foreach ($categories->where('main_category',0) as $cat)
+                                                            <option {{$cat->id == $item->main_category ? "selected" : ""}} value="{{$cat->id}}">{{$cat->name}}</option>
+                                                        @endforeach
+                                                      </select>
+                                                      <div id="help" class="form-text">
+                                                        Eğer bir üst kategori seçmezseniz, bu otomatik olarak bir ana kategori olur ve menüde görüntülenmeye başlar. Ana kategori olmayan kategoriler menüde görüntülenmez.
+                                                      </div>
+                                                    </div>
+                                                </div>
+                        
+                                                <div class="row mb-4">
+                                                    <label for="name" class="col-sm-3 col-form-label">Kategori Adı</label>
+                                                    <div class="col-sm-6">
+                                                      <input type="text" class="form-control name" id="name" name="name" value="{{$item->name}}">
+                                                      <div id="help" class="form-text">
+                                                        Kategorinin sitede görünen adını girin. Kullanıcılar doğrudan bu ismi görüntüleyecek.
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-4">
+                                                    <label for="slug" class="col-sm-3 col-form-label">SEO Adı</label>
+                                                    <div class="col-sm-6">
+                                                      <input type="text" class="form-control slug" id="slug" name="slug" value="{{$item->slug}}">
+                                                      <div id="help" class="form-text">
+                                                        Kategorinin arama motorları tarafından indexlenecek olan adıdır. Buradaki isim taryıcınızın url kısmında görüntülenir. Otomatik olarak oluşturulur fakat elle değiştirmek isterseniz benzersiz olmasına, Türkçe karakter ve özel karakter kullanmamaya ve boşluk bırakmamaya dikkat edin.
+                                                      </div>
+                                                    </div>
+                                                </div>
+                        
+                                                <div class="row mb-4">
+                                                    <label for="short" class="col-sm-3 col-form-label">Kısa Adı</label>
+                                                    <div class="col-sm-6">
+                                                      <input type="text" class="form-control" id="short" name="short" value="{{$item->short_name}}">
+                                                      <div id="help" class="form-text">
+                                                        Sitenin bazı alanlarında göstermek için kısa isim.
+                                                      </div>
+                                                    </div>
+                                                </div>
+                        
+                                                <div class="row mb-4">
+                                                    <label for="icon" class="col-sm-3 col-form-label">İkon</label>
+                                                    <div class="col-sm-6">
+                                                      <input type="text" class="form-control" id="icon" name="icon" value="{{$item->icon}}">
+                                                      <div id="help" class="form-text">
+                                                        Sitenin bazı alanlarında göstermek için ikon seçin. İkon listesine <a target="_blank" href="https://fontawesome.com/v5/search?o=r&m=free">Buradan</a> ulaşabilirsiniz. Başka font servislerin de ikonlarını kullanabilirsiniz fakat önce kaynaklarını sisteme tanıtmak gerekir.
+                                                      </div>
+                                                    </div>
+                                                </div>
+                        
+                                                <div class="row mb-4">
+                                                    <label for="cover" class="col-sm-3 col-form-label">Kapak Fotoğrafı</label>
+                                                    <div class="col-sm-6">
+                                                      <input type="file" class="form-control" id="cover" name="cover" onchange="uploadCover()">
+                                                      <input type="hidden" name="cover_data" id="cover_data" value="{{$item->cover}}">
+                                                      <div id="help" class="form-text">
+                                                        Sitenin bazı alanlarında kullanılacak olan kapak fotoğrafını girin.
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </form>
                                         </div>
                                         <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vazgeç</button>
+                                        <button type="button" class="btn btn-primary" onclick="updateCategory({{$item->id}})">Kategoriyi Güncelle</button>
                                         </div>
                                     </div>
                                     </div>
@@ -91,7 +158,7 @@
                             <div class="col-sm-6">
                               <select name="main_category" id="main_category" class="form-control">
                                 <option value="0">Ana Kategori</option>
-                                @foreach ($categories as $cat)
+                                @foreach ($categories->where('main_category',0) as $cat)
                                     <option value="{{$cat->id}}">{{$cat->name}}</option>
                                 @endforeach
                               </select>
@@ -104,7 +171,7 @@
                         <div class="row mb-4">
                             <label for="name" class="col-sm-3 col-form-label">Kategori Adı</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="name" name="name">
+                              <input type="text" class="form-control name" id="name" name="name">
                               <div id="help" class="form-text">
                                 Kategorinin sitede görünen adını girin. Kullanıcılar doğrudan bu ismi görüntüleyecek.
                               </div>
@@ -113,7 +180,7 @@
                         <div class="row mb-4">
                             <label for="slug" class="col-sm-3 col-form-label">SEO Adı</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="slug" name="slug">
+                              <input type="text" class="form-control slug" id="slug" name="slug">
                               <div id="help" class="form-text">
                                 Kategorinin arama motorları tarafından indexlenecek olan adıdır. Buradaki isim taryıcınızın url kısmında görüntülenir. Otomatik olarak oluşturulur fakat elle değiştirmek isterseniz benzersiz olmasına, Türkçe karakter ve özel karakter kullanmamaya ve boşluk bırakmamaya dikkat edin.
                               </div>
@@ -187,9 +254,9 @@
             return value;
         }
 
-        $(document).on("keyup", "#name", function(){
+        $(document).on("keyup", ".name", function(){
             var formattedValue = formatSlug($(this).val());
-            $("#slug").val(formattedValue);
+            $(".slug").val(formattedValue);
         });
 
         function uploadCover() {
@@ -213,6 +280,18 @@
         function createCategory(){
             var data = $("#categoryForm").serialize();
             axios.post('/panel/category/create', data).then((res) => {
+                toastr[res.data.type](res.data.message);
+                if(res.data.status){
+                    setInterval(() => {
+                        window.location.reload();
+                    },500)
+                }
+            })
+        }
+
+        function updateCategory(id){
+            var data = $("#categoryEditForm"+id).serialize();
+            axios.post('/panel/category/update', data).then((res) => {
                 toastr[res.data.type](res.data.message);
                 if(res.data.status){
                     setInterval(() => {

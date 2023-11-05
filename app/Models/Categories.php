@@ -10,4 +10,8 @@ class Categories extends Model
     use HasFactory;
 
     protected $table = 'categories';
+
+    public function MainCategory(){
+        return $this->BelongsTo(Categories::class, 'main_category', 'id');
+    }
 }

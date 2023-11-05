@@ -200,4 +200,23 @@ class AdminController extends Controller
             return response()->json(['type'=> 'danger', 'message'=> 'Kategori oluşturulamadı', "status" => false]);
         }
     }
+
+    public function update_category(Request $request){
+        if(empty($request->name) || empty($request->slug) || empty($request->short) || empty($request->icon) || empty($request->cover_data)){
+            return response()->json(['type'=> 'warning','message'=> 'Boş alan bırakmayın']);
+        }
+
+        $category = Categories::find($request->id);
+        $category->main_category = $request->main_category;
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+        $category->short_name = $request->short;
+        $category->icon = $request->icon;
+        $category->cover = $request->cover_data;
+        if($category->save()){
+            return response()->json(['type'=> 'success', 'message'=> 'Kategori güncellendi', "status" => true]);
+        }else{
+            return response()->json(['type'=> 'danger', 'message'=> 'Kategori güncellenemedi', "status" => false]);
+        }
+    }
 }
