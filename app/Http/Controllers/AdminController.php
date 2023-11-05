@@ -232,4 +232,19 @@ class AdminController extends Controller
             }
         }
     }
+    /*
+    *
+    *   END CATEGORY CONTROLLER
+    *
+    */
+
+    /*
+    *
+    *   PLACE CONTROLLER
+    *
+    */
+    
+    public function place(){
+        return view('admin.place.all', ['places' => Place::all()]);
+    }
 }

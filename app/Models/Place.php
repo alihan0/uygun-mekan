@@ -27,5 +27,9 @@ class Place extends Model
         return $this->hasMany(Comment::class, 'place', 'id')->where('status',2);
     }
 
+    public function Owner(){
+        return $this->hasOne(User::class, 'id', 'owner');
+    }
+
 
 }
