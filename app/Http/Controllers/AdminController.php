@@ -219,4 +219,17 @@ class AdminController extends Controller
             return response()->json(['type'=> 'danger', 'message'=> 'Kategori güncellenemedi', "status" => false]);
         }
     }
+
+    public function remove_category(Request $request){
+        $category = Categories::find($request->id);
+        if(!$category){
+            return response()->json(["type" => "error", "message" => "Sistem Hatası: Kategori Bulunamadı!"]);
+        }else{
+            if($category->delete()){
+                return response()->json(["type" => "success", "message" => "Kategori Silindi", "status" => true]);
+            }else{
+                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Kategori silinemedi"]);
+            }
+        }
+    }
 }

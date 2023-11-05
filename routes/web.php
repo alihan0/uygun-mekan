@@ -60,6 +60,7 @@ Route::controller(AdminController::class)->prefix('panel')->middleware('admin')-
     Route::get('/category', 'category');
     Route::post('/category/create', 'create_category');
     Route::post('/category/update', 'update_category');
+    Route::post('/category/remove', 'remove_category');
 
     // PLACES
     Route::get('/place', 'place');

@@ -49,7 +49,7 @@
                                         <a class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editCategoryModal{{$item->id}}">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a class="btn btn-danger btn-sm">
+                                        <a class="btn btn-danger btn-sm" onclick="removeCategory({{$item->id}})">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
@@ -292,6 +292,17 @@
         function updateCategory(id){
             var data = $("#categoryEditForm"+id).serialize();
             axios.post('/panel/category/update', data).then((res) => {
+                toastr[res.data.type](res.data.message);
+                if(res.data.status){
+                    setInterval(() => {
+                        window.location.reload();
+                    },500)
+                }
+            })
+        }
+
+        function removeCategory(id){
+            axios.post('/panel/category/remove', {id:id}).then((res) => {
                 toastr[res.data.type](res.data.message);
                 if(res.data.status){
                     setInterval(() => {
