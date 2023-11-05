@@ -43,4 +43,25 @@ Route::controller(AuthController::class)->prefix('auth')->group(function(){
 Route::controller(AdminController::class)->prefix('panel')->middleware('admin')->group(function(){
     Route::get('/', 'dashboard');
     Route::get('/profile', 'profile');
+
+    // USER
+    Route::get('/user', 'user');
+
+    // CATEGORY
+    Route::get('/category', 'category');
+
+    // PLACES
+    Route::get('/place', 'place');
+
+    // PAYMENT
+    Route::get('/payment', 'payment');
+
+    // CONTACT
+    Route::get('/contact', 'contact');
+
+    // SETTINGS
+    Route::get('/settings', 'settings');
+
+    // API
+    Route::get('/api', 'api');
 });
