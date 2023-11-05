@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +27,6 @@ Route::controller(MainController::class)->group(function(){
     Route::get('/account', 'account')->middleware('auth');
     Route::post('/place/save', 'place_save');
     Route::post('/upload/cover', 'upload_cover');
-    Route::get('/payment/{id?}', 'payment');
 });
 
 Route::controller(AuthController::class)->prefix('auth')->group(function(){
@@ -38,4 +38,8 @@ Route::controller(AuthController::class)->prefix('auth')->group(function(){
     Route::get('/logout', 'logout');
     Route::post('/edit/profile', 'edit_profile');
     Route::post('/edit/password', 'edit_password');
+});
+
+Route::controller(AdminController::class)->prefix('admin')->middleware('admin')->group(function(){
+    Route::get('/', 'dashboard');
 });
