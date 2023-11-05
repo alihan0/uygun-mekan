@@ -329,4 +329,26 @@ class AdminController extends Controller
             return view('admin.place.detail', ['place' => $place]);
         }
     }
+
+     /*
+    *
+    *   END PLACE CONTROLLER
+    *
+    */
+
+     /*
+    *
+    *   PAYMENT CONTROLLER
+    *
+    */
+    
+    public function payment(){
+        return view('admin.payment.all', ['payments' => Payments::all()]);
+    }
+
+     /*
+    *
+    *   END PAYMENT CONTROLLER
+    *
+    */
 }
