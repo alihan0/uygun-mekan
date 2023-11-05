@@ -201,11 +201,11 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script> © Skote.
+                                Copyright © <script>document.write(new Date().getFullYear())</script> - <a href="https://metatige.com" target="_blank">Metatige Digital</a> | Tüm hakkları saklıdır.
                             </div>
                             <div class="col-sm-6">
                                 <div class="text-sm-end d-none d-sm-block">
-                                    Design & Develop by Themesbrand
+                                    v0.1.5
                                 </div>
                             </div>
                         </div>
