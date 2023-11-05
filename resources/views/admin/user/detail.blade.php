@@ -132,7 +132,84 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
+                                    <h4 class="card-title">Yorumlar</h4>
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Mekan</th>
+                                            <th scope="col">Yorum</th>
+                                            <th scope="col">Durum</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($comments as $comment)
+                                                <tr>
+                                                    <td>
+                                                        {{$comment->id}}
+                                                    </td>
+                                                    <td>
+                                                        {{$comment->Place->title}}
+                                                    </td>
+                                                    <td>
+                                                        {{$comment->comment}}
+                                                    </td>
+                                            
+                                                    <td>
+                                                        @if ($comment->status == 1)
+                                                        <span class="badge bg-warning">Bekliyor</span>
+                                                        @elseif($place->status == 2)
+                                                        <span class="badge bg-success">Yayında</span>
+                                                        @else
+                                                        <span class="badge bg-danger">Yayınlanmıyor</span>
+                                                        @endif
+                                                    </td>
+                                                    
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                      </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
                                     <h4 class="card-title">Faturalar</h4>
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Tutar</th>
+                                            <th scope="col">Ödeme Tarihi</th>
+                                            <th scope="col">Son Ödeme Tarihi</th>
+                                            <th scope="col">Durum</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($invoices as $inv)
+                                                <tr>
+                                                    <td>
+                                                        {{$inv->id}}
+                                                    </td>
+                                                    <td>
+                                                        {{$inv->amount}}
+                                                    </td>
+                                                    <td>
+                                                        {{$inv->payment_date}}
+                                                    </td>
+                                                    <td>
+                                                        {{$inv->last_payment_date}}
+                                                    </td>
+                                                    <td>
+                                                        {!! $inv->status == 1 ? '<span class="badge bg-warning">Bekliyor</span>' : ($inv->status == 2 ? '<span class="badge bg-success">Ödendi</span>' : '<span class="badge bg-danger">İptal Edildi</span>') !!}
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                      </table>
                                 </div>
                             </div>
                         </div>
@@ -142,6 +219,47 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Ödemeler</h4>
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Fatura</th>
+                                            <th scope="col">Tutar</th>
+                                            <th scope="col">Ödeme Yöntemi</th>
+                                            <th scope="col">Ödeme Tarihi</th>
+                                            <th scope="col">Kart</th>
+                                            <th scope="col">Durum</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach ($payments as $payment)
+                                              <tr>
+                                                <td>
+                                                    {{$payment->id}}
+                                                </td>
+                                                <td>
+                                                    {{$payment->invoice}}
+                                                </td>
+                                                <td>
+                                                    {{$payment->amount}}₺
+                                                </td>
+                                                <td>
+                                                    {{$payment->payment_way == "1" ? "Kredi Kartı" : "-"}}
+                                                </td>
+                                                <td>
+                                                    {{$payment->created_at}}
+                                                </td>
+                                                <td>
+                                                    {{$payment->card_number}}
+                                                </td>
+                                                <td>
+                                                    {!! $payment->status == 1 ? '<span class="badge bg-warning">Bekliyor</span>' : ($inv->status == 2 ? '<span class="badge bg-success">Onaylandı</span>' : '<span class="badge bg-danger">Reddedildi</span>') !!}
+
+                                                </td>
+                                              </tr>
+                                          @endforeach
+                                        </tbody>
+                                      </table>
                                 </div>
                             </div>
                         </div>

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
+use App\Models\Invoice;
+use App\Models\Payments;
 use App\Models\Place;
 use App\Models\User;
 use Hash;
@@ -71,7 +74,7 @@ class AdminController extends Controller
         if(!$user){
             return response()->json(["type" => "error", "message" => "Sistem Hatası: Kullanıcı Bulunamadı!".$id]);
         }else{
-            return view('admin.user.detail', ["user" => $user, "places" => Place::where('owner', $user->id)->get()]);
+            return view('admin.user.detail', ["user" => $user, "places" => Place::where('owner', $user->id)->get(), "invoices" => Invoice::where('user', $user->id)->get(), "payments" => Payments::where('user', $user->id)->get(), "comments" => Comment::where('user', $user->id)->get()]);
         }
     }
 
