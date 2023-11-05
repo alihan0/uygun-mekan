@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Comment;
 use App\Models\Invoice;
 use App\Models\Payments;
@@ -12,6 +13,11 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    /*
+    *
+    *   MAIN CONTROLLER
+    *
+    */
     public function dashboard(){
         return view('admin.main.dashboard');
     }
@@ -20,6 +26,17 @@ class AdminController extends Controller
         return view('admin.main.profile');
     }
 
+    /*
+    *
+    *   END MAIN CONTROLLER
+    *
+    */
+
+    /*
+    *
+    *   USER CONTROLLER
+    *
+    */
     public function user(){
         return view('admin.user.all', ['users' => User::all()]);
     }
@@ -145,6 +162,42 @@ class AdminController extends Controller
             }else{
                 return response()->json(['type'=> 'danger', 'message'=> 'Kullanıcı güncellenemedi', "status" => false]);
             }
+        }
+    }
+
+    /*
+    *
+    *   END USER CONTROLLER
+    *
+    */
+
+    /*
+    *
+    *   CATEGORY CONTROLLER
+    *
+    */
+
+    public function category(){
+        return view('admin.main.category', ['categories' => Categories::all()]);
+    }
+
+    public function create_category(Request $request){
+
+        if(empty($request->name) || empty($request->slug) || empty($request->short) || empty($request->icon) || empty($request->cover_data)){
+            return response()->json(['type'=> 'warning','message'=> 'Boş alan bırakmayın']);
+        }
+
+        $category = new Categories();
+        $category->main_category = $request->main_category;
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+        $category->short_name = $request->short;
+        $category->icon = $request->icon;
+        $category->cover = $request->cover_data;
+        if($category->save()){
+            return response()->json(['type'=> 'success', 'message'=> 'Kategori oluşturuldu', "status" => true]);
+        }else{
+            return response()->json(['type'=> 'danger', 'message'=> 'Kategori oluşturulamadı', "status" => false]);
         }
     }
 }
