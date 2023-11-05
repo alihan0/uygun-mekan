@@ -194,7 +194,7 @@
                                             <a href="/account" class=""><i class="fas fa-user-circle"></i> {{Auth::user()->name}} </a>
                                             <br>
                                             @if (Auth::user()->isAdmin())
-                                            <a href="/admin" class="float-start pe-2 border-end" style="font-size:12px"><i class="fas fa-tachometer-alt"></i> Admin Paneli </a>
+                                            <a href="/panel" class="float-start pe-2 border-end" style="font-size:12px"><i class="fas fa-tachometer-alt"></i> Admin Paneli </a>
                                             @endif
                                             <a href="/auth/logout" class="float-end text-danger ps-2" style="font-size:12px"><i class="fas fa-power-off"></i> Çıkış Yap </a>
 

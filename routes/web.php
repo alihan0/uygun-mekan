@@ -42,4 +42,5 @@ Route::controller(AuthController::class)->prefix('auth')->group(function(){
 
 Route::controller(AdminController::class)->prefix('panel')->middleware('admin')->group(function(){
     Route::get('/', 'dashboard');
+    Route::get('/profile', 'profile');
 });
