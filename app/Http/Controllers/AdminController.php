@@ -247,4 +247,17 @@ class AdminController extends Controller
     public function place(){
         return view('admin.place.all', ['places' => Place::all()]);
     }
+
+    public function remove_place(Request $request){
+        $place = Place::find($request->id);
+        if(!$place){
+            return response()->json(["type" => "error", "message" => "Sistem Hatası: Mekan Bulunamadı!"]);
+        }else{
+            if($place->delete()){
+                return response()->json(["type" => "success", "message" => "Mekan Silindi", "status" => true]);
+            }else{
+                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Mekan silinemedi"]);
+            }
+        }
+    }
 }

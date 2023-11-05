@@ -59,7 +59,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
                                         <ul class="dropdown-menu">
-                                          <li><a class="dropdown-item" href="#">Görüntüle</a></li>
+                                          <li><a class="dropdown-item" href="/panel/place/detail/{{$item->id}}">Görüntüle</a></li>
                                           @if ($item->status == 1)
                                           <li><a class="dropdown-item" href="#">Yayınla</a></li>
                                           <li><a class="dropdown-item" href="#">Yayınlama</a></li>
@@ -68,7 +68,7 @@
                                           <li><a class="dropdown-item" href="#">Yayına Al</a></li>
                                               
                                           @endif
-                                          <li><a class="dropdown-item" href="#">Sil</a></li>
+                                          <li><a class="dropdown-item" href="javascript:;" onclick="remove({{$item->id}})">Sil</a></li>
                                         </ul>
                                       </div>
                                 </td>
@@ -90,5 +90,16 @@
         }
     }),$("#datatable-buttons").DataTable({lengthChange:!1,buttons:["copy","excel","pdf","colvis"]}).buttons().container().appendTo("#datatable-buttons_wrapper .col-md-6:eq(0)"),$(".dataTables_length select").addClass("form-select form-select-sm")});
 
+
+    function remove(id){
+        axios.post('/panel/place/remove', {id:id}).then((res) => {
+            toastr[res.data.type](res.data.message);
+            if(res.data.status){
+                setInterval(() => {
+                    window.location.reload();
+                },500)
+            }
+        })
+    }
     </script>
 @endsection
