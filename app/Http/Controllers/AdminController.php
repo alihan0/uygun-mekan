@@ -321,4 +321,12 @@ class AdminController extends Controller
             }
         }
     }
+
+    public function place_detail($id){
+        $place = Place::find($id);
+
+        if($place){
+            return view('admin.place.detail', ['place' => $place]);
+        }
+    }
 }

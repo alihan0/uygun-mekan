@@ -69,6 +69,7 @@ Route::controller(AdminController::class)->prefix('panel')->middleware('admin')-
     Route::post('/place/setUnpublish', 'set_unpublish');
     Route::post('/place/setShowcase', 'set_showcase');
     Route::post('/place/setUnshowcase', 'set_unshowcase');
+    Route::get('/place/detail/{id}', 'place_detail');
 
     // PAYMENT
     Route::get('/payment', 'payment');
