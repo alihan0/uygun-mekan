@@ -108,7 +108,61 @@
                             <li>
                                 <a href="/panel" class=" waves-effect">
                                     <i class="bx bx-home-circle"></i>
-                                    <span key="t-dashboards">Dashboards</span>
+                                    <span key="t-dashboards">Kontrol Paneli</span>
+                                </a>
+                                
+                            </li>
+
+                            <li>
+                                <a href="/panel/user" class=" waves-effect">
+                                    <i class="fas fa-user"></i>
+                                    <span key="t-dashboards">Kullanıcılar</span>
+                                </a>
+                                
+                            </li>
+                            <li>
+                                <a href="/panel/category" class=" waves-effect">
+                                    <i class="fas fa-list"></i>
+                                    <span key="t-dashboards">Kategoriler</span>
+                                </a>
+                                
+                            </li>
+
+                            <li>
+                                <a href="/panel/place" class=" waves-effect">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span key="t-dashboards">Mekanlar</span>
+                                </a>
+                                
+                            </li>
+
+                            <li>
+                                <a href="/panel/payment" class=" waves-effect">
+                                    <i class="fas fa-wallet"></i>
+                                    <span key="t-dashboards">Ödemeler</span>
+                                </a>
+                                
+                            </li>
+
+                            <li>
+                                <a href="/panel/contact" class=" waves-effect">
+                                    <i class="fas fa-comments"></i>
+                                    <span key="t-dashboards">İletişim Formu</span>
+                                </a>
+                                
+                            </li>
+
+                            <li>
+                                <a href="/panel/settings" class=" waves-effect">
+                                    <i class="fas fa-edit"></i>
+                                    <span key="t-dashboards">Sayfa Ayarları</span>
+                                </a>
+                                
+                            </li>
+                            <li>
+                                <a href="/panel/api" class=" waves-effect">
+                                    <i class="fas fa-cog"></i>
+                                    <span key="t-dashboards">API Ayarları</span>
                                 </a>
                                 
                             </li>
