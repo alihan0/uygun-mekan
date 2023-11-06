@@ -9,6 +9,8 @@ use App\Models\Feature;
 use App\Models\Invoice;
 use App\Models\Payments;
 use App\Models\Place;
+use App\Models\Section;
+use App\Models\System;
 use App\Models\User;
 use Hash;
 use Illuminate\Http\Request;
@@ -434,6 +436,32 @@ class AdminController extends Controller
     /*
     *
     *   END FEATURES CONTROLLER
+    *
+    */
+
+    /*
+    *
+    *   SETTINGS CONTROLLER
+    *
+    */
+    
+    public function settings(){
+        return view('admin.main.settings', ['system' => System::first(), 'section_menu' => Section::select('page')->distinct()->get(), 'sections' => Section::all()]);
+    }
+
+    public function change_status(Request $request){
+        $section = Section::where('page', $request->page)->where('section',$request->section)->first();
+        $section->status = $request->status;
+        if($section->save()){
+            return response()->json(['type'=> 'success', 'message'=> 'Ayarlar kaydedildi', "status" => true]);
+        }else{
+            return response()->json(['type'=> 'danger', 'message'=> 'Ayarlar kaydedilemedi', "status" => false]);
+        }
+    }
+
+    /*
+    *
+    *   END SETTINGS CONTROLLER
     *
     */
 }

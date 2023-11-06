@@ -85,6 +85,7 @@ Route::controller(AdminController::class)->prefix('panel')->middleware('admin')-
     Route::post('/feature/remove', 'remove_feature');
     // SETTINGS
     Route::get('/settings', 'settings');
+    Route::post('/settings/changeStatus', 'change_status');
 
     // API
     Route::get('/api', 'api');
