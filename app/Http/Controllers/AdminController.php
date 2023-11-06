@@ -560,6 +560,18 @@ class AdminController extends Controller
         }
     }
 
+    public function remove_blog(Request $request){
+        $post = Post::find($request->id);
+        if(!$post){
+            return response()->json(["type" => "error", "message" => "Sistem Hatası: Yazı Bulunamadı!"]);
+        }else{
+            if($post->delete()){
+                return response()->json(["type" => "success", "message" => "Yazı Silindi", "status" => true]);
+            }else{
+                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Yazı silinemedi"]);
+            }
+        }
+    }
     /*
     *
     *   END BLOG CONTROLLER
