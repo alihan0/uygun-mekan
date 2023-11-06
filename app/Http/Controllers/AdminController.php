@@ -486,6 +486,33 @@ class AdminController extends Controller
 
     }
 
+    public function save_system_settings(Request $request){
+        $system = System::first();
+        $system->site_name = $request->site_name;
+        $system->about = $request->about;
+        $system->address = $request->address;
+        $system->email1 = $request->email1;
+        $system->email2 = $request->email2;
+        $system->phone1 = $request->phone1;
+        $system->phone2 = $request->phone2;
+        $system->facebook = $request->facebook;
+        $system->twitter = $request->twitter;
+        $system->instagram = $request->instagram;
+        $system->site_url = $request->site_url;
+        $system->welcomemodal_src = $request->welcomemodal_src;
+        $system->welcomemodal_img = $request->welcomemodal_img;
+        $system->subs_price = $request->subs_price;
+        $system->discounted_subs_day = $request->discounted_subs_day;
+        $system->discounted_subs_price = $request->discounted_subs_price;
+
+        if($system->save()){
+            return response()->json(['type'=> 'success', 'message'=> 'Ayarlar kaydedildi', "status" => true]);
+        }else{
+            return response()->json(['type'=> 'danger', 'message'=> 'Ayarlar kaydedilemedi', "status" => false]);
+        }
+
+    }
+
     /*
     *
     *   END SETTINGS CONTROLLER

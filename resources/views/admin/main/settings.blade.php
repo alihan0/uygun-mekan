@@ -6,6 +6,12 @@
     <!-- Nav tabs -->
    
     <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#system" role="tab">
+                <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+                <span class="d-none d-sm-block">Sistem</span>    
+            </a>
+        </li>
         @foreach ($section_menu as $menu) 
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="tab" href="#{{$menu->page}}" role="tab">
@@ -18,6 +24,116 @@
 
     <!-- Tab panes -->
     <div class="tab-content p-3 text-muted">
+
+
+
+        <div class="tab-pane active" id="system" role="tabpanel">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title pb-2 border-bottom">Sistem Ayarları</h4>
+
+                            <form action="javascript:;" id="systemForm">
+
+                                <div class="mb-3">
+                                    <label for="site_name" class="form-label">Site Adı:</label>
+                                    <input type="text" class="form-control" id="site_name" name="site_name" value="{{$system->site_name}}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="site_url" class="form-label">Site URL:</label>
+                                    <input type="text" class="form-control" id="site_url" name="site_url" value="{{$system->site_url}}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="about" class="form-label">Hakkımızda Yazısı:</label>
+                                    <textarea class="form-control" id="about" name="about" rows="10">{{$system->about}}</textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="address" class="form-label">Adres:</label>
+                                    <input type="text" class="form-control" id="address" name="address" value="{{$system->address}}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email1" class="form-label">E-posta 1:</label>
+                                    <input type="text" class="form-control" id="email1" name="email1" value="{{$system->email1}}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email2" class="form-label">E-posta 2:</label>
+                                    <input type="text" class="form-control" id="email2" name="email2" value="{{$system->email2}}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="phone1" class="form-label">Telefon 1:</label>
+                                    <input type="text" class="form-control" id="phone1" name="phone1" value="{{$system->phone1}}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="phone2" class="form-label">Telefon 2:</label>
+                                    <input type="text" class="form-control" id="phone2" name="phone2" value="{{$system->phone2}}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="facebook" class="form-label">Facebook URL:</label>
+                                    <input type="text" class="form-control" id="facebook" name="facebook" value="{{$system->facebook}}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="twitter" class="form-label">Twitter URL:</label>
+                                    <input type="text" class="form-control" id="twitter" name="twitter" value="{{$system->twitter}}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="instagram" class="form-label">İnstagram URL:</label>
+                                    <input type="text" class="form-control" id="instagram" name="instagram" value="{{$system->instagram}}">
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <label for="welcomemodal_img" class="form-label">Karşılama Penceresi Resmi (URL):</label>
+                                    <input type="text" class="form-control" id="welcomemodal_img" name="welcomemodal_img" value="{{$system->welcomemodal_img}}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="welcomemodal_src" class="form-label">Karşılama Pencersi Hedefi (URL):</label>
+                                    <input type="text" class="form-control" id="welcomemodal_src" name="welcomemodal_src" value="{{$system->welcomemodal_src}}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="subs_price" class="form-label">Abonelik Fiyatı:</label>
+                                    <input type="text" class="form-control" id="subs_price" name="subs_price" value="{{$system->subs_price}}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="discounted_subs_day" class="form-label">İndirim Süresi (Gün):</label>
+                                    <input type="text" class="form-control" id="discounted_subs_day" name="discounted_subs_day" value="{{$system->discounted_subs_day}}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="discounted_subs_price" class="form-label">İndirimli Abonelik Fiyatı:</label>
+                                    <input type="text" class="form-control" id="discounted_subs_price" name="discounted_subs_price" value="{{$system->discounted_subs_price}}">
+                                </div>
+                                
+
+                                <button class="btn btn-primary" onclick="saveSystem()">Kaydet</button>
+                                
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
 
         @foreach ($section_menu as $menu) 
         <div class="tab-pane" id="{{$menu->page}}" role="tabpanel">
@@ -145,6 +261,19 @@
         var formdata = $("#"+form).serialize()+"&page="+page+"&section="+section;
 
         axios.post('/panel/settings/save', formdata).then((res) => {
+            toastr[res.data.type](res.data.message);
+            if(res.data.status){
+                setInterval(() => {
+                    window.location.reload();
+                },500)
+            }
+        });
+    }
+
+    function saveSystem(){
+        var formdata = $("#systemForm").serialize();
+
+        axios.post('/panel/settings/system/save', formdata).then((res) => {
             toastr[res.data.type](res.data.message);
             if(res.data.status){
                 setInterval(() => {

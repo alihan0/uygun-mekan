@@ -87,6 +87,7 @@ Route::controller(AdminController::class)->prefix('panel')->middleware('admin')-
     Route::get('/settings', 'settings');
     Route::post('/settings/changeStatus', 'change_status');
     Route::post('/settings/save', 'save_settings');
+    Route::post('/settings/system/save', 'save_system_settings');
 
     // API
     Route::get('/api', 'api');
