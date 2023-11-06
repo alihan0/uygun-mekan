@@ -29,6 +29,7 @@ Route::controller(MainController::class)->group(function(){
     Route::post('/upload/cover', 'upload_cover');
 
     Route::get('/place/{slug}', 'place_detail');
+    Route::post('/comment', 'comment');
 });
 
 Route::controller(AuthController::class)->prefix('auth')->group(function(){

@@ -236,4 +236,22 @@ class MainController extends Controller
     public function place_detail($slug){
         return view('main.place_detail', ['place' => Place::where('slug', $slug)->first()]);
     }
+
+    public function comment(Request $request){
+        if(empty($request->message)){
+            return response()->json(['type'=> 'error','message'=> 'Yorum alanı doldurulmalıdır.']);
+        }else{
+            $comment = new Comment;
+            $comment->comment = $request->message;
+            $comment->status = 1;
+            $comment->user = $request->user;
+            $comment->place = $request->place;
+
+            if($comment->save()){
+                return response()->json(['type'=> 'success','message'=> 'Yorum başarıyla kaydedildi.','status'=>true]);
+            }else{
+                return response()->json(['type'=> 'error','message'=> 'Yorum kaydedilemedi.']);
+            }
+        }
+    }
 }

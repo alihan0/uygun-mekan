@@ -127,35 +127,36 @@
                             
                         </div>
 
+                        @auth
                         <div class="comment-form listings-details-page__content-form">
-                            <h3 class="comment-form__title">Add Review</h3>
-                            <form action="assets/inc/sendemail.php" class="comment-one__form contact-form-validated"
-                                novalidate="novalidate">
+                            <h3 class="comment-form__title">Yorum Gönder</h3>
+                            <form action="javascript:;" class="comment-one__form"
+                                >
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="comment-form__input-box">
-                                            <input type="text" placeholder="Full name" name="name">
+                                            <input type="text" value="{{Auth::user()->name ?? ""}}" readonly>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="comment-form__input-box">
-                                            <input type="email" placeholder="Email Address" name="email">
+                                            <input type="text" value="{{Auth::user()->email ?? ""}}" readonly>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-12">
                                         <div class="comment-form__input-box text-message-box">
-                                            <textarea name="message" placeholder="Comments"></textarea>
+                                            <textarea id="message" placeholder="Yorumunuz"></textarea>
                                         </div>
                                         <div class="comment-form__btn-box">
-                                            <button type="submit" class="comment-form__btn thm-btn">Post
-                                                Comment</button>
+                                            <button type="submit" class="comment-form__btn thm-btn" onclick="sendComment('{{Auth::user()->id}}','{{$place->id}}')">Yorum Yap</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
+                        @endauth
                     </div>
                 </div>
                 <!--End Listings Details Page Content-->
@@ -310,4 +311,25 @@
         </div>
     </section>
     <!--End Listings Details Page-->
+@endsection
+
+@section('script')
+    <script>
+        function sendComment(user,place){
+            var message = $("#message").val();
+
+            axios.post('/comment',{
+                user:user,
+                place:place,
+                message:message
+            }).then(function (res) {
+                toastr[res.data.type](res.data.message)
+                if(res.data.status){
+                    setInterval(() => {
+                        window.location.reload();
+                    }, 500);
+                }
+            })
+        }
+    </script>
 @endsection
