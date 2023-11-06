@@ -9,6 +9,7 @@ use App\Models\Feature;
 use App\Models\Invoice;
 use App\Models\Payments;
 use App\Models\Place;
+use App\Models\Post;
 use App\Models\Section;
 use App\Models\System;
 use App\Models\User;
@@ -516,6 +517,39 @@ class AdminController extends Controller
     /*
     *
     *   END SETTINGS CONTROLLER
+    *
+    */
+
+    /*
+    *
+    *   BLOG CONTROLLER
+    *
+    */
+
+    public function blog(){
+        return view('admin.blog.all', ['posts' => Post::orderBy('id', 'desc')->get()]);
+    }
+
+    public function new_blog(){
+        return view('admin.blog.new');
+    }
+
+    public function save_blog(Request $request){
+        $post = new Post();
+        $post->title = $request->title;
+        $post->detail = $request->detail;
+        $post->cover = $request->cover;
+
+        if($post->save()){
+            return response()->json(['type'=> 'success', 'message'=> 'Yazı oluşturuldu', "status" => true]);
+        }else{
+            return response()->json(['type'=> 'danger', 'message'=> 'Yazı oluşturulamadı', "status" => false]);
+        }
+    }
+
+    /*
+    *
+    *   END BLOG CONTROLLER
     *
     */
 }

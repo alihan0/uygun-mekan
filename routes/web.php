@@ -89,6 +89,9 @@ Route::controller(AdminController::class)->prefix('panel')->middleware('admin')-
     Route::post('/settings/save', 'save_settings');
     Route::post('/settings/system/save', 'save_system_settings');
 
-    // API
-    Route::get('/api', 'api');
+    // BLOG
+    Route::get('/blog', 'blog');
+    Route::post('/blog/remove', 'remove_blog');
+    Route::get('/blog/new', 'new_blog');
+    Route::post('/blog/save', 'save_blog');
 });

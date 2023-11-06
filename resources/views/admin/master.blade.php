@@ -170,11 +170,10 @@
                                 
                             </li>
                             <li>
-                                <a href="/panel/api" class=" waves-effect">
-                                    <i class="fas fa-cog"></i>
-                                    <span key="t-dashboards">API Ayarları</span>
+                                <a href="/panel/blog" class=" waves-effect">
+                                    <i class="fas fa-file"></i>
+                                    <span key="t-dashboards">Blog</span>
                                 </a>
-                                
                             </li>
 
                         </ul>
