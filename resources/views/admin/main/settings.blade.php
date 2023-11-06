@@ -38,7 +38,7 @@
                                     </div>
                                 </h4>
 
-
+                                <form action="javascript:;" id="{{$item->page}}_{{$item->section}}_form">
                                 <div class="mb-3">
                                     <label for="{{$item->page}}_{{$item->section}}_title" class="form-label">Başlık:</label>
                                     <input type="text" class="form-control" id="{{$item->page}}_{{$item->section}}_title" name="{{$item->page}}_{{$item->section}}_title" value="{{$item->title}}">
@@ -78,7 +78,7 @@
 
                                 <div class="mb-3">
                                     <label for="{{$item->page}}_{{$item->section}}_button1_src" class="form-label">1. Buton Hedef:</label>
-                                    <input type="email" class="form-control" id="{{$item->page}}_{{$item->section}}_button1_src" name="{{$item->page}}_{{$item->section}}_button1_src" value="{{$item->button1_src}}">
+                                    <input type="text" class="form-control" id="{{$item->page}}_{{$item->section}}_button1_src" name="{{$item->page}}_{{$item->section}}_button1_src" value="{{$item->button1_src}}">
                                 </div>
 
                                 <div class="mb-3">
@@ -107,7 +107,8 @@
                                     <input type="text" class="form-control" id="{{$item->page}}_{{$item->section}}_cover" name="{{$item->page}}_{{$item->section}}_cover" value="{{$item->cover}}">
                                 </div>
 
-                                <button class="btn btn-primary">Güncelle</button>
+                                <button class="btn btn-primary" onclick="saveSettings('{{$item->page}}', '{{$item->section}}', '{{$item->page}}_{{$item->section}}_form')">Güncelle</button>
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -138,6 +139,19 @@
         axios.post('/panel/settings/changeStatus', {page:page, section:section, status:status}).then((res) => {
             toastr[res.data.type](res.data.message);
         })
-    }        
+    }
+    
+    function saveSettings(page,section,form){
+        var formdata = $("#"+form).serialize()+"&page="+page+"&section="+section;
+
+        axios.post('/panel/settings/save', formdata).then((res) => {
+            toastr[res.data.type](res.data.message);
+            if(res.data.status){
+                setInterval(() => {
+                    window.location.reload();
+                },500)
+            }
+        });
+    }
     </script>
 @endsection

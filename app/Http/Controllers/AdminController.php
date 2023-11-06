@@ -459,6 +459,33 @@ class AdminController extends Controller
         }
     }
 
+    public function save_settings(Request $request){
+        $page = $request->page;
+        $section = $request->section;
+
+        $sec = Section::where('page', $page)->where('section', $section)->first();
+        $sec->cover = $request->{$page . '_' . $section . '_cover'};
+        $sec->title = $request->{$page . '_' . $section . '_title'};
+        $sec->subtitle = $request->{$page . '_' . $section . '_subtitle'};
+        $sec->detail = $request->{$page . '_' . $section . '_detail'};
+        $sec->content = $request->{$page . '_' . $section . '_content'};
+        $sec->button1_text = $request->{$page . '_' . $section . '_button1_text'};
+        $sec->button1_style = $request->{$page . '_' . $section . '_button1_style'};
+        $sec->button1_icon = $request->{$page . '_' . $section . '_button1_icon'};
+        $sec->button1_src = $request->{$page . '_' . $section . '_button1_src'};
+        $sec->button2_text = $request->{$page . '_' . $section . '_button2_text'};
+        $sec->button2_style = $request->{$page . '_' . $section . '_button2_style'};
+        $sec->button2_icon = $request->{$page . '_' . $section . '_button2_icon'};
+        $sec->button2_src = $request->{$page . '_' . $section . '_button2_src'};
+
+        if($sec->save()){
+            return response()->json(['type'=> 'success', 'message'=> 'Ayarlar kaydedildi', "status" => true]);
+        }else{
+            return response()->json(['type'=> 'danger', 'message'=> 'Ayarlar kaydedilemedi', "status" => false]);
+        }
+
+    }
+
     /*
     *
     *   END SETTINGS CONTROLLER
