@@ -403,6 +403,33 @@ class AdminController extends Controller
             }
         }
     }
+    public function update_feature(Request $request){
+        if(empty($request->name) || empty($request->icon)){
+            return response()->json(['type'=> 'warning','message'=> 'Boş alan bırakmayın']);
+        }
+
+        $feature = Feature::find($request->id);
+            $feature->icon = $request->icon;
+            $feature->name = $request->name;
+        if($feature->save()){
+            return response()->json(['type'=> 'success', 'message'=> 'Özellik güncellendi', "status" => true]);
+        }else{
+            return response()->json(['type'=> 'danger', 'message'=> 'Özellik güncellenemedi', "status" => false]);
+        }
+    }
+
+    public function remove_feature(Request $request){
+        $category = Categories::find($request->id);
+        if(!$category){
+            return response()->json(["type" => "error", "message" => "Sistem Hatası: Kategori Bulunamadı!"]);
+        }else{
+            if($category->delete()){
+                return response()->json(["type" => "success", "message" => "Kategori Silindi", "status" => true]);
+            }else{
+                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Kategori silinemedi"]);
+            }
+        }
+    }
 
     /*
     *

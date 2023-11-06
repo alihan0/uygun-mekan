@@ -51,49 +51,7 @@
                                         <div class="modal-body">
                                             <form action="javascript:;" id="categoryEditForm{{$item->id}}">
                                                 <input type="hidden" name="id" id="id" value="{{$item->id}}">
-                                                <div class="row mb-4">
-                                                    <label for="main_category" class="col-sm-3 col-form-label">Üst Kategori</label>
-                                                    <div class="col-sm-6">
-                                                      <select name="main_category" id="main_category" class="form-control">
-                                                        <option value="0">Ana Kategori</option>
-                                                        @foreach ($categories->where('main_category',0) as $cat)
-                                                            <option {{$cat->id == $item->main_category ? "selected" : ""}} value="{{$cat->id}}">{{$cat->name}}</option>
-                                                        @endforeach
-                                                      </select>
-                                                      <div id="help" class="form-text">
-                                                        Eğer bir üst kategori seçmezseniz, bu otomatik olarak bir ana kategori olur ve menüde görüntülenmeye başlar. Ana kategori olmayan kategoriler menüde görüntülenmez.
-                                                      </div>
-                                                    </div>
-                                                </div>
-                        
-                                                <div class="row mb-4">
-                                                    <label for="name" class="col-sm-3 col-form-label">Kategori Adı</label>
-                                                    <div class="col-sm-6">
-                                                      <input type="text" class="form-control name" id="name" name="name" value="{{$item->name}}">
-                                                      <div id="help" class="form-text">
-                                                        Kategorinin sitede görünen adını girin. Kullanıcılar doğrudan bu ismi görüntüleyecek.
-                                                      </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-4">
-                                                    <label for="slug" class="col-sm-3 col-form-label">SEO Adı</label>
-                                                    <div class="col-sm-6">
-                                                      <input type="text" class="form-control slug" id="slug" name="slug" value="{{$item->slug}}">
-                                                      <div id="help" class="form-text">
-                                                        Kategorinin arama motorları tarafından indexlenecek olan adıdır. Buradaki isim taryıcınızın url kısmında görüntülenir. Otomatik olarak oluşturulur fakat elle değiştirmek isterseniz benzersiz olmasına, Türkçe karakter ve özel karakter kullanmamaya ve boşluk bırakmamaya dikkat edin.
-                                                      </div>
-                                                    </div>
-                                                </div>
-                        
-                                                <div class="row mb-4">
-                                                    <label for="short" class="col-sm-3 col-form-label">Kısa Adı</label>
-                                                    <div class="col-sm-6">
-                                                      <input type="text" class="form-control" id="short" name="short" value="{{$item->short_name}}">
-                                                      <div id="help" class="form-text">
-                                                        Sitenin bazı alanlarında göstermek için kısa isim.
-                                                      </div>
-                                                    </div>
-                                                </div>
+                                                
                         
                                                 <div class="row mb-4">
                                                     <label for="icon" class="col-sm-3 col-form-label">İkon</label>
@@ -104,23 +62,27 @@
                                                       </div>
                                                     </div>
                                                 </div>
-                        
                                                 <div class="row mb-4">
-                                                    <label for="cover" class="col-sm-3 col-form-label">Kapak Fotoğrafı</label>
+                                                    <label for="name" class="col-sm-3 col-form-label">İsim</label>
                                                     <div class="col-sm-6">
-                                                      <input type="file" class="form-control" id="cover" name="cover" onchange="uploadCover()">
-                                                      <input type="hidden" name="cover_data" id="cover_data" value="{{$item->cover}}">
+                                                      <input type="text" class="form-control slug" id="name" name="name" value="{{$item->name}}">
                                                       <div id="help" class="form-text">
-                                                        Sitenin bazı alanlarında kullanılacak olan kapak fotoğrafını girin.
+                                                        Özelliğin görünen adı.
                                                       </div>
                                                     </div>
                                                 </div>
+                        
+                                                
+                        
+                                                
+                        
+                                                
                                                 
                                             </form>
                                         </div>
                                         <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vazgeç</button>
-                                        <button type="button" class="btn btn-primary" onclick="updateCategory({{$item->id}})">Kategoriyi Güncelle</button>
+                                        <button type="button" class="btn btn-primary" onclick="updateCategory({{$item->id}})">Özelliği Güncelle</button>
                                         </div>
                                     </div>
                                     </div>
@@ -195,7 +157,7 @@
 
         function updateCategory(id){
             var data = $("#categoryEditForm"+id).serialize();
-            axios.post('/panel/category/update', data).then((res) => {
+            axios.post('/panel/feature/update', data).then((res) => {
                 toastr[res.data.type](res.data.message);
                 if(res.data.status){
                     setInterval(() => {
