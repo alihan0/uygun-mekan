@@ -547,6 +547,19 @@ class AdminController extends Controller
         }
     }
 
+    public function update_blog(Request $request){
+        $post = Post::find($request->id);
+        $post->title = $request->title;
+        $post->detail = $request->detail;
+        $post->cover = $request->cover;
+
+        if($post->save()){
+            return response()->json(['type'=> 'success', 'message'=> 'Yazı güncellendi', "status" => true]);
+        }else{
+            return response()->json(['type'=> 'danger', 'message'=> 'Yazı güncellendi', "status" => false]);
+        }
+    }
+
     /*
     *
     *   END BLOG CONTROLLER

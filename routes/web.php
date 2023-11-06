@@ -94,4 +94,5 @@ Route::controller(AdminController::class)->prefix('panel')->middleware('admin')-
     Route::post('/blog/remove', 'remove_blog');
     Route::get('/blog/new', 'new_blog');
     Route::post('/blog/save', 'save_blog');
+    Route::post('/blog/update', 'update_blog');
 });
