@@ -419,14 +419,14 @@ class AdminController extends Controller
     }
 
     public function remove_feature(Request $request){
-        $category = Categories::find($request->id);
-        if(!$category){
-            return response()->json(["type" => "error", "message" => "Sistem Hatası: Kategori Bulunamadı!"]);
+        $feature = Feature::find($request->id);
+        if(!$feature){
+            return response()->json(["type" => "error", "message" => "Sistem Hatası: Özellik Bulunamadı!"]);
         }else{
-            if($category->delete()){
-                return response()->json(["type" => "success", "message" => "Kategori Silindi", "status" => true]);
+            if($feature->delete()){
+                return response()->json(["type" => "success", "message" => "Özellik Silindi", "status" => true]);
             }else{
-                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Kategori silinemedi"]);
+                return response()->json(["type" => "danger", "message" => "Sistem Hatası: Özellik silinemedi"]);
             }
         }
     }

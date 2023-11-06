@@ -82,6 +82,7 @@ Route::controller(AdminController::class)->prefix('panel')->middleware('admin')-
     Route::get('/features', 'features');
     Route::post('/feature/create', 'create_feature');
     Route::post('/feature/update', 'update_feature');
+    Route::post('/feature/remove', 'remove_feature');
     // SETTINGS
     Route::get('/settings', 'settings');
 

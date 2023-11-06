@@ -168,7 +168,7 @@
         }
 
         function removeCategory(id){
-            axios.post('/panel/category/remove', {id:id}).then((res) => {
+            axios.post('/panel/feature/remove', {id:id}).then((res) => {
                 toastr[res.data.type](res.data.message);
                 if(res.data.status){
                     setInterval(() => {
