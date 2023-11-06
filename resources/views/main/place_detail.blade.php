@@ -76,194 +76,55 @@
                         </div>
 
 
-                        <div class="listings-details-page__content-gallery">
-                            <h3>Gallery</h3>
-                            <div class="row">
-                                <div class="col-xl-12">
-                                    <div class="owl-carousel owl-theme thm-owl__carousel listings-details-page__content-gallery--carousel"
-                                        data-owl-options='{
-                                        "loop": true,
-                                        "autoplay": false,
-                                        "margin": 30,
-                                        "nav": false,
-                                        "dots": false,
-                                        "smartSpeed": 500,
-                                        "autoplayTimeout": 10000,
-                                        "navText": ["<span class=\"fa fa-angle-left\"></span>","<span class=\"fa fa-angle-right\"></span>"],
-                                        "responsive": {
-                                            "0": {
-                                                "items": 1
-                                            },
-                                            "768": {
-                                                "items": 2
-                                            },
-                                            "992": {
-                                                "items": 2
-                                            },
-                                            "1200": {
-                                                "items": 2
-                                            }
-                                        }
-                                    }'>
-
-                                        <div class="listings-details-page__content-gallery-single">
-                                            <div class="listings-details-page__content-gallery-single-img">
-                                                <img src="assets/images/resources/listings_details-img2.jpg"
-                                                    alt="#">
-                                                <div class="listings-details-page__content-gallery-single-img-link">
-                                                    <a class="img-popup"
-                                                        href="assets/images/resources/listings_details-img2.jpg"><span
-                                                            class="icon-plus"></span></a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="listings-details-page__content-gallery-single">
-                                            <div class="listings-details-page__content-gallery-single-img">
-                                                <img src="assets/images/resources/listings_details-img3.jpg"
-                                                    alt="#">
-                                                <div class="listings-details-page__content-gallery-single-img-link">
-                                                    <a class="img-popup"
-                                                        href="assets/images/resources/listings_details-img3.jpg"><span
-                                                            class="icon-plus"></span></a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                        
 
 
 
                         <div class="review_and_progress_bar">
+                            <h3 class="mb-4">Puan</h3>
                             <div class="review_box">
                                 <div class="review_box_details">
                                     <h2>4.5</h2>
                                     <div class="review-count">
+
+                                        @for ($i = 1; $i <= 5; $i++)
+                                        @if ($place->Stars->count() > 0)
+                                            @if ($i <= round($place->Stars->sum('star') / $place->Stars->count()))
+                                            <a href="#"><i class="icon-star"></i></a>
+                                            @else
+                                            <a href="#"><i class="icon-star"></i></a>
+                                            @endif
+                                        @else
                                         <a href="#"><i class="icon-star"></i></a>
-                                        <a href="#"><i class="icon-star"></i></a>
-                                        <a href="#"><i class="icon-star"></i></a>
-                                        <a href="#"><i class="icon-star"></i></a>
-                                        <a href="#" class="clr-gray"><i class="icon-star-1"></i></a>
+                                        @endif
+                                       
+                                    @endfor
                                     </div>
-                                    <p>48 Total Reviews</p>
+                                    <p> Toplam <b>{{$place->Stars->count() > 0 ?  round($place->Stars->sum('star') / $place->Stars->count()) : '0'}}</b> Oylama</p>
                                 </div>
                             </div>
-                            <div class="progress_bar">
-                                <div class="progress-levels">
-                                    <!--Skill Box-->
-                                    <div class="progress-box">
-                                        <div class="text">Rating</div>
-                                        <div class="inner count-box">
-                                            <div class="bar">
-                                                <div class="bar-innner">
-                                                    <div class="skill-percent">
-                                                        <span class="count-text" data-speed="3000"
-                                                            data-stop="95">0</span>
-                                                        <span class="percent">%</span>
-                                                    </div>
-                                                    <div class="bar-fill" data-percent="95"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Skill Box-->
-                                    <div class="progress-box">
-                                        <div class="text">Hospitality</div>
-                                        <div class="inner count-box">
-                                            <div class="bar">
-                                                <div class="bar-innner">
-                                                    <div class="skill-percent">
-                                                        <span class="count-text" data-speed="3000"
-                                                            data-stop="85">0</span>
-                                                        <span class="percent">%</span>
-                                                    </div>
-                                                    <div class="bar-fill" data-percent="85"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Skill Box-->
-                                    <div class="progress-box">
-                                        <div class="text">Services</div>
-                                        <div class="inner count-box">
-                                            <div class="bar">
-                                                <div class="bar-innner">
-                                                    <div class="skill-percent">
-                                                        <span class="count-text" data-speed="3000"
-                                                            data-stop="75">0</span>
-                                                        <span class="percent">%</span>
-                                                    </div>
-                                                    <div class="bar-fill" data-percent="75"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Skill Box-->
-                                    <div class="progress-box marb">
-                                        <div class="text">Pricing</div>
-                                        <div class="inner count-box">
-                                            <div class="bar">
-                                                <div class="bar-innner">
-                                                    <div class="skill-percent">
-                                                        <span class="count-text" data-speed="3000"
-                                                            data-stop="65">0</span>
-                                                        <span class="percent">%</span>
-                                                    </div>
-                                                    <div class="bar-fill" data-percent="65"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
 
                         <div class="comment-one listings-details-page__content-comment">
-                            <h3 class="comment-one__title">Comments(02)</h3>
+                            <h3 class="comment-one__title">Yorumlar ({{$place->Comments->count()}})</h3>
+                            
+                            @foreach ($place->Comments as $item)
                             <div class="comment-one__single">
                                 <div class="comment-one__image">
                                     <img src="assets/images/blog/comment-1-1.png" alt="">
                                 </div>
                                 <div class="comment-one__content">
-                                    <h3>Dani Smith</h3>
-                                    <span>11 jun, 2022</span>
-                                    <p>Lorem Ipsum available, but the majority have suffered alteration in
-                                        some form If you are going to use a passage of Lorem Ipsum, you need
+                                    <h3>{{$item->User->name ?? "-"}}</h3>
+                                    <span>{{$item->created_at}}</span>
+                                    <p>
+                                        {{$item->comment}}
                                     </p>
-                                    <ul class="reviews-box">
-                                        <li><span class="icon-star"></span></li>
-                                        <li><span class="icon-star"></span></li>
-                                        <li><span class="icon-star"></span></li>
-                                        <li><span class="icon-star"></span></li>
-                                        <li><span class="icon-star-1"></span></li>
-                                    </ul>
+                                    
                                 </div>
                             </div>
-                            <div class="comment-one__single comment-one__single--two">
-                                <div class="comment-one__image">
-                                    <img src="assets/images/blog/comment-1-2.png" alt="">
-                                </div>
-                                <div class="comment-one__content">
-                                    <h3>Robin Wiliam</h3>
-                                    <span>14 dec 2022</span>
-                                    <p>Lorem Ipsum available, but the majority have suffered alteration in
-                                        some form If you are going to use a passage of Lorem Ipsum, you need
-                                    </p>
-
-                                    <ul class="reviews-box">
-                                        <li><span class="icon-star"></span></li>
-                                        <li><span class="icon-star"></span></li>
-                                        <li><span class="icon-star"></span></li>
-                                        <li><span class="icon-star"></span></li>
-                                        <li><span class="icon-star-1"></span></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            @endforeach
+                            
                         </div>
 
                         <div class="comment-form listings-details-page__content-form">
