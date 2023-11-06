@@ -27,6 +27,8 @@ Route::controller(MainController::class)->group(function(){
     Route::get('/account', 'account')->middleware('auth');
     Route::post('/place/save', 'place_save');
     Route::post('/upload/cover', 'upload_cover');
+
+    Route::get('/place/{slug}', 'place_detail');
 });
 
 Route::controller(AuthController::class)->prefix('auth')->group(function(){

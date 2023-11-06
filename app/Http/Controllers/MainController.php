@@ -232,4 +232,8 @@ class MainController extends Controller
             return redirect('/');
         }
     }
+
+    public function place_detail($slug){
+        return view('main.place_detail', ['place' => Place::where('slug', $slug)->first()]);
+    }
 }
