@@ -168,19 +168,19 @@
                         <div class="listings-details-page__sidebar-single sidebar__working-hours wow animated fadeInUp"
                             data-wow-delay="0.1s">
                             <div class="title">
-                                <h2>Working Hours</h2>
+                                <h2>Çalışma Saatleri</h2>
                             </div>
 
                             <ul class="sidebar__working-hours-list">
-                                <li><a href="#">Saturday <span>Closed</span></a></li>
-                                <li><a href="#">Sunday <span>9 AM - 5 PM</span></a>
+                                <li><a href="#">Pazartesi <span> {{ \Carbon\Carbon::parse($place->monday_open_time)->format('H:i') }} - {{ \Carbon\Carbon::parse($place->monday_close_time)->format('H:i') }}</span></a></li>
+                                <li><a href="#">Salı <span>{{ \Carbon\Carbon::parse($place->tuesday_open_time)->format('H:i') }} - {{ \Carbon\Carbon::parse($place->tuesday_close_time)->format('H:i') }}</span></a>
                                 </li>
-                                <li><a href="#">Monday <span>9 AM - 5 PM</span> </a>
+                                <li><a href="#">Çarşamba <span>{{ \Carbon\Carbon::parse($place->wednesday_open_time)->format('H:i') }} - {{ \Carbon\Carbon::parse($place->wednesday_close_time)->format('H:i') }}</span> </a>
                                 </li>
-                                <li><a href="#">Tuesday <span>9 AM - 5 PM</span></a></li>
-                                <li><a href="#">Wednesday <span>9 AM - 5 PM</span></a></li>
-                                <li><a href="#">Thursday <span>9 AM - 5 PM</span></a></li>
-                                <li><a href="#">Friday <span>Closed</span></a></li>
+                                <li><a href="#">Perşembe <span>{{ \Carbon\Carbon::parse($place->thursday_open_time)->format('H:i') }} - {{ \Carbon\Carbon::parse($place->thursday_close_time)->format('H:i') }}</span></a></li>
+                                <li><a href="#">Cuma <span>{{ \Carbon\Carbon::parse($place->friday_open_time)->format('H:i') }} - {{ \Carbon\Carbon::parse($place->friday_close_time)->format('H:i') }}</span></a></li>
+                                <li><a href="#">Cumartesi <span>{{ \Carbon\Carbon::parse($place->saturday_open_time)->format('H:i') }} - {{ \Carbon\Carbon::parse($place->saturday_close_time)->format('H:i') }}</span></a></li>
+                                <li><a href="#">Pazar <span> {{ \Carbon\Carbon::parse($place->sunday_open_time)->format('H:i') }} - {{ \Carbon\Carbon::parse($place->sunday_close_time)->format('H:i') }}</span></a></li>
                             </ul>
                         </div>
                         <!--End Listings Details Page Sidebar Single-->
@@ -189,117 +189,76 @@
                         <div class="listings-details-page__sidebar-single sidebar__location-contacts wow animated fadeInUp"
                             data-wow-delay="0.2s">
                             <div class="title">
-                                <h2>Location / Contacts</h2>
+                                <h2>İletişim</h2>
                             </div>
 
-                            <div class="sidebar__location-contacts-google-map">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4562.753041141002!2d-118.80123790098536!3d34.152323469614075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82469c2162619%3A0xba03efb7998eef6d!2sCostco+Wholesale!5e0!3m2!1sbn!2sbd!4v1562518641290!5m2!1sbn!2sbd"
-                                    class="sidebar__location-contacts-map" allowfullscreen></iframe>
-                            </div>
+                            
 
                             <ul class="sidebar__location-contacts-list">
                                 <li>
-                                    <p><i class="icon-pin"></i> <span> Adress :</span> USA 20TH Brooklyn NY
+                                    <p><i class="icon-pin"></i> <span> Adres :</span>
+                                        {{Auth::check() ? $place->address : "Giriş Yapın"}}
                                     </p>
                                 </li>
 
                                 <li>
-                                    <p><i class="icon-phone-call"></i> <span> Phone :</span> <a
-                                            href="tel:123456789">+099 695 695 35</a>
+                                    <p><i class="icon-phone-call"></i> <span> Telefon :</span> 
+                                        {{Auth::check() ? $place->phone : "Giriş Yapın"}}
                                     </p>
                                 </li>
 
                                 <li>
-                                    <p><i class="icon-email"></i> <span> Mail :</span> <a
-                                            href="mailto:info@madina.com">rubel@example.com</a>
+                                    <p><i class="icon-email"></i> <span> E-posta :</span>
+                                        {{Auth::check() ? $place->email : "Giriş Yapın"}}
                                     </p>
                                 </li>
 
                                 <li>
-                                    <p><i class="icon-email"></i> <span> Website :</span> <a
-                                            href="https://www.themeholder.com/">Themeholder1.com</a>
+                                    <p><i class="fas fa-globe"></i> <span> Website :</span> 
+                                        {{Auth::check() ? $place->website : "Giriş Yapın"}}
                                     </p>
                                 </li>
                             </ul>
 
+                            @auth
                             <ul class="sidebar__location-contacts-social-links">
-                                <li><a href="#"><span class="icon-facebook-app-symbol"></span></a></li>
-                                <li><a href="#"><span class="icon-twitter"></span></a></li>
-                                <li><a href="#"><span class="icon-instagram"></span></a></li>
-                                <li><a href="#"><span class="icon-pinterest"></span></a></li>
+                                
+                                @if ($place->facebook)
+                                    <li><a href="{{$place->facebook}}"><span class="icon-facebook-app-symbol"></span></a></li>
+                                @endif
+
+                                @if ($place->twitter)
+                                    <li><a href="{{$place->twitter}}"><span class="icon-twitter"></span></a></li>
+                                @endif
+
+                                @if ($place->instagram)
+                                    <li><a href="{{$place->instagram}}"><span class="icon-instagram"></span></a></li>
+                                @endif
                             </ul>
+                            @endauth
+                            
                         </div>
                         <!--End Listings Details Page Sidebar Single-->
 
                         <!--Start Listings Details Page Sidebar Single-->
-                        <div class="listings-details-page__sidebar-single sidebar__post wow animated fadeInUp"
-                            data-wow-delay="0.3s">
-                            <div class="title">
-                                <h2>Similar Listings </h2>
-                            </div>
-
-                            <ul class="sidebar__post-list list-unstyled">
-                                <li>
-                                    <div class="sidebar__post-image">
-                                        <img src="assets/images/blog/lp-1-1.jpg" alt="">
-                                    </div>
-                                    <div class="sidebar__post-content">
-                                        <h3>
-                                            <a href="#">Contrary to popular <br> belief
-                                            </a>
-                                        </h3>
-                                        <span class="sidebar__post-content-meta"><i class="icon-clock"></i>
-                                            April 25, 2022</span>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="sidebar__post-image">
-                                        <img src="assets/images/blog/lp-1-2.jpg" alt="">
-                                    </div>
-                                    <div class="sidebar__post-content">
-                                        <h3>
-                                            <a href="#">All the Lorem Ipsum <br>generators on
-                                            </a>
-                                        </h3>
-                                        <span class="sidebar__post-content-meta"><i class="icon-clock"></i>
-                                            April 25, 2022</span>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="sidebar__post-image">
-                                        <img src="assets/images/blog/lp-1-3.jpg" alt="">
-                                    </div>
-                                    <div class="sidebar__post-content">
-                                        <h3>
-                                            <a href="#">The standard chunk <br> of Lorem Ipsum
-                                            </a>
-                                        </h3>
-                                        <span class="sidebar__post-content-meta"><i class="icon-clock"></i>
-                                            April 25, 2022</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        
                         <!--End Listings Details Page Sidebar Single-->
 
                         <!--Start Listings Details Page Sidebar Single-->
                         <div class="listings-details-page__sidebar-single sidebar__tags wow animated fadeInUp"
                             data-wow-delay="0.4s">
                             <div class="title">
-                                <h2>Tags</h2>
+                                <h2>Etiketler</h2>
                             </div>
                             <div class="sidebar__tags-list">
-                                <a href="#">Restaurants</a>
-                                <a href="#">Trending</a>
-                                <a href="#">Shops</a>
-                                <a href="#">Tips</a>
-                                <a href="#">Hotel</a>
-                                <a href="#">Parking</a>
-                                <a href="#">Room</a>
-                                <a href="#">Food</a>
+
+                                @php
+                                $dataArray = explode(',', $place->tags);
+                            @endphp
+
+                            @foreach($dataArray as $item)
+                            <a href="{{$system->site_url}}">{{$item}}</a>
+                            @endforeach
                             </div>
                         </div>
                         <!--End Listings Details Page Sidebar Single-->
