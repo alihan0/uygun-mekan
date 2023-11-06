@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\Comment;
 use App\Models\Contact;
+use App\Models\Feature;
 use App\Models\Invoice;
 use App\Models\Payments;
 use App\Models\Place;
@@ -375,6 +376,37 @@ class AdminController extends Controller
     /*
     *
     *   END CONTACT CONTROLLER
+    *
+    */
+
+    /*
+    *
+    *   FEATURES CONTROLLER
+    *
+    */
+    
+    public function features(){
+        return view('admin.main.features', ['features' => Feature::all()]);
+    }
+
+    public function create_feature(Request $request){
+        if(empty($request->icon) || empty($request->name)){
+            return response()->json(['type'=> 'error', 'message'=> 'Tüm alanları doldurunuz', "status" => false]);
+        }else{
+            $feature = new Feature();
+            $feature->icon = $request->icon;
+            $feature->name = $request->name;
+            if($feature->save()){
+                return response()->json(['type'=> 'success', 'message'=> 'Ozellik oluşturuldu', "status" => true]);
+            }else{
+                return response()->json(['type'=> 'danger', 'message'=> 'Ozellik oluşturulamadı', "status" => false]);
+            }
+        }
+    }
+
+    /*
+    *
+    *   END FEATURES CONTROLLER
     *
     */
 }

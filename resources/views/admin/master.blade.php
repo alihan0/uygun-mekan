@@ -131,6 +131,14 @@
                             </li>
 
                             <li>
+                                <a href="/panel/features" class=" waves-effect">
+                                    <i class="far fa-plus-square"></i>
+                                    <span key="t-dashboards">Özellikler</span>
+                                </a>
+                                
+                            </li>
+
+                            <li>
                                 <a href="/panel/place" class=" waves-effect">
                                     <i class="fas fa-map-marker-alt"></i>
                                     <span key="t-dashboards">Mekanlar</span>

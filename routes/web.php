@@ -78,6 +78,9 @@ Route::controller(AdminController::class)->prefix('panel')->middleware('admin')-
     Route::get('/contact', 'contact');
     Route::post('contact/remove', 'remove_contact');
 
+    // FEATURES
+    Route::get('/features', 'features');
+    Route::post('/feature/create', 'create_feature');
     // SETTINGS
     Route::get('/settings', 'settings');
 
