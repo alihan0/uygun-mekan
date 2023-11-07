@@ -54,4 +54,9 @@ class User extends Authenticatable
     public function Place(){
         return $this->hasMany(Place::class, 'owner', 'id');
     }
+
+    public function isAdmin()
+{
+    return $this->type === 'ADMIN';
+}
 }

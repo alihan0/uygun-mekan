@@ -193,7 +193,10 @@
                                         <div class="main-header-one__bottom-right-btn">
                                             <a href="/account" class=""><i class="fas fa-user-circle"></i> {{Auth::user()->name}} </a>
                                             <br>
-                                            <a href="/auth/logout" class="float-end text-danger" style="font-size:12px"><i class="fas fa-power-off"></i> Çıkış Yap </a>
+                                            @if (Auth::user()->isAdmin())
+                                            <a href="/panel" class="float-start pe-2 border-end" style="font-size:12px"><i class="fas fa-tachometer-alt"></i> Admin Paneli </a>
+                                            @endif
+                                            <a href="/auth/logout" class="float-end text-danger ps-2" style="font-size:12px"><i class="fas fa-power-off"></i> Çıkış Yap </a>
 
                                         </div>
                                         @else

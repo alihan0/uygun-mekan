@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Comment;
+use App\Models\Contact;
 use App\Models\Feature;
 use App\Models\FeatureAttachment;
 use App\Models\Invoice;
@@ -230,6 +231,46 @@ class MainController extends Controller
             return view('main.payment', ['inv' => $inv]);
         }else{
             return redirect('/');
+        }
+    }
+
+    public function place_detail($slug){
+        return view('main.place_detail', ['place' => Place::where('slug', $slug)->first()]);
+    }
+
+    public function comment(Request $request){
+        if(empty($request->message)){
+            return response()->json(['type'=> 'error','message'=> 'Yorum alanı doldurulmalıdır.']);
+        }else{
+            $comment = new Comment;
+            $comment->comment = $request->message;
+            $comment->status = 1;
+            $comment->user = $request->user;
+            $comment->place = $request->place;
+
+            if($comment->save()){
+                return response()->json(['type'=> 'success','message'=> 'Yorum başarıyla kaydedildi.','status'=>true]);
+            }else{
+                return response()->json(['type'=> 'error','message'=> 'Yorum kaydedilemedi.']);
+            }
+        }
+    }
+
+    public function save_contact(Request $request){
+        if(empty($request->message) || empty($request->name) || empty($request->email) || empty($request->phone) || empty($request->subject)){
+            return response()->json(['type'=> 'error','message'=> 'Tüm alanları doldurun.']);
+        }else{
+            $mes = new Contact;
+            $mes->name = $request->name;
+            $mes->email = $request->email;
+            $mes->phone = $request->phone;
+            $mes->subject = $request->subject;
+            $mes->message = $request->message;
+            if($mes->save()){
+                return response()->json(['type'=> 'success','message'=> 'Mesajınız kaydedildi.','status'=>true]);
+            }else{
+                return response()->json(['type'=> 'error','message'=> 'Mesajınız kaydedilemedi.']);
+            }
         }
     }
 }

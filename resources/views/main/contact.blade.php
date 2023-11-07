@@ -46,12 +46,12 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6">
                                 <div class="comment-form__input-box">
-                                    <input type="text" placeholder="Adınız" name="name">
+                                    <input type="text" placeholder="Adınız" id="name">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6">
                                 <div class="comment-form__input-box">
-                                    <input type="text" placeholder="E-posta adresiniz" name="email">
+                                    <input type="text" placeholder="E-posta adresiniz" id="email">
                                 </div>
                             </div>
                         </div>
@@ -59,12 +59,12 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6">
                                 <div class="comment-form__input-box">
-                                    <input type="text" placeholder="Telefonunuz" name="phone">
+                                    <input type="text" placeholder="Telefonunuz" id="phone">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6">
                                 <div class="comment-form__input-box">
-                                    <input type="text" placeholder="Konu" name="Subject">
+                                    <input type="text" placeholder="Konu" id="subject">
                                 </div>
                             </div>
                         </div>
@@ -72,10 +72,9 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12">
                                 <div class="comment-form__input-box">
-                                    <textarea name="message" placeholder="Mesajınız"></textarea>
+                                    <textarea id="message" placeholder="Mesajınız"></textarea>
                                 </div>
-                                <button class="thm-btn comment-form__btn" type="submit"
-                                    data-loading-text="Lütfen bekleyin...">Gönder</button>
+                                <button class="thm-btn comment-form__btn" type="submit" onclick="sendMessage()">Gönder</button>
                             </div>
                         </div>
                     </form>
@@ -150,4 +149,30 @@
 
 
 
+@endsection
+
+@section('script')
+    <script>
+        function sendMessage(){
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var phone = $("#phone").val();
+            var subject = $("#subject").val();
+            var message = $("#message").val();
+            axios.post('/contact/save',{
+                name:name,
+                email:email,
+                phone:phone,
+                subject:subject,
+                message:message
+            }).then(function (res) {
+                toastr[res.data.type](res.data.message)
+                if(res.data.status){
+                    setInterval(() => {
+                        window.location.reload();
+                    }, 500);
+                }
+            })
+        }
+    </script>
 @endsection
